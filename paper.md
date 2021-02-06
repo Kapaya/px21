@@ -12,32 +12,34 @@ secPrefix:
 	- "Section"
 	- "Sections"
 abstract: |
-  Websites are malleable: browser extensions can be installed to customize them and browser consoles can be used to run arbitrary code on them. However, this malleability is often only accessible to programmers with knowledge of HTML, CSS, Javascript and the DOM. To tackle this, we developed an approach that empowers end-users to customize websites without traditional programming via an in-website tool called Wildcard.
+ Websites are malleable: users can install browser extensions and run arbitrary Javascript in the developer console. However, this malleability is only accessible to programmers with knowledge of HTML, CSS, Javascript and the DOM. To broaden access to customization, our prior work developed an approach that empowers end-users to customize websites without traditional programming via an in-website tool called Wildcard.
   
-  Wildcard’s customizations are powered by web scraping code which is currently written in Javascript by programmers. This means that end-users can only customize a website if a programmer has written web scraping code for it. Furthermore, end-users do not have the ability to extend the web scraping code in order to perform new customizations or repair the web scraping code to fix broken customizations. 
+ Wildcard’s customizations are powered by web scraping code which is currently written in Javascript by programmers. This means that end-users can only customize a website if a programmer has written web scraping code for it. Furthermore, end-users do not have the ability to extend the web scraping code in order to perform new customizations or repair the web scraping code to fix broken customizations. 
   
-  In this paper, we present our progress towards a user interface within Wildcard that enables end-users to create, extend and repair web scraping code by demonstration using a live programming mechanism. We have successfully used our interface to create web scraping code by demonstration for Wildcard on a variety of websites and are hopeful that our ideas can be applied to the broader field of end-user web scraping.
+ In this paper, we present our progress towards a user interface within Wildcard that enables end-users to create, extend and repair web scraping code by demonstration using a live programming mechanism. We have successfully used our interface to create web scraping code by demonstration for Wildcard on a variety of websites and discuss two design principles that can be applied to the broader field of end-user web scraping.
 ---
 
 # Introduction {#sec:introduction}
 
 Many websites on the internet do not meet the exact needs of all of their users. This need for customization led to the creation of end-user customization systems like Chickenfoot but they mostly offered a programming model which required users to understand programming constructs such as variables and loops. 
 
-Through what we coined “data-driven customization”, we introduced an alternative based on direct manipulation that did not require a programming model. To illustrate this, we developed a browser extension called Wildcard which augments websites with a table view that represents their underlying structured data. End-users can interact with the table via direct manipulation interactions, such as sorting, which not only manipulates the data in the table but also manipulates the parts of the website that the data represents, thus customizing it.
+Through what we coined “data-driven customization” in our prior work, we introduced an alternative based on direct manipulation that did not require a programming model. To illustrate this, we developed a browser extension called Wildcard which augments websites with a table view that represents their underlying structured data. End-users can interact with the table via direct manipulation interactions, such as sorting and filtering, which not only manipulates the data in the table but also manipulates the parts of the website that the data represents, thus customizing it. Wildcard also supports customization through in-website annotations that are persisted locally in the user’s browser and a spreadsheet-like formula language that enables users to create new columns by processing values from columns created through scraping.
 
-Wildcard aims to democratize customization of websites but it has limitations. While customizations can be achieved through high-level, direct manipulation interactions with the table view, the process of extracting the structured data for the table view requires low-level web scraping code written in Javascript. This has a number of implications:
+Wildcard aims to democratize customization of websites but it has limitations. While customizations can be achieved through high-level, direct manipulation interactions with the table view, the process of extracting the structured data for the table view requires low-level web scraping code written in Javascript. This limits end user agency in several ways:
 
 * End-users are only able to customize a particular website if a programmer has already written the web scraping code for that website
 
 * The customizations end-users can make to a particular website are limited to the data available in the table view with no way for them to extend it to allow new new customizations
 
-* When web scraping code ceases to function because the website it is written for changes, the table view loses its data. This breaks the customizations dependent on the lost data, leaving end-users to wait for a programmer to fix the web scraping code
+* Web scraping code can break when a website changes. End users must wait for a programmer to fix the code, without the ability to repair it themselves.
 
-We have been inspired by existing approaches to end-user web scraping, which we contrast in [@sec:related-work], but most of them focus on extracting data out of websites and not customizing them. Web scraping for customization requires a bidirectional connection between the website and the generated table that users interact with which presents certain constraints we discuss in [@sec:implementation]. Furthermore, existing end-user web scrapers do not support demonstrations as a means for end-users to extend or repair the web scraping code that was generated via demonstrations. We strongly believe that in order for end-users to be first-class citizens in the customization ecosystem, they must have some power to easily extend and repair web scraping code. For programmers and motivated end-users for whom demonstrations are not sufficient to scrape their desired data, we briefly introduce the idea of using spreadsheet-like formulas, a hugely successful form of end-user programming, for web scraping in Section 6. Our contributions, whose design principles we explain further in Section 3, are as follows:
+We present our progress towards a user interface within Wildcard that enables end-users to create, extend and repair web scraping code by demonstration using a live programming mechanism. Our contributions, whose design principles we explain further in Section 3, are as follows:
 
 * We present an end-user web scraping interface for customization that utilizes a live feedback mechanism. As shown by the examples in [@sec:demos], users continuously receive live feedback about our system’s generalizations on the website as well as the values available for scraping in the table view. This helps guide their demonstrations and allows them to quickly explore the data available for performing customizations instead of having to wait to see the results of their demonstrations until they have provided all of them
 
-* We explore the concept of “editing by demonstration” through the lens of extending and repairing web scraping code. We hypothesize that if the model used for creating is maintained during editing, new programs can be easily created by extending existing programs and existing programs become easier to repair thus making them useful for longer. We provide examples of how end-users can extend and repair web scraping code in [@sec:demos]
+* We introduce the concept of “editing by demonstration” through the lens of extending and repairing web scraping code. We hypothesize that if the model used for creating is maintained during editing, new programs can be easily created by extending existing programs and existing programs become easier to repair thus making them useful for longer. We provide examples of how end-users can extend and repair web scraping code in [@sec:demos]
+
+We have been inspired by existing approaches to end-user web scraping, which we contrast in [@sec:related-work], but most of them focus on extracting data out of websites and not customizing them. Web scraping for customization requires a bidirectional connection between the website and the generated table that users interact with which presents certain constraints we discuss in [@sec:implementation]. Furthermore, existing end-user web scrapers do not support demonstrations as a means for end-users to extend or repair the web scraping code that was generated via demonstrations. We believe that in order for end-users to be first-class citizens in the customization ecosystem, they must have some power to easily extend and repair web scraping code. For programmers and motivated end-users for whom demonstrations are not sufficient to scrape their desired data, we preview the idea of harnessing Wildcard’s formula language for web scraping in Section 6. 
 
 
 # Demos {#sec:demos}
@@ -46,9 +48,11 @@ In this section, we provide examples of how our interface can be used by end-use
 
 ## Creating Web Scraping Code
 
-*www.weather.com*
+Here we showcase how end-users called Jane and John create web scraping code using our interface and aid the generalization process by providing multiple demonstrations when needed.
 
-Jane wants to customize her experience on www.weather.com by sorting the ten day forecast by the description of the weather on each day. This will let her quickly view all the days with similar weather descriptions and allow her to plan when to go for an outdoor run. Wildcard currently does not support this because a programmer has not written the required web scraping code. Using our interface, Jane can create web scraping code by demonstration that will enable her to customize the website.
+### www.weather.com
+
+Jane wants to customize her experience on www.weather.com by sorting the ten day forecast by the description of the weather on each day. This will let her quickly view all the days with similar weather descriptions and allow her to plan when to go for an outdoor run. Currently, she can’t use Wildcard to perform this customization because a programmer has not written web scraping code for the weather.com website. Using our interface, Jane can create web scraping code by demonstration that will enable her to customize the website.
 
 When Jane initiates the web scraping process, a control region is added to the top of the website which provides brief instructions and buttons for various actions. When she hovers her cursor over the desired data, the following happens: 
 
@@ -71,28 +75,30 @@ She proceeds to demonstrate values for column B and then hovers over the previou
 <video controls="controls" muted="muted" src="media/2.1.3.mp4" muted playsinline controls class>
 </video>
 
-*www.csail.mit.edu*
+### www.csail.mit.edu
 
-John wants to customize his experience on www.csail.mit.edu/people by sorting the list of principal researchers in MIT’s Computer Science and Artificial Intelligence Lab (CSAIL). Since this is currently not supported by Wildcard, he initiates our web scraping interface. He demonstrates “Hal Abelson” to scrape the names of principal researchers but before proceeding to demonstrate “hal@mit.edu” he notices that the third row in the table does not have the expected entry of “Anant Agarwal” and that the value is not highlighted along with the other names when he hovers over “Hal Abelson”. Further scrolling through the table reveals that the sixteenth, thirty fifth and other rows do not have values in column A.
+John wants to customize his experience by sorting the list of principal researchers in MIT’s Computer Science and Artificial Intelligence Lab (CSAIL) by their research descriptions in order to group researchers with the same research interests. Since this is currently not supported by Wildcard, he initiates our web scraping interface. He demonstrates “Hal Abelson” to scrape the names of principal researchers,  but notices that the third row in the table does not have the expected entry of “Anant Agarwal”. Further scrolling through the table reveals that several other rows do not have values in column A.
 
 <video controls="controls" muted="muted" src="media/2.2.1.mp4" muted playsinline controls class>
 </video>
 
-This signals to John that he needs to aid the system’s generalization. He starts by clicking on the square in the control region with the label A to make it the active column. This highlights all the known rows on the page with a green border which alerts John that he can provide further demonstrations of the desired data from them and not just the first row. He proceeds to demonstrate “Anant Agarwal” which fills in his entry in the table. Further scrolling through the table reveals that the sixteenth, thirty fifth and other previously empty rows also have values.
+This signals to John that he needs to aid the system’s generalization. He starts by clicking on the square in the control region with the label A to make it the active column. This highlights all the known rows on the page with a green border which alerts John that he can provide further demonstrations of the desired data from them and not just the first row. He proceeds to demonstrate “Anant Agarwal” which serves as an additional input to the interface’s generalization for that column and re-generates the web scraping code to fill in his row and that of the other previously empty rows.
 
 <video controls="controls" muted="muted" src="media/2.2.2.mp4" muted playsinline controls class>
 </video>
 
-Now that the column is as expected, John switches back to column B and proceeds to demonstrate the rest of the desired data. After customizing the page, he has the list of principal researchers sorted by the descriptions of their research interests, a feature that the developers of the website did not anticipate.
+Now that the column contains the expected data, John switches back to column B and proceeds to demonstrate the rest of the desired data. After customizing the page, he has the list of principal researchers sorted by the descriptions of their research interests, a feature that the developers of the website did not anticipate.
 
 <video controls="controls" muted="muted" src="media/2.2.3.mp4" muted playsinline controls class>
 </video>
 
 ## Extending Web Scraping Code
 
-*www.timeanddate.com*
+Here we showcase how an end-user called Alice can extend web scraping code that she did not create in order to implement a new customization.
 
-Alice uses Wildcard to customize her experience on www.timeanddate.com/holidays/us. By sorting column C in the table view, she is able to see the list of holidays and observances in the United States in 2021 sorted by the day of the week on which they occur. This enables her to easily view all the holidays that occur on Fridays in order to plan socially distant hiking trips with her friends.
+### www.timeanddate.com
+
+Alice uses Wildcard to customize her experience on timeanddate.com. By sorting column C in the table view, she is able to see the list of holidays and observances in the United States in 2021 sorted by the day of the week on which they occur. This enables her to easily view all the holidays that occur on Fridays in order to plan socially distant hiking trips with her friends.
 
 <video controls="controls" muted="muted" src="media/2.3.1.mp4" muted playsinline controls class>
 </video>
@@ -105,8 +111,9 @@ She initiates the editing process and is guided to the row that she needs to int
 </video>
 
 ## Repairing Web Scraping Code
+Here we showcase how an end-user called Bob can repair web scraping code that he did not create in order to fix a customization that is no longer working because the Wildcard table is missing values in a column.
 
-*scholar.google.com*
+### scholar.google.com
 
 Bob uses Wildcard to customize his experience on scholar.google.com/citations which supports sorting publications by their citation count and the year that they were released in but not by their title. Wildcard’s sorting customization allows him to easily sort publications by their title which he finds very useful when looking for a publication by an author that he only knows by title.
 
@@ -120,14 +127,91 @@ He initiates the editing process and is guided to the row that she needs to inte
 <video controls="controls" muted="muted" src="media/2.4.2.mp4" muted playsinline controls class>
 </video>
 
-# Design Principles {#sec:design-principles}
+# System Implementation {#sec:implementation}
 
+We implemented our end-user web scraping interface within Wildcard. The output of the interface is a configuration object referred to in Wildcard as a DOM scraping adapter. DOM scraping adapters fulfil the standard task of scraping data from a website and the customization specific task of maintaining a bidirectional connection between the website and the table view. The bidirectional connection is achieved by obtaining references to the DOM elements that correspond to rows and columns in the table view. For example, when a user sorts the table view, the DOM elements that represent the table rows are moved around in the DOM to reflect the new sorted order. More details about DOM scraping adapters can be found in the Wildcard paper.
+
+Our interface takes up the task of determining the row and column elements needed by DOM scraping adapters that was previously performed by programmers. This is achieved through a process called generalization that utilizes techniques from a body of work known as wrapper induction. Our row and column generalization algorithms closely follow those implemented by Vegemite, because they were the quickest to prototype, except in one major regard: in order for a row element selector to be a valid candidate, all the elements that it selects must be direct siblings. We provide more details about this later in the section. At a high level, the row generalization algorithm takes an element as its input and finds its deepest ancestor with the most number of direct sibling elements that have elements which match the input element. Take the following abbreviated DOM structure:
+
+```html
+<body>
+    <h1> Team Iron Man </h1>
+    <div>
+        <div class='avenger'>
+            <div class='names'>
+                <span class='super_hero_name'> Iron Man </span>
+                <span class='real_name'> Tony Stark </span>
+            </div>
+           <span class=’gender’> Male </span>
+        </div>
+        <div class='avenger'>
+            <div class='names'>
+                <span class='super_hero_name'>  Black Widow </span>
+                <span class='real_name'> Natalia Romanoff </span>
+            </div>
+            <span class=’gender’> Female </span>
+        </div>
+        ...
+    </div>
+</body>
+```
+Given that the input element is the element with the selector ```.super_hero_name``` which contains the value “Tony Stark”, the row generalization algorithm will determine the row element to be the element with the selector ```.avenger``` and not ```.names```. Elements matching the described selectors both contain elements that match the input element and appear the same number of times in the website. However, only the elements matching ```.avenger``` have direct siblings that contain elements that match the input element (i.e “Black Widow”). The column generalization simply retrieves the selector that matches the input element across all the rows (```.super_hero_name``` in this example).
+
+The live feedback mechanism is implemented by continuously running the generalization algorithms on the DOM element under the user’s cursor. This is possible because the associated operations can be run repeatedly with no side effects i.e. they are pure functions. The generated row and column selectors are used to create a DOM scraping adapter and highlight all the matching elements on the page. The DOM scraping adapter is executed to populate the table view and set up the bidirectional connection. This means that users can actually customize as they scrape if so desired but we are yet to explore the possibilities that customizing while scraping offer, if any. 
+
+The implementation of the editing by demonstration feature is rather simple. DOM scraping adapters are generated with metadata that can be used to both boot up the demonstration interface. In our case, the metadata simply consists of the row element selector and the column element selectors. We are keen to explore what other implementations of programming by demonstration this can be done for and what the implications and benefits would be.
+
+The row sibling constraint we mentioned earlier is important for the end goal of customization because row elements that are not direct siblings may not represent data on the website that should be related as part of the same table by operations such as sorting. Take the following abbreviated DOM structure:
+
+```html
+<body>
+  <h1> Team Iron Man </h1>
+  <div>
+      <div class='avenger'>
+          <span class='super_hero_name'> Iron Man </span>
+      </div>
+      <div class='avenger'>
+          <span class='super_hero_name'>  Black Widow </span>
+      </div>
+      ...
+  </div>
+  <h1> Team Captain America </h1>
+  <div>
+      <div class='avenger'>
+          <span class='super_hero_name'> Captain America </span>
+      </div>
+      <div class='avenger'>
+          <span class='super_hero_name'>  Scarlet Witch </span>
+      </div>
+      ...
+  </div>
+</body>
+```
+
+The DOM structure contains two tables of data (Team Iron Man and Team Captain America). Without the constraint that row elements have to be direct siblings, the row generalization algorithm would determine the row selector to be ```.avenger```. While this may be the correct result for the task of extraction, it is never for the task of customization. The selector matches all rows across the two tables so the sorting customization, for example, could place rows in the incorrect table and thereby distort what the tables represent. Because of this, our interface currently does not support generalizing over such DOM structures but we plan to explore the possibility of extracting multiple tables from a website and joining them. 
+
+Another DOM structure that our interface cannot currently generalize over is one in which column elements are not contained within a row element that is a direct sibling of all the other row elements. Take the following abbreviated DOM structure:
+
+```html
+<body>
+  <h1 class='super_hero_name'> Iron Man </h1>
+  <span class='real_name'> Real Name: Tony Stark </span>
+  <h1 class='super_hero_name'> Captain America </h1>
+  <span class='real_name'> Real Name: Steven Rogers </span>
+  <h1 class='super_hero_name'> Black Widow </h1>
+  <span class='real_name'> Real Name: Natalia Romanoff </span>
+</body>
+```
+
+The DOM structure contains one table of data in which rows are made up of an H1 tag (super hero name) and a SPAN tag (real name). For the task of extraction, the DOM elements can be scraped using the shown classes to output a table in which the values of the H1 tags form the first column and the values of the SPAN tag form the second column. For the task of customization, Wildcard would need to know what the row boundaries are in order for customizations such as sorting to not distort the representation of the website. This can be done in DOM scraping adapters written by a programmer in Javascript by creating artificial row boundaries. In the above DOM structure, an artificial row boundary could be created by representing a row as an H1 tag and the SPAN tag that immediately follows it. These artificial rows would be treated as a single unit which would not distort the website after a sorting customization. We plan to explore how artificial row boundaries can be created by end-users via demonstration in order to support such DOM structures which are not uncommon (HackerNews has this structure).
+
+# Design Principles {#sec:design-principles}
 
 Our implementation of end-user web scraping is inspired by the end-user programming literature and existing end-user web scraping approaches but we specifically focus on the process and experience of creating, extending and repairing web scraping code. Below, we discuss the design principles that guided us with the hope that they can be applied more broadly to the field of end-user web scraping.
 
 ## Exploratory Web Scraping
 
-Existing approaches to end-user web scraping have harnessed programming by demonstration to eliminate the iterative and tedious process of inspecting website internals to discover the selectors needed to scrape the desired data. This has enabled end-users to easily perform the previously complex task without having to know about web technologies like HTML, CSS, Javascript and the DOM. In spite of these advances in moving web scraping away from traditional programming, one key aspect has not progressed: the write-compile-debug cycle. Users typically have to perform all of their demonstrations before they get to see the system's generalizations and the scraped values, repeating the process if the results are not satisfactory. This is analogous to writing, compiling and debugging code which, from our experience and preliminary tests, hinders exploration of values available for scraping.
+Existing approaches to end-user web scraping have harnessed programming by demonstration to eliminate the iterative and tedious process of inspecting website internals to discover the selectors needed to scrape the desired data. This has enabled end-users to easily perform the previously complex task without having to know about web technologies like HTML, CSS, Javascript and the DOM. In spite of these advances in moving web scraping away from traditional programming, one key aspect has not uniformly progressed: the write-compile-debug cycle. In some existing end-user web scraping interfaces, users have to perform all of their demonstrations before they get to see the system's generalizations and the scraped values, repeating the process if the results are not satisfactory. This is analogous to writing, compiling and debugging code which, from our experience and preliminary tests, hinders exploration of values available for scraping.
 
 To tackle this, we employ live programming techniques to eliminate the write-compile-debug cycle. As we show in [@sec:demos], when users hover over values they wish to provide as a demonstration they immediately get feedback in the website. Our interface shows how our system will generalize the user’s demonstration across the other rows of the data and shows a preview of what values will be scraped into the table view. We believe that this is particularly important for the end goal of customization as it allows users to easily and quickly explore the values available for scraping which will form the basis of their customizations.
 
@@ -147,90 +231,23 @@ Our decision to enable editing by demonstration, and not by a programming model 
 
 Editing by demonstration in the web scraping domain is feasible because the programs that scrape column values are independent of each other: changing the program that scrapes values into column A has no effect on the program that scrapes values in column B. However, editing programs that have dependencies on other programs or are dependent on by other programs is not feasible. For example, changing the program that retrieves a row would affect the programs that scrape values into columns because they are dependent on the values being available in the row. This is an acceptable limitation for us given our focus on extension and repair which only deal with programs that scrape column values.
 
-# System Implementation {#sec:implementation}
-
-We implemented our end-user web scraping interface within Wildcard. The output of the interface is a configuration object referred to in Wildcard as a DOM scraping adapter. DOM scraping adapters fulfil the standard task of scraping data from a website and the customization specific task of maintaining a bidirectional connection between the website and the table view. The bidirectional connection is achieved by obtaining references to the DOM elements that correspond to rows and columns in the table view. For example, when a user sorts the table view, the DOM elements that represent the table rows are moved around in the DOM to reflect the new sorted order. More details about DOM scraping adapters can be found in the Wildcard paper.
-
-Our interface takes up the task of determining the row and column element selectors needed by DOM scraping adapters that was previously performed by programmers. This is achieved through standard wrapper induction methods that are similar to those of Sifter and Vegemite except in one major regard: in order for a row element selector to be a valid candidate, all the elements that it selects must be direct siblings. This is important for the end goal of customization because row elements that are not direct siblings may not represent data on the website that should be related as part of the same table by operations such as sorting. Take the following made up DOM structure:
-
-```html
-<html>
-    <header>
-        <title> Avengers Civil War Teams </title>
-    </header>
-    <body>
-        <h1> Team Iron Man </h1>
-        <div>
-            <div class='avenger'>
-                <span class='super_hero_name'> Iron Man </span>
-            </div>
-            <div class='avenger'>
-                <span class='super_hero_name'>  Black Widow </span>
-            </div>
-            <div class='avenger'>
-                <span class='super_hero_name'> War Machine </span>
-            </div>
-        </div>
-        <h1> Team Captain America </h1>
-        <div>
-            <div class='avenger'>
-                <span class='super_hero_name'> Captain America </span>
-            </div>
-            <div class='avenger'>
-                <span class='super_hero_name'>  Scarlet Witch </span>
-            </div>
-            <div class='avenger'>
-                <span class='super_hero_name'> Winter Soldier </span>
-            </div>
-        </div>
-    </body>
-</html>
-```
-
-The DOM structure contains two tables of data (Team Iron Man and Team Captain America). Without the constraint that row elements have to be direct siblings, the row generalization algorithm would determine the row selector to be ```.avenger```. While this may be the correct result for the task of extraction, it is never for the task of customization. The selector matches all rows across the two tables so the sorting customization, for example, could place rows in the incorrect table and thereby distort what the tables represent. Because of this, our interface currently does not support generalizing over such DOM structures but we plan to explore the possibility of extracting multiple tables from a website and joining them. 
-
-Another DOM structure that our interface cannot currently generalize over is one in which column elements are not contained within a row element that is a direct sibling of all the other row elements. Take the following made up DOM structure:
-
-```html
-<html>
-    <header>
-        <title> Avengers </title>
-    </header>
-    <body>
-        <h1 class='super_hero_name'> Iron Man </h1>
-        <span class='real_name'> Real Name: Tony Stark </span>
-        <h1 class='super_hero_name'> Captain America </h1>
-        <span class='real_name'> Real Name: Steven Rogers </span>
-        <h1 class='super_hero_name'> Black Widow </h1>
-        <span class='real_name'> Real Name: Natalia Romanoff </span>
-    </body>
-</html>
-```
-
-The DOM structure contains one table of data in which rows are made up of an H1 tag (super hero name) and a SPAN tag (real name). For the task of extraction, the DOM elements can be scraped using the shown classes to output a table in which the values of the H1 tags form the first column and the values of the SPAN tag form the second column. For the task of customization, Wildcard would need to know what the row boundaries are in order for customizations such as sorting to not distort the representation of the website. This can be done in DOM scraping adapters written by a programmer in Javascript by creating artificial row boundaries. In the above DOM structure, an artificial row boundary could be created by representing a row as an H1 tag and the SPAN tag that immediately follows it. These artificial rows would be treated as a single unit which would not distort the website after a sorting customization. We plan to explore how artificial row boundaries can be created by end-users via demonstration in order to support such DOM structures which are not uncommon (HackerNews has this structure).
-
-The live feedback mechanism is implemented by continuously running the generalization algorithms on the DOM element under the user’s cursor. This is possible because the associated operations can be run repeatedly with no side effects i.e. they are pure functions. The generated row and column selectors are used to create a DOM scraping adapter and highlight all the matching elements on the page. The DOM scraping adapter is executed to populate the table view and set up the bidirectional connection. This means that users can actually customize as they scrape if so desired but we are yet to explore the possibilities that customizing while scraping offer, if any. 
-
-The implementation of the editing by demonstration feature is rather simple. DOM scraping adapters are generated with metadata that can be used to both boot up the demonstration interface. In our case, the metadata simply consists of the row element selector and the column element selectors. We are keen to explore what other implementations of programming by demonstration this can be done for and what the implications and benefits would be.
-
-
 # Related Work {#sec:related-work}
 
 Our live end-user web scraping for customization relates to existing work in end-user web scraping by a number of tools.
 
-FlashExtract’s live feedback mechanism is the most similar to our goal of making the web scraping process exploratory. Its interface provides immediate feedback about the generalization and scrapes the matched values in an output tab. In addition, the interface has a program viewer tab that contains a high level description of what the generated program is doing and provides a list of alternative programs. Finally, the interface has a disambiguation tab that utilizes conversational clarification to disambiguate programs, the conservations with the user serving as inputs to generate better programs. Both the program viewer and disambiguation features are not currently available in our interface but we hope to have implementations of them in future iterations. Where we differentiate ourselves from FlashExtract is by allowing end-users to extend and repair web scraping code by demonstration although it is not clear whether there are significant barriers to FlashExtract providing these features.
+FlashExtract is a framework for data extraction by examples. Its live feedback mechanism is the most similar to our goal of making the web scraping process exploratory. Its interface provides immediate feedback about the generalization and scrapes the matched values in an output tab. In addition, the interface has a program viewer tab that contains a high level description of what the generated program is doing and provides a list of alternative programs. Finally, the interface has a disambiguation tab that utilizes conversational clarification to disambiguate programs, the conservations with the user serving as inputs to generate better programs. Both the program viewer and disambiguation features are not currently available in our interface but we hope to have implementations of them in future iterations. Where we differentiate ourselves from FlashExtract is by allowing end-users to extend and repair web scraping code by demonstration although it is not clear whether there are significant barriers to FlashExtract providing these features.
 
-Roussillon’s interface does not provide live feedback about its generalizations or the values to be scrapped until all the demonstrations have been provided and the generated program has been run. If run on a website it has encountered before, Roussillon makes all the previously determined generalizations visible to the user by color-coding the values on the website that belong to the same column. This is certainly worth considering for our interface as users will not have to actively explore to discover which values are available for scraping and how they are related to each other. On the extension and repair front, Roussillon presents the web scraping code generated by demonstration as an editable, high-level, block-based language called Helena. Users can move code blocks around to change the order of columns in the output but the blocks cannot be used to add new demonstrations or repair existing ones.
+Roussillon is a tool that enables end-users to scrape distributed, hierarchical web data. Its interface does not provide live feedback about its generalizations or the values to be scrapped until all the demonstrations have been provided and the generated program has been run. If run on a website it has encountered before, Roussillon makes all the previously determined generalizations visible to the user by color-coding the values on the website that belong to the same column. This is certainly worth considering for our interface as users will not have to actively explore to discover which values are available for scraping and how they are related to each other. On the extension and repair front, Roussillon presents the web scraping code generated by demonstration as an editable, high-level, block-based language called Helena. Users can move code blocks around to change the order of columns in the output but the blocks cannot be used to add new demonstrations or repair existing ones.
 
-Vegemite has two interfaces: one for scraping values from a website and another for creating scripts that operate on the scraped values. The web scraping interface does not provide live feedback about the generalization on hover but after a scraping action is committed (click on value to scrape) the interface shows the result of the system’s generalization by highlighting the all matched values. Furthermore, even though the interface has a table view like our interface does, the table is only populated with the scraped values after all the demonstrations have been provided. The scripting interface utilizes CoScripter and is used to record operations on the scraped values for automation. For example, the scripting interface can be used to demonstrate the task of copying an address in the table, pasting it into a walk score calculator and pasting the result back into the table. The task would be generalized to all the rows and re-run to fill in the remaining walk scores.  CoScripter provides the generated automation program as text-based commands, such as “paste address into ‘Walk Score’ input”, which can be edited after the program is created via “sloppy programming” techniques. However, this editing does not extend to the web scraping interface used to demonstrate the web scraping.
+Vegemite is a tool for end-user programming of mashups. It has two interfaces: one for scraping values from a website and another for creating scripts that operate on the scraped values. The web scraping interface does not provide live feedback about the generalization on hover but after a scraping action is committed (click on value to scrape) the interface shows the result of the system’s generalization by highlighting the all matched values. Furthermore, even though the interface has a table view like our interface does, the table is only populated with the scraped values after all the demonstrations have been provided. The scripting interface utilizes CoScripter and is used to record operations on the scraped values for automation. For example, the scripting interface can be used to demonstrate the task of copying an address in the table, pasting it into a walk score calculator and pasting the result back into the table. The task would be generalized to all the rows and re-run to fill in the remaining walk scores.  CoScripter provides the generated automation program as text-based commands, such as “paste address into ‘Walk Score’ input”, which can be edited after the program is created via “sloppy programming” techniques. However, this editing does not extend to the web scraping interface used to demonstrate the web scraping.
 
-Sifter, like Wildcard, uses web scraping to extract data from websites in order to enable its customizations (sorting and filtering). It performs the web scraping automatically using a variety of heuristics and solicits guidance from the user if this fails. While automatic web scraping seems desirable, it is unclear how useful it is if the goal is customization. Given a row with ten scrapable values, and therefore ten columns, would a user prefer to simply demonstrate the value for the single column they are interested in or un-demonstrate the nine values they are not interested in? This is a question we can only answer after performing  a user study.
+Sifter is a tool that augments well structured websites with advanced sorting and filtering functionality. Like Wildcard, it uses web scraping to extract data from websites in order to enable its customizations (sorting and filtering). It performs the web scraping automatically using a variety of heuristics and solicits guidance from the user if this fails. While automatic web scraping seems desirable, it is unclear how useful it is if the goal is customization. Given a row with ten scrapable values, and therefore ten columns, would a user prefer to simply demonstrate the value for the single column they are interested in or un-demonstrate the nine values they are not interested in? This is a question we can only answer after performing  a user study.
 
 # Conclusion And Future Work {#sec:conclusion}
 
 In this paper, we presented our progress towards end-user web scraping to empower end-users in Wildcard’s ecosystem to create, extend and repair web scraping code. There are several outstanding issues and open questions we hope to address in future work.
 
-Like existing approaches, web scraping in our current implementation is limited to what can be demonstrated. This is problematic if users want to scrape the URL associated with a link, which is not visible, or only scrape a substring of a value. To solve this, we plan to harness Wildcard’s spreadsheet-like formula language. This will blur the line between customizing and web scraping with the table serving as the basis of both. Formulas targeted at web scraping, for example ```=GetAttribute(columnName, attributeName)```, can be used with formulas targeted at value processing, for example ```=GetSubstring(columnName, startIndex, endIndex)```,  to bridge the gap between end-user web scraping and traditional, script-based web scraping which allows for a wide variety of operations to scrape and process values. More broadly, we are considering whether the table view can be used as a framework for building data-driven customizable websites and not just making data-driven customizations. This idea relates to a body of work that explores using spreadsheets to build websites .
+Like existing approaches, web scraping in our current implementation is limited to what can be demonstrated. This is problematic if users want to scrape the URL associated with a link, which is not visible, or only scrape a substring of a value. To solve this, we plan to harness Wildcard’s formula language. Motivated end-users will able to use formulas targeted at web scraping, for example ```=GetAttribute(link_column, ‘href’)```,  and formulas targeted at value processing, for example ```=GetSubstring(amount_column, 1, 2)```, to scrape the URL associated with columns whose values are scraped from link elements and the substring of values associated with columns whose values are strings respectively. This will give end-users some of the power available to programmers that create script-based web scraping code which supports a wide variety of DOM access and processing ability. With the table serving as the basis of both customization and web scraping, the line between them becomes more blurred and brings our interface closer towards offering an “in-place toolchain”. More broadly, we are curious whether the table view can be used as a framework for building data-driven customizable websites and not just making data-driven customizations. This idea relates to a body of work that explores using spreadsheets to build websites .
 
 To verify our design principles, we plan to carry out a broader evaluation of our interface through a user study. So far our design principles have been led by personal experience and preliminary tests with other researchers in our group and friends and family. Furthermore, we hope to incorporate the program viewer and disambiguation features available in FlashExtract to give users more insight and control into the generalization process as well as a more concrete alternative, than providing further demonstrations, to aid the generalization through disambiguation. One question we aim to ponder is whether formulas, which are in essence programs, are self-descriptive enough to not warrant paraphrasing in English as is the case with FlashExtract’s programs as seen in its program viewer. 
 
