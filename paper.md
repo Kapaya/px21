@@ -38,33 +38,29 @@ The contributions of this paper are as follows:
 
 # Motivating Examples {#sec:demos}
 
-In this section, we provide examples of how our system can be used by end-users to create, extend and repair adapters for Wildcard.
+In this section, we provide examples of how end users can use our system to create, extend and repair adapters for Wildcard.
 
-## Creating Web Scraping Code
+## Creating a simple scraper
 
-Here we showcase how end-users called Jane and John create adapters using our system and aid the generalization process by providing multiple demonstrations when needed.
+Jane wants to customize her experience on Weather.com by sorting the ten-day forecast based on the description of the weather on each day. This will let her quickly find the sunny days and allow her to plan when to go for an outdoor run. Previously, she would not be able to use Wildcard to perform this customization if a programmer had not written an adapter for weather.com. Using our tool, Jane can create an adapter by demonstration to support her customization.
 
-### www.weather.com
-
-Jane wants to customize her experience on www.weather.com by sorting the ten day forecast by the description of the weather on each day. This will let her quickly view all the days with similar weather descriptions and allow her to plan when to go for an outdoor run. Currently, she can’t use Wildcard to perform this customization because a programmer has not written an adapter for weather.com. Using our interface, Jane can create an adapter by demonstration that will enable her to customize the website.
-
-When Jane initiates the web scraping process, a control region is added to the top of the website which provides brief instructions and buttons for various actions. When she hovers her cursor over the desired data, the following happens:
-
-1. The website element that corresponds to the row that the value belongs to is highlighted with a green border. This signals to the her that further scraping actions can only be performed for values in this row
-
-2. The website elements that correspond to the value and its equivalents in the other rows are highlighted with a green background. These represent a column of that data
-
-3. Wildcard’s table view appears and is populated with the values that will be scraped from the highlighted column values.
+Jane starts the process by clicking a menu item within the page, and hovering over a data value she might like to scrape:
 
 <video controls="controls" muted="muted" src="media/2.1.1.mp4" muted playsinline controls class>
 </video>
 
-As Jane explores other desired data, the system continually provides feedback about how it is generalizing from her demonstrations and what values will be populated into the current column of the table. Once Jane commits her scraping action by clicking, the column is saved and a new one is automatically created in the control region to show which column in the table the data of the next values will be scrapped into.
+The interface provides instant feedback as Jane hovers.
+
+  The selected row of data is annotated in the page with a border, to indicate that she will be demonstrating values from within that row.
+- The selected column of data is highlighted in the page with a green background, to show how the system has generalized her demonstration across all the rows in the data.
+- A table view appears at the bottom of the screen, and displays how the values will appear in the data table.
+
+Jane tries hovering over several other elements in the page, considering the live feedback to decide what data would be useful. After considering several options, she decides to save the date field in the first column of the table, and commits the action by clicking.
 
 <video controls="controls" muted="muted" src="media/2.1.2.mp4" muted playsinline controls class>
 </video>
 
-She proceeds to demonstrate values for column B and then hovers over the previously demonstrated value to reveal which column it belongs to in the control region. She ends the web scraping process and customizes the website through the Wildcard table view to sort the forecast by the weather description, a feature which the developers of the website did not anticipate.
+Next, she performs a similar process to fill the next column with the weather descriptions. (After filling both columns, she also tries hovering over previously scraped data, and the toolbar at the top of the page indicates which column corresponds to the previously scraped data.) Finally, she ends the web scraping process and sorts the forecast by the weather description column using the Wildcard table:
 
 <video controls="controls" muted="muted" src="media/2.1.3.mp4" muted playsinline controls class>
 </video>
