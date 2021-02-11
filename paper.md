@@ -65,19 +65,25 @@ Next, she performs a similar process to fill the next column with the weather de
 <video controls="controls" muted="muted" src="media/2.1.3.mp4" muted playsinline controls class>
 </video>
 
-### www.csail.mit.edu
+_todo comment: I would shorten the video above, the hovering feels unnecessary_
 
-John wants to customize his experience by sorting the list of principal researchers in MIT’s Computer Science and Artificial Intelligence Lab (CSAIL) by their research descriptions in order to group researchers with the same research interests. Since this is currently not supported by Wildcard, he initiates our web scraping system to create an adapter. He demonstrates “Hal Abelson” to scrape the names of principal researchers, but notices that “Anant Agarwal” is not highlighted and his row in the table is empty. John might not have noticed this if his demonstration had not immediately provided feedback.
+## Providing multiple demonstrations
+
+John wants to sort a list of researchers on the MIT CSAIL website, to group researchers with the same research interests. As above, he initiates the web scraping system to create an adapter.
+
+He starts by clicking on the name “Hal Abelson” to scrape the names of the researchers. However, he immediately notices a problem: the third researcher on the page, Anant Agarwal, does not have his name highlighted. The problem is also visible in the table view, which contains a blank cell.
 
 <video controls="controls" muted="muted" src="media/2.2.1.mp4" muted playsinline controls class>
 </video>
 
-This signals to John that he needs to aid the system’s generalization. He starts by clicking on the square in the control region with the label A to make it the active column. This highlights all the known rows on the website with a green border which alerts John that he can provide further demonstrations of the desired data from them and not just the first row. He proceeds to demonstrate “Anant Agarwal” which serves as an additional input to the systems generalization for that column and re-generates the web scraping code to fill in his row.
+This signals to John that the system has not successfully generalized from his single demonstration. To fix the issue, he returns back to column A and clicks on the name in the page that is missing the expected highlighting:
 
 <video controls="controls" muted="muted" src="media/2.2.2.mp4" muted playsinline controls class>
 </video>
 
-Now that the column contains the expected data, John switches back to column B and proceeds to demonstrate the rest of the desired data. After customizing the website, he has the list of principal researchers sorted by the descriptions of their research interests, a feature that the developers of the website did not anticipate.
+This provides a second demonstration to the system for how to scrape the column of data. In addition to repairing that single case, the system can also generalize from the second example to work more accurately on the rest of the rows.
+
+Now that column A contains the expected data, John switches back to column B and proceeds to demonstrate the rest of the desired data. He can then sort the list of principal researchers by the descriptions of their research interests.
 
 <video controls="controls" muted="muted" src="media/2.2.3.mp4" muted playsinline controls class>
 </video>

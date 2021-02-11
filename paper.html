@@ -152,19 +152,22 @@
 <p>Next, she performs a similar process to fill the next column with the weather descriptions. (After filling both columns, she also tries hovering over previously scraped data, and the toolbar at the top of the page indicates which column corresponds to the previously scraped data.) Finally, she ends the web scraping process and sorts the forecast by the weather description column using the Wildcard table:</p>
 <video controls="controls" muted="muted" src="media/2.1.3.mp4" muted playsinline controls class>
 </video>
-<h3 data-number="2.1.1" id="www.csail.mit.edu"><span class="header-section-number">2.1.1</span> www.csail.mit.edu</h3>
-<p>John wants to customize his experience by sorting the list of principal researchers in MIT’s Computer Science and Artificial Intelligence Lab (CSAIL) by their research descriptions in order to group researchers with the same research interests. Since this is currently not supported by Wildcard, he initiates our web scraping system to create an adapter. He demonstrates “Hal Abelson” to scrape the names of principal researchers, but notices that “Anant Agarwal” is not highlighted and his row in the table is empty. John might not have noticed this if his demonstration had not immediately provided feedback.</p>
+<p><em>todo comment: I would shorten the video above, the hovering feels unnecessary</em></p>
+<h2 data-number="2.2" id="providing-multiple-demonstrations"><span class="header-section-number">2.2</span> Providing multiple demonstrations</h2>
+<p>John wants to sort a list of researchers on the MIT CSAIL website, to group researchers with the same research interests. As above, he initiates the web scraping system to create an adapter.</p>
+<p>He starts by clicking on the name “Hal Abelson” to scrape the names of the researchers. However, he immediately notices a problem: the third researcher on the page, Anant Agarwal, does not have his name highlighted. The problem is also visible in the table view, which contains a blank cell.</p>
 <video controls="controls" muted="muted" src="media/2.2.1.mp4" muted playsinline controls class>
 </video>
-<p>This signals to John that he needs to aid the system’s generalization. He starts by clicking on the square in the control region with the label A to make it the active column. This highlights all the known rows on the website with a green border which alerts John that he can provide further demonstrations of the desired data from them and not just the first row. He proceeds to demonstrate “Anant Agarwal” which serves as an additional input to the systems generalization for that column and re-generates the web scraping code to fill in his row.</p>
+<p>This signals to John that the system has not successfully generalized from his single demonstration. To fix the issue, he returns back to column A and clicks on the name in the page that is missing the expected highlighting:</p>
 <video controls="controls" muted="muted" src="media/2.2.2.mp4" muted playsinline controls class>
 </video>
-<p>Now that the column contains the expected data, John switches back to column B and proceeds to demonstrate the rest of the desired data. After customizing the website, he has the list of principal researchers sorted by the descriptions of their research interests, a feature that the developers of the website did not anticipate.</p>
+<p>This provides a second demonstration to the system for how to scrape the column of data. In addition to repairing that single case, the system can also generalize from the second example to work more accurately on the rest of the rows.</p>
+<p>Now that column A contains the expected data, John switches back to column B and proceeds to demonstrate the rest of the desired data. He can then sort the list of principal researchers by the descriptions of their research interests.</p>
 <video controls="controls" muted="muted" src="media/2.2.3.mp4" muted playsinline controls class>
 </video>
-<h2 data-number="2.2" id="extending-web-scraping-code"><span class="header-section-number">2.2</span> Extending Web Scraping Code</h2>
+<h2 data-number="2.3" id="extending-web-scraping-code"><span class="header-section-number">2.3</span> Extending Web Scraping Code</h2>
 <p>Here we showcase how an end-user called Alice can extend a website’s adapter, which she did not create, in order to implement a new customization.</p>
-<h3 data-number="2.2.1" id="www.timeanddate.com"><span class="header-section-number">2.2.1</span> www.timeanddate.com</h3>
+<h3 data-number="2.3.1" id="www.timeanddate.com"><span class="header-section-number">2.3.1</span> www.timeanddate.com</h3>
 <p>Alice uses Wildcard to customize her experience on timeanddate.com. By sorting column C in the table, she is able to see the list of holidays and observances in the United States in 2021 sorted by the day of the week on which they occur. This enables her to easily view all the holidays that occur on Fridays in order to plan socially distant hiking trips with her friends.</p>
 <video controls="controls" muted="muted" src="media/2.3.1.mp4" muted playsinline controls class>
 </video>
@@ -172,9 +175,9 @@
 <p>She initiates the editing process and is guided to the row that she needs to interact with by the green outline. As she hovers over the currently scraped values, the columns they belong to are highlighted. Finally, she clicks on “Federal Holiday” to scrape the holiday type values and saves the changes. Alice proceeds to sort the list by the type of holiday without having sought the assistance of a programmer.</p>
 <video controls="controls" muted="muted" src="media/2.3.2.mp4" muted playsinline controls class>
 </video>
-<h2 data-number="2.3" id="repairing-web-scraping-code"><span class="header-section-number">2.3</span> Repairing Web Scraping Code</h2>
+<h2 data-number="2.4" id="repairing-web-scraping-code"><span class="header-section-number">2.4</span> Repairing Web Scraping Code</h2>
 <p>Here we showcase how an end-user called Bob can repair an adapter that he did not create in order to fix a customization that is no longer working because the website changed.</p>
-<h3 data-number="2.3.1" id="scholar.google.com"><span class="header-section-number">2.3.1</span> scholar.google.com</h3>
+<h3 data-number="2.4.1" id="scholar.google.com"><span class="header-section-number">2.4.1</span> scholar.google.com</h3>
 <p>Bob uses Wildcard to customize his experience on scholar.google.com/citations which supports sorting publications by their citation count and the year that they were released in but not by their title. Wildcard’s sorting customization allows him to easily sort publications by their title which he finds very useful when looking for a publication of an author that he only knows by title.</p>
 <video controls="controls" muted="muted" src="media/2.4.1.mp4" muted playsinline controls class>
 </video>
