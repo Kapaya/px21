@@ -90,18 +90,16 @@ Now that column A contains the expected data, John switches back to column B and
 
 ## Extending Web Scraping Code
 
-Here we showcase how an end-user called Alice can extend a website’s adapter, which she did not create, in order to implement a new customization.
+End users can also extend adapters that they did not originally create.
 
-### www.timeanddate.com
-
-Alice uses Wildcard to customize her experience on timeanddate.com. By sorting column C in the table, she is able to see the list of holidays and observances in the United States in 2021 sorted by the day of the week on which they occur. This enables her to easily view all the holidays that occur on Fridays in order to plan socially distant hiking trips with her friends.
+Alice has been customizing her experience on timeanddate.com using Wildcard and a site adapter built by someone else. By sorting column C in the table, she is able to see a list of holidays sorted by the day of the week, so she can plan Friday trips with her friends.
 
 <video controls="controls" muted="muted" src="media/2.3.1.mp4" muted playsinline controls class>
 </video>
 
-Alice realizes that it would also be useful for her to be able to also sort the list by the type of holiday. This would let her easily view all the federal holidays together for example. Without our system, Alice would have to reach out to the programmer who wrote the adapter for the website in order for them to update it to scrape the holiday types. Using our system, Alice can extend the adapter by herself.
+Alice realizes that it would also be useful to sort the list by the type of holiday; for example, this would let her view the federal holidays together. However, the site adapter does not expose this data field in the table. Previously Alice would have needed to find a programmer to help her edit JavaScript code, but using our tool, Alice can extend the adapter immediately in the context of the page.
 
-She initiates the editing process and is guided to the row that she needs to interact with by the green outline. As she hovers over the currently scraped values, the columns they belong to are highlighted. Finally,  she clicks on “Federal Holiday” to scrape the holiday type values and saves the changes. Alice proceeds to sort the list by the type of holiday without having sought the assistance of a programmer.
+She clicks the "Edit Scraper" button to initiate the scraper editing process. As she hovers over the currently scraped values, the columns they belong to are highlighted. Finally,  she clicks on “Federal Holiday” to add the new column of data and saves the changes. Alice then proceeds to sort the list by the type of holiday without having sought the assistance of a programmer.
 
 <video controls="controls" muted="muted" src="media/2.3.2.mp4" muted playsinline controls class>
 </video>
