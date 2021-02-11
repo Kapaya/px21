@@ -106,18 +106,14 @@ She clicks the "Edit Scraper" button to initiate the scraper editing process. As
 
 ## Repairing Web Scraping Code
 
-Here we showcase how an end-user called Bob can repair an adapter that he did not create in order to fix a customization that is no longer working because the website changed.
+In addition to augmenting scrapers with new columns, end users can also repair scrapers that have broken due to changes in the underlying website.
 
-### scholar.google.com
-
-Bob uses Wildcard to customize his experience on scholar.google.com/citations which supports sorting publications by their citation count and the year that they were released in but not by their title. Wildcard’s sorting customization allows him to easily sort publications by their title which he finds very useful when looking for a publication of an author that he only knows by title.
+The Google Scholar website does not natively allow for sorting publications by title, but Bob uses Wildcard to add sorting by title:
 
 <video controls="controls" muted="muted" src="media/2.4.1.mp4" muted playsinline controls class>
 </video>
 
-Unfortunately for Bob, the customization has not been working since scholar.google.com/citations got a minor redesign as seen by the missing data in column A of the table. Without our system, Bob would have to reach out to the programmer who wrote the web scraping code for the website in order for them to fix it and get his customization working again. Using our system, Bob can fix the web scraping code himself.
-
-He initiates the editing process and is guided to the row that he needs to interact with by the green outline. He hovers over the desired value to demonstrate the column he wants to scrape but notices that the values will be populated into column D and not A where it was. Bob makes column A the active column, commits his scraping action and sees the publication titles populated into column A of the table. Bob saves and proceeds to re-apply his customization to the website by sorting the publications by their title, all without having sought the assistance of a programmer.
+Unfortunately, the customization has not been working since the website got a minor redesign; column A no longer contains any data. To fix this error, Bob initiates the editing process, and initially hovers over the desired value to demonstrate the column he wants to scrape. However, he notices that the values would be populated into column D; instead, he wants the values to be inserted into column A where they previously appeared. Bob can clicks on the symbol for column A to indicate that he wants to scrape the values into that column. Bob can then proceed to re-apply his customization to the website by sorting the publications by their title.
 
 <video controls="controls" muted="muted" src="media/2.4.2.mp4" muted playsinline controls class>
 </video>
