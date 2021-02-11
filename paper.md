@@ -32,8 +32,8 @@ Existing web scraping systems that utilize demonstrations [FlashExtract, Rousill
 The contributions of this paper are as follows:
 
 - Through a series of examples, we show that users can utilize our system to successfully create Wildcard adapters on a variety of websites via demonstration ([@sec:demos])
+- We describe key aspects of the system’s implementation and how web scraping for customization is different from web scraping for extraction. We describe the algorithms we use to generalize from a small set of user demonstrations to the entire set of available data. ([@sec:implementation])
 - We share three design principles underlying our system that apply not only to the domain of web customization, but offer general insights for web scraping and programming by demonstration. We describe the importance of live programming in the web scraping domain. We also discuss the idea of *editing by demonstration*: enabling end users to not only create new programs by demonstration, but also to extend and repair existing programs by performing partial demonstrations  ([@sec:design-principles])
-- We describe key aspects of the system’s implementation and how web scraping for customization is different from web scraping for extraction. We describe a set of algorithms we use to generalize from a small set of user demonstrations to the entire set of available data, as well as our implementations of live programming and editing by demonstration. ([@sec:implementation])
 - We share our broader vision for web scraping for customization, with a focus on how Wildcard’s spreadsheet-like formula language can be harnessed for customization during the web scraping process ([@sec:conclusion])
 
 # Motivating Examples {#sec:demos}
