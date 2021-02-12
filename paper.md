@@ -16,7 +16,7 @@ abstract: |
 
  Wildcard’s customizations are powered by web scraping adapters which are currently written in Javascript by programmers. This means that end-users can only customize a website if a programmer has written an adapter for it. Furthermore, end-users do not have the ability to extend adapters in order to perform new customizations or repair adapters to fix broken customizations.
 
- In this paper, we present our progress towards extending Wildcard to empower end-users to create, extend and repair adapters by demonstration. We describe three design principles that guided our system's development and are applicable to other end-user web scraping and customization system: (a) users should be able to scrape data and use it in a single environment, (b) users should be able to extend and repair the programs that scrape data via demonstration and (b) users should receive live feedback during their demonstrations.
+ In this paper, we present our progress towards end-user web scraping for customization which empowers end-users to create, extend and repair adapters by demonstration. We describe three design principles that guided our system's development and are applicable to other end-user web scraping and customization systems: (a) users should be able to scrape data and use it in a unified environment, (b) users should be able to extend and repair the programs that scrape data via demonstration and (c) users should receive live feedback during their demonstrations.
  
  We have succesfully used our system to create, extend and repair adapters by demonstration on a variety of websites and provide example usage scenarios that showcase each of our design principles.
 ---
