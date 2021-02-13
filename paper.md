@@ -15,7 +15,7 @@ abstract: |
  Websites are malleable: users can install browser extensions and run arbitrary Javascript in the developer console to change them. However, this malleability is only accessible to programmers with knowledge of HTML, CSS, Javascript and the DOM. To broaden access to customization, our prior work developed an approach that empowers end-users to customize websites without traditional programming via a browser extension called Wildcard. Wildcard’s customizations are powered by web scraping adapters which are currently written in Javascript by programmers. This means that end-users can only customize a website if a programmer has written an adapter for it. Furthermore, end-users do not have the ability to extend adapters in order to perform new customizations or repair adapters to fix broken customizations.
 
  In this paper, we extend Wildcard with a new system for *end-user web scraping for customization* which enables end-users to create, extend and repair adapters by demonstration. We describe three design principles that guided our system's development and are applicable to other end-user web scraping and customization systems: (a) users should be able to scrape data and use it in a single, unified environment, (b) users should be able to extend and repair the program that scrapes data via demonstration and (c) users should receive live feedback when providing demonstrations to scrape data.
- 
+
  We have successfully used our system to create, extend and repair adapters by demonstration on a variety of websites and provide example usage scenarios that showcase each of our design principles.
 ---
 
@@ -29,6 +29,17 @@ Many websites on the internet do not meet the exact needs of all of their users.
 Wildcard has a key limitation. In order to enable end-users to customize a website, a Javascript programmer first needs to code an adapter that specifies how to scrape the website content and set up a bidirectional synchronization with Wildcard's table view. Take Alice, an end-user who uses Wildcard to customize her experience on Google Scholar as shown above. Wildcard's sorting customization gives her the power to sort publications by title which the website does not natively allow. She thinks this will be useful on Weather.com to sort the ten day forecast by the weather descriptions so that she can quickly find all the sunny days. Unfortunately, a programmer has not coded an adapter for Weather.com so Alice is unable to customize it. Additionally, if the adapter for Google Scholar stops functioning when the website changes, Alice has no recourse to repair it on her own.
 
 In this paper, we describe an addition to Wildcard: a system that enables end-users to create, extend and repair website adapters by demonstration within the browser. Using this scraping system, an end-user can perform end-to-end web customizations using Wildcard on arbitrary websites, without ever needing to code an adapter. Through a series of examples, we show that end-users can utilize our system to successfully create Wildcard adapters on a variety of websites via demonstration ([@sec:demos]). We also describe key aspects of our system and how web scraping for customization reveals a constraint that simplifies the *wrapper induction* [@kushmerick2000] task used to generalize user demonstrations ([@sec:implementation]).
+
+<div class="pdf-only">
+\begin{figure*}
+  \includegraphics[width=\textwidth]{media/overview.png}
+  \caption{\label{fig:overview}Our work enables end-users to create Wildcard site adapters by demonstration.}
+\end{figure*}
+</div>
+
+<div class="html-only">
+![Our work enables end-users to create Wildcard site adapters by demonstration.](media/overview.png){#fig:overview}
+</div>
 
 Our key contribution is a set of three design principles that guided the development of our system, which also offer insights that might be applied to other end-user web scraping and customization tools ([@sec:design-principles]):
 
@@ -101,6 +112,17 @@ One important difference is that our algorithm only accepts row elements that ha
 When a user first demonstrates a column value, the generalization algorithm is responsible for turning the demonstration into a row selector that will correctly identify all the row elements in the website and a column selector that will correctly identify the element that contains the column value within a row element. During subsequent demonstrations, the generalization algorithm uses the generated row selector to find the row element that contains the column value and generates a column selector which identifies the corresponding column element.
 
 At a high level, the generalization algorithm’s challenge is to traverse far enough up in the DOM tree from the demonstrated element to find the element which corresponds to the row. We solve this using a heuristic; the basic intuition is to find a large set of elements with similar parallel structure. Consider the following sample HTML layout, which displays a truncated table of superheroes, with each row containing some nested structure:
+
+<div class="pdf-only">
+\begin{figure*}
+  \includegraphics[width=\textwidth]{media/algorithm.png}
+  \caption{\label{fig:algorithm}Our system applies a heuristic to identify DOM elements that correspond to rows in the data table.}
+\end{figure*}
+</div>
+
+<div class="html-only">
+![Our system applies a heuristic to identify DOM elements that correspond to rows in the data table.](media/algorithm.png){#fig:algorithm}
+</div>
 
 ```html
 <body>
@@ -202,7 +224,7 @@ Below, we discuss the three design principles underlying our work and how they r
 
 ## Unified Environment
 
-In the previous iteration of Wildcard, web scraping was an entirely separate activity from customization. Programmers that wrote scraping adapters would need to switch into an IDE to write code as part of customizing a new website, making it a much less unified environment. 
+In the previous iteration of Wildcard, web scraping was an entirely separate activity from customization. Programmers that wrote scraping adapters would need to switch into an IDE to write code as part of customizing a new website, making it a much less unified environment.
 
 This type of divide between tasks appears in other domains. In data science, workflows revolve between cleaning and using data but this often happens in different environments. The creators of Wrex [@drosos2020], a programming-by-example system for data wrangling, reported that "although data scientists were aware of and appreciated the productivity benefits of existing data wrangling tools, having to leave their native notebook environment to perform wrangling limited the usefulness of these tools." This was a major reason Wrex was developed as an add-on to Jupyter notebooks, the environment in which data scientists use their data. In web scraping, if a user comes across an omission while working with data scraped from a website, they need to switch from the environment in which they are using the data to the environment in which they wrote their scraping code in order to edit and re-run it. Sometimes, the divide is more subtle. Vegemite [@lin2009], a system for end-user programming of mashups, had a unified environment for scraping and augmenting data but separate interfaces for the scraping and augmentation tasks. During a user study, participants reported that “it was confusing to use one technique to create the initial table, and another technique to add information to a new column."
 
@@ -227,7 +249,7 @@ In some end-user web scraping systems like Rousillon [@chasins2018], users only 
 
 Our end-user web scraping system employs live programming techniques to eliminate this edit-compile-debug cycle by running the generalization algorithm and generating an adapter after each user demonstration. As we showed in [@sec:demos], when a user demonstrates a value of a column they wish to scrape, our system immediately shows how it has generalized the user’s demonstration across the other rows of the data by highlighting the all relevant values. It also populates the table with the scraped data based on the latest demonstration. The highlighting and table population serve to give users a view of how their demonstration has been generalized and what data will be available in the table once scraped.
 
-Many successful end-user programming systems such as spreadsheets and SQL provide users with immediate results after entering commands. Our live programming environment is particularly similar to that of FlashProg [@mayer2015], a framework that provides user interface support for programming-by-demonstration systems like FlashExtract [@le2014], and relates to the idea that an important quality of end-user programming is “interaction with a living system” [@zotero-60]. 
+Many successful end-user programming systems such as spreadsheets and SQL provide users with immediate results after entering commands. Our live programming environment is particularly similar to that of FlashProg [@mayer2015], a framework that provides user interface support for programming-by-demonstration systems like FlashExtract [@le2014], and relates to the idea that an important quality of end-user programming is “interaction with a living system” [@zotero-60].
 
 Unlike text-based commands which are only valid when complete (e.g ```SELECT * FRO``` versus ```SELECT * FROM user_table```), the target of  demonstration commands (the value of a DOM element under the cursor) is the same during both hover and click (incomplete command verus complete command). This allows us to take a small step further by executing a command before a user completes it, thereby providing them with a preview of the results on hover.
 

@@ -262,6 +262,11 @@ that simplifies the \emph{wrapper induction} \citep{kushmerick2000} task
 used to generalize user demonstrations
 (Section~\ref{sec:implementation}).
 
+\begin{figure*}
+  \includegraphics[width=\textwidth]{media/overview.png}
+  \caption{\label{fig:overview}Our work enables end-users to create Wildcard site adapters by demonstration.}
+\end{figure*}
+
 Our key contribution is a set of three design principles that guided the
 development of our system, which also offer insights that might be
 applied to other end-user web scraping and customization tools
@@ -440,6 +445,11 @@ the basic intuition is to find a large set of elements with similar
 parallel structure. Consider the following sample HTML layout, which
 displays a truncated table of superheroes, with each row containing some
 nested structure:
+
+\begin{figure*}
+  \includegraphics[width=\textwidth]{media/algorithm.png}
+  \caption{\label{fig:algorithm}Our system applies a heuristic to identify DOM elements that correspond to rows in the data table.}
+\end{figure*}
 
 \begin{Shaded}
 \begin{Highlighting}[]

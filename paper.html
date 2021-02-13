@@ -131,6 +131,14 @@
 </video>
 <p>Wildcard has a key limitation. In order to enable end-users to customize a website, a Javascript programmer first needs to code an adapter that specifies how to scrape the website content and set up a bidirectional synchronization with Wildcard’s table view. Take Alice, an end-user who uses Wildcard to customize her experience on Google Scholar as shown above. Wildcard’s sorting customization gives her the power to sort publications by title which the website does not natively allow. She thinks this will be useful on Weather.com to sort the ten day forecast by the weather descriptions so that she can quickly find all the sunny days. Unfortunately, a programmer has not coded an adapter for Weather.com so Alice is unable to customize it. Additionally, if the adapter for Google Scholar stops functioning when the website changes, Alice has no recourse to repair it on her own.</p>
 <p>In this paper, we describe an addition to Wildcard: a system that enables end-users to create, extend and repair website adapters by demonstration within the browser. Using this scraping system, an end-user can perform end-to-end web customizations using Wildcard on arbitrary websites, without ever needing to code an adapter. Through a series of examples, we show that end-users can utilize our system to successfully create Wildcard adapters on a variety of websites via demonstration (Section 2). We also describe key aspects of our system and how web scraping for customization reveals a constraint that simplifies the <em>wrapper induction</em> <span class="citation" data-cites="kushmerick2000">[<a href="#ref-kushmerick2000" role="doc-biblioref">8</a>]</span> task used to generalize user demonstrations (Section 3).</p>
+<div class="pdf-only">
+
+</div>
+<div class="html-only">
+<figure>
+<img src="media/overview.png" id="fig:overview" alt="Figure 1: Our work enables end-users to create Wildcard site adapters by demonstration." /><figcaption aria-hidden="true">Figure 1: Our work enables end-users to create Wildcard site adapters by demonstration.</figcaption>
+</figure>
+</div>
 <p>Our key contribution is a set of three design principles that guided the development of our system, which also offer insights that might be applied to other end-user web scraping and customization tools (Section 4):</p>
 <ul>
 <li><strong>Unified Environment</strong>: Users should be able to scrape data and interact with the scraped data in a single, unified environment. This minimizes the barrier to fluidly switching back and forth between the two tasks, rather than treating them as entirely independent tasks.</li>
@@ -178,6 +186,14 @@
 <p>One important difference is that our algorithm only accepts row elements that have direct siblings with a similar structure. We refer to this as the <em>row-sibling</em> constraint. Later in this section, we describe how the constraint provides a useful simplification of the wrapper induction task and discuss the resulting limitations this puts on our system in a section that follows.</p>
 <p>When a user first demonstrates a column value, the generalization algorithm is responsible for turning the demonstration into a row selector that will correctly identify all the row elements in the website and a column selector that will correctly identify the element that contains the column value within a row element. During subsequent demonstrations, the generalization algorithm uses the generated row selector to find the row element that contains the column value and generates a column selector which identifies the corresponding column element.</p>
 <p>At a high level, the generalization algorithm’s challenge is to traverse far enough up in the DOM tree from the demonstrated element to find the element which corresponds to the row. We solve this using a heuristic; the basic intuition is to find a large set of elements with similar parallel structure. Consider the following sample HTML layout, which displays a truncated table of superheroes, with each row containing some nested structure:</p>
+<div class="pdf-only">
+
+</div>
+<div class="html-only">
+<figure>
+<img src="media/algorithm.png" id="fig:algorithm" alt="Figure 2: Our system applies a heuristic to identify DOM elements that correspond to rows in the data table." /><figcaption aria-hidden="true">Figure 2: Our system applies a heuristic to identify DOM elements that correspond to rows in the data table.</figcaption>
+</figure>
+</div>
 <div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;body&gt;</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;h1&gt;</span> Team Iron Man <span class="kw">&lt;/h1&gt;</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">’container’</span><span class="kw">&gt;</span></span>
