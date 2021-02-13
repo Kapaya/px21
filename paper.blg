@@ -1,15 +1,81 @@
-[0] Config.pm:304> INFO - This is Biber 2.12
-[1] Config.pm:307> INFO - Logfile is 'paper.blg'
-[57] biber-darwin:315> INFO - === Fri May 15, 2020, 13:02:20
-[85] Biber.pm:371> INFO - Reading 'paper.bcf'
-[191] Biber.pm:889> INFO - Found 27 citekeys in bib section 0
-[207] Biber.pm:4093> INFO - Processing section 0
-[221] Biber.pm:4254> INFO - Looking for bibtex format file 'references2.bib' for section 0
-[229] bibtex.pm:1523> INFO - LaTeX decoding ...
-[377] bibtex.pm:1340> INFO - Found BibTeX data source 'references2.bib'
-[578] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[578] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[579] Biber.pm:3921> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
-[579] Biber.pm:3927> INFO - No sort tailoring available for locale 'en-US'
-[614] bbl.pm:636> INFO - Writing 'paper.bbl' with encoding 'UTF-8'
-[627] bbl.pm:739> INFO - Output to paper.bbl
+This is BibTeX, Version 0.99d (TeX Live 2019)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: paper.aux
+The style file: ACM-Reference-Format.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Database file #1: references.bib
+Warning--I didn't find a database entry for "zotero-60"
+Warning--I didn't find a database entry for "zotero-51"
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=20001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Warning--empty year in bolin2005
+Warning--empty address in bolin2005
+Warning--empty year in chasins2018
+Warning--empty address in chasins2018
+Warning--empty year in drosos2020
+Warning--empty address in drosos2020
+Warning--empty year in hogue2005
+Warning--empty address in hogue2005
+Warning--empty year in huynh2006
+Warning--empty address in huynh2006
+Warning--empty year in kushmerick2000
+Warning--no journal in kushmerick2000
+Warning--empty year in le2014
+Warning--empty address in le2014
+Warning--empty year in leshed2008
+Warning--empty address in leshed2008
+Warning--empty year in lin2009
+Warning--empty address in lin2009
+Warning--empty year in litt2020a
+Warning--empty address in litt2020a
+Warning--empty year in maclean1990
+Warning--empty address in maclean1990
+Warning--empty year in mayer2015
+Warning--empty address in mayer2015
+You've used 12 entries,
+            5945 wiz_defined-function locations,
+            1448 strings with 18913 characters,
+and the built_in function-call counts, 15001 in all, are:
+= -- 1452
+> -- 630
+< -- 0
++ -- 208
+- -- 208
+* -- 1251
+:= -- 1610
+add.period$ -- 60
+call.type$ -- 12
+change.case$ -- 95
+chr.to.int$ -- 12
+cite$ -- 36
+duplicate$ -- 1321
+empty$ -- 943
+format.name$ -- 252
+if$ -- 3465
+int.to.chr$ -- 2
+int.to.str$ -- 1
+missing$ -- 59
+newline$ -- 173
+num.names$ -- 96
+pop$ -- 735
+preamble$ -- 1
+purify$ -- 131
+quote$ -- 0
+skip$ -- 412
+stack$ -- 0
+substring$ -- 920
+swap$ -- 161
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 346
+warning$ -- 24
+while$ -- 90
+width$ -- 0
+write$ -- 295
+(There were 26 warnings)

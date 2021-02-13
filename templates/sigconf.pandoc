@@ -22,8 +22,11 @@
 %% in the same archive or directory.)
 %%
 %% The first command in your LaTeX source must be the \documentclass command.
-\documentclass[sigconf]{acmart}
+\documentclass[sigconf,10pt]{acmart}
 
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
 
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
@@ -39,20 +42,6 @@
 %% values in them; it is your responsibility as an author to replace
 %% the commands and values with those provided to you when you
 %% complete the rights form.
-
-%%% The following is specific to <Programming'20> Companion-CCS and the paper
-%%% 'Wildcard: Spreadsheet-Driven Customization of Web Applications'
-%%% by Geoffrey Litt and Daniel Jackson.
-%%%
-\setcopyright{acmlicensed}
-\acmPrice{}
-\acmDOI{10.1145/3397537.3397541}
-\acmYear{2020}
-\copyrightyear{2020}
-\acmSubmissionID{prog20ccs-id3-p}
-\acmISBN{978-1-4503-7507-8/20/03}
-\acmConference[<Programming'20> Companion]{Companion Proceedings of the 4th International Conference on the Art, Science, and Engineering of Programming}{March 23--26, 2020}{Porto, Portugal}
-\acmBooktitle{Companion Proceedings of the 4th International Conference on the Art, Science, and Engineering of Programming (<Programming'20> Companion), March 23--26, 2020, Porto, Portugal}
 
 
 %%
@@ -90,9 +79,17 @@
 %% "authornote" and "authornotemark" commands
 %% used to denote shared contribution to the research.
 
+\author{Kapaya Katongo}
+\affiliation{%
+  \institution{MIT CSAIL}
+  \city{Cambridge, MA}
+  \country{USA}
+}
+\email{kkatongo@mit.edu}
+
 \author{Geoffrey Litt}
 \affiliation{%
-  \institution{Massachusetts Institute of Technology}
+  \institution{MIT CSAIL}
   \city{Cambridge, MA}
   \country{USA}
 }
@@ -100,7 +97,7 @@
 
 \author{Daniel Jackson}
 \affiliation{%
-  \institution{Massachusetts Institute of Technology}
+  \institution{MIT CSAIL}
   \city{Cambridge, MA}
   \country{USA}
 }
@@ -168,7 +165,7 @@ $body$
 %% The next two lines define the bibliography style to be used, and
 %% the bibliography file.
 \bibliographystyle{ACM-Reference-Format}
-\bibliography{references2.bib}
+\bibliography{references.bib}
 
 \end{document}
 \endinput
