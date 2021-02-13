@@ -1,18 +1,35 @@
-This is BibTeX, Version 0.99d (TeX Live 2019)
-Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+This is BibTeX, Version 0.99d (TeX Live 2020)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: paper.aux
 The style file: ACM-Reference-Format.bst
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Database file #1: references.bib
-Warning--I didn't find a database entry for "zotero-60"
-Warning--I didn't find a database entry for "zotero-51"
 Reallocated singl_function (elt_size=4) to 100 items from 50.
+Warning--no key, author in zotero-60
+Warning--no author, editor, organization, or key in zotero-60
+Warning--to sort, need author or key in zotero-60
+Warning--no key, author in zotero-51
+Warning--no author, editor, organization, or key in zotero-51
+Warning--to sort, need author or key in zotero-51
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
-Reallocated global_strs (elt_size=20001) to 20 items from 10.
+Reallocated global_strs (elt_size=200001) to 20 items from 10.
 Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Warning--no key, author in zotero-60
+Warning--no key, author in zotero-60
+Warning--no key, author in zotero-51
 Reallocated singl_function (elt_size=4) to 100 items from 50.
+Warning--no key, author in zotero-60
+Warning--no author, editor, organization, or key in zotero-60
+Warning--empty organization in zotero-60
+Warning--empty year in zotero-60
+Warning--empty organization in zotero-60
+Warning--no key, author in zotero-51
+Warning--no author, editor, organization, or key in zotero-51
+Warning--empty organization in zotero-51
+Warning--empty year in zotero-51
+Warning--empty organization in zotero-51
 Warning--empty year in bolin2005
 Warning--empty address in bolin2005
 Warning--empty year in chasins2018
@@ -37,45 +54,45 @@ Warning--empty year in maclean1990
 Warning--empty address in maclean1990
 Warning--empty year in mayer2015
 Warning--empty address in mayer2015
-You've used 12 entries,
+You've used 14 entries,
             5945 wiz_defined-function locations,
-            1448 strings with 18913 characters,
-and the built_in function-call counts, 15001 in all, are:
-= -- 1452
-> -- 630
+            1451 strings with 18972 characters,
+and the built_in function-call counts, 16028 in all, are:
+= -- 1516
+> -- 616
 < -- 0
-+ -- 208
++ -- 207
 - -- 208
-* -- 1251
-:= -- 1610
-add.period$ -- 60
-call.type$ -- 12
-change.case$ -- 95
-chr.to.int$ -- 12
-cite$ -- 36
-duplicate$ -- 1321
-empty$ -- 943
+* -- 1315
+:= -- 1668
+add.period$ -- 66
+call.type$ -- 14
+change.case$ -- 101
+chr.to.int$ -- 13
+cite$ -- 64
+duplicate$ -- 1453
+empty$ -- 1044
 format.name$ -- 252
-if$ -- 3465
-int.to.chr$ -- 2
+if$ -- 3720
+int.to.chr$ -- 3
 int.to.str$ -- 1
 missing$ -- 59
-newline$ -- 173
+newline$ -- 194
 num.names$ -- 96
-pop$ -- 735
+pop$ -- 855
 preamble$ -- 1
-purify$ -- 131
+purify$ -- 142
 quote$ -- 0
-skip$ -- 412
+skip$ -- 449
 stack$ -- 0
-substring$ -- 920
-swap$ -- 161
+substring$ -- 936
+swap$ -- 173
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 346
-warning$ -- 24
-while$ -- 90
+type$ -- 400
+warning$ -- 43
+while$ -- 92
 width$ -- 0
-write$ -- 295
-(There were 26 warnings)
+write$ -- 327
+(There were 43 warnings)

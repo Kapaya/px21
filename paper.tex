@@ -169,12 +169,12 @@
   principles that guided our system's development and are applicable to
   other end-user web scraping and customization systems: (a) users
   should be able to scrape data and use it in a single, unified
-  environment, (b) users should be able to extend and repair the
-  programs that scrape data via demonstration and (c) users should
-  receive live feedback during their demonstrations.
+  environment, (b) users should be able to extend and repair the program
+  that scrapes data via demonstration and (c) users should receive live
+  feedback when providing demonstrations to scrape data.
 
   We have successfully used our system to create, extend and repair
-  adapters by demonstration on a variety of websites. We provide example
+  adapters by demonstration on a variety of websites and provide example
   usage scenarios that showcase each of our design principles.
 \end{abstract}
 
@@ -223,7 +223,7 @@
 Many websites on the internet do not meet the exact needs of all of
 their users. End-user web customization systems like Chickenfoot
 \citep{bolin2005}, Thresher \citep{hogue2005}, Sifter \citep{huynh2006}
-and Vegemite {[}lin2009{]} help users tweak and adapt websites to fit
+and Vegemite \citep{lin2009} help users tweak and adapt websites to fit
 their unique requirements, ranging from reorganizing or annotating
 content on the website to automating common tasks. In our prior work, we
 presented Wildcard \citep{litt2020a}, a customization system which
@@ -669,16 +669,19 @@ often happens in different environments. The creators of Wrex
 reported that ``although data scientists were aware of and appreciated
 the productivity benefits of existing data wrangling tools, having to
 leave their native notebook environment to perform wrangling limited the
-usefulness of these tools.'' In web scraping, if a user comes across an
+usefulness of these tools.'' This was a major reason Wrex was developed
+as an add-on to Jupyter notebooks, the environment in which data
+scientists use their data. In web scraping, if a user comes across an
 omission while working with data scraped from a website, they need to
 switch from the environment in which they are using the data to the
 environment in which they wrote their scraping code in order to edit and
 re-run it. Sometimes, the divide is more subtle. Vegemite
-\citep{lin2009}, a system for end-user programming of mashups, had
-separate steps for scraping data from a website and augmenting that data
-via automation tasks. During a user study, participants reported that
-``it was confusing to use one technique to create the initial table, and
-another technique to add information to a new column.''
+\citep{lin2009}, a system for end-user programming of mashups, had a
+unified environment for scraping and augmenting data but separate
+interfaces for the scraping and augmentation tasks. During a user study,
+participants reported that ``it was confusing to use one technique to
+create the initial table, and another technique to add information to a
+new column.''
 
 In this work, we have combined scraping and customization into a unified
 activity within a single environment. The goal is to minimize the

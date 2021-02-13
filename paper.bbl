@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{12}
+\begin{thebibliography}{14}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -36,6 +36,29 @@
 \providecommand\bibinfo[2]{#2}
 \providecommand\natexlab[1]{#1}
 \providecommand\showeprint[2][]{arXiv:#2}
+
+\bibitem[\protect\citeauthoryear{??}{zot}{[n.d.]a}]%
+        {zotero-60}
+ \bibinfo{year}{[n.d.]}\natexlab{a}.
+\newblock \bibinfo{booktitle}{\emph{End-User Programming}}.
+\newblock
+\urldef\tempurl%
+\url{https://www.inkandswitch.com/end-user-programming.html}
+\showURL{%
+\tempurl}
+
+
+\bibitem[\protect\citeauthoryear{??}{zot}{[n.d.]b}]%
+        {zotero-51}
+ \bibinfo{year}{[n.d.]}\natexlab{b}.
+\newblock \bibinfo{booktitle}{\emph{Helena | {{Web Automation}} for {{End
+  Users}}}}.
+\newblock
+\urldef\tempurl%
+\url{http://helena-lang.org/}
+\showURL{%
+\tempurl}
+
 
 \bibitem[\protect\citeauthoryear{Bolin, Webber, Rha, Wilson, and Miller}{Bolin
   et~al\mbox{.}}{[n.d.]}]%
@@ -81,10 +104,8 @@
 \newblock \showarticletitle{Wrex: {{A Unified Programming}}-by-{{Example
   Interaction}} for {{Synthesizing Readable Code}} for {{Data Scientists}}}. In
   \bibinfo{booktitle}{\emph{Proceedings of the 2020 {{CHI Conference}} on
-  {{Human Factors}} in {{Computing Systems}}}} ({New York, NY, USA},
-  2020-04-21) \emph{(\bibinfo{series}{{{CHI}} '20})}.
-  \bibinfo{publisher}{{Association for Computing Machinery}},
-  \bibinfo{pages}{1--12}.
+  {{Human Factors}} in {{Computing Systems}}}} ({Honolulu HI USA}, 2020-04-21).
+  \bibinfo{publisher}{{ACM}}, \bibinfo{pages}{1--12}.
 \newblock
 \showISBNx{978-1-4503-6708-0}
 \urldef\tempurl%
@@ -194,22 +215,19 @@
 \showDOI{\tempurl}
 
 
-\bibitem[\protect\citeauthoryear{Litt, Jackson, Millis, and Quaye}{Litt
-  et~al\mbox{.}}{[n.d.]}]%
+\bibitem[\protect\citeauthoryear{Litt and Jackson}{Litt and Jackson}{[n.d.]}]%
         {litt2020a}
-\bibfield{author}{\bibinfo{person}{Geoffrey Litt}, \bibinfo{person}{Daniel
-  Jackson}, \bibinfo{person}{Tyler Millis}, {and} \bibinfo{person}{Jessica
-  Quaye}.} \bibinfo{year}{[n.d.]}\natexlab{}.
-\newblock \showarticletitle{End-User {{Software Customization}} by {{Direct
-  Manipulation}} of {{Tabular Data}}}. In \bibinfo{booktitle}{\emph{Proceedings
-  of the 2020 {{ACM SIGPLAN International Symposium}} on {{New Ideas}}, {{New
-  Paradigms}}, and {{Reflections}} on {{Programming}} and {{Software}}}}
-  ({Virtual USA}, 2020-11-18). \bibinfo{publisher}{{ACM}},
-  \bibinfo{pages}{18--33}.
+\bibfield{author}{\bibinfo{person}{Geoffrey Litt} {and} \bibinfo{person}{Daniel
+  Jackson}.} \bibinfo{year}{[n.d.]}\natexlab{}.
+\newblock \showarticletitle{Wildcard: {{Spreadsheet}}-{{Driven Customization}}
+  of {{Web Applications}}}. In \bibinfo{booktitle}{\emph{Companion
+  {{Proceedings}} of the 4th {{International Conference}} on the {{Art}},
+  {{Science}}, and {{Engineering}} of {{Programming}}}} ({Porto, Portugal.},
+  2020). \bibinfo{publisher}{{Association for Computing Machinery}},
+  \bibinfo{pages}{10}.
 \newblock
-\showISBNx{978-1-4503-8178-9}
 \urldef\tempurl%
-\url{https://doi.org/10.1145/3426428.3426914}
+\url{https://doi.org/10.1145/3397537.3397541}
 \showDOI{\tempurl}
 
 
