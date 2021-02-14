@@ -184,7 +184,7 @@
 </div>
 <div class="html-only">
 <figure>
-<img src="media/limitations.png" id="fig:limitations" alt="Figure 3: Two example pages where our generalization algorithm does not currently work. The elements with the blue border correspond to rows of the data and the elements with the green border correspond to the data table." /><figcaption aria-hidden="true">Figure 3: Two example pages where our generalization algorithm does not currently work. The elements with the blue border correspond to rows of the data and the elements with the green border correspond to the data table.</figcaption>
+<img src="media/limitations.png" id="fig:limitations" alt="Figure 3: Two example pages where our generalization algorithm does not currently work. The elements with the blue border correspond to rows of the data and the elements with green borders correspond to tables of data in each layout respectively. For the layout on the left, sorting could lead to rows from one table ending up in the other. For the layout on the right, sorting would lead to a distortion of the table since the column elements cannot be moved as a unit." /><figcaption aria-hidden="true">Figure 3: Two example pages where our generalization algorithm does not currently work. The elements with the blue border correspond to rows of the data and the elements with green borders correspond to tables of data in each layout respectively. For the layout on the left, sorting could lead to rows from one table ending up in the other. For the layout on the right, sorting would lead to a distortion of the table since the column elements cannot be moved as a unit.</figcaption>
 </figure>
 </div>
 <p><em>Generalization Limitation 1</em> shows a case where the data is displayed in a grouped structure. Without the constraint that row elements have to be direct siblings, the row generalization algorithm could determine the row selector to be <em>.avenger</em> (elements with blue border) because it matches the largest number of parallel structures (has the largest <span class="math inline"><em>n</em><sub><em>s</em><em>i</em><em>b</em><em>l</em><em>i</em><em>n</em><em>g</em><em>s</em></sub></span>). While this may be the correct result for the task of extraction, it is not necessarily suitable for the task of customization. When the user sorts and filters, this could result in rows moving between the two tables, disrupting the nested layout and producing a confusing result. Because of this, our system currently does not support such layouts. In the future, we may explore the possibility of extracting multiple tables from a website and joining them together.</p>
@@ -228,10 +228,10 @@
 <h1 class="unnumbered" id="bibliography">References</h1>
 <div id="refs" class="references csl-bib-body" role="doc-bibliography">
 <div id="ref-zotero-1349" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[1] </div><div class="csl-right-inline">Helena | <span>Web Automation</span> for <span>End Users</span>. </div>
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline">Helena | <span>Web Automation</span> for <span>End Users</span>. Retrieved February 12, 2021 from <a href="http://helena-lang.org/">http://helena-lang.org/</a></div>
 </div>
 <div id="ref-zotero-1362" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[2] </div><div class="csl-right-inline">End-user programming. </div>
+<div class="csl-left-margin">[2] </div><div class="csl-right-inline">End-user programming. Retrieved February 12, 2021 from <a href="https://www.inkandswitch.com/end-user-programming.html">https://www.inkandswitch.com/end-user-programming.html</a></div>
 </div>
 <div id="ref-bolin2005" class="csl-entry" role="doc-biblioentry">
 <div class="csl-left-margin">[3] </div><div class="csl-right-inline">Michael Bolin, Matthew Webber, Philip Rha, Tom Wilson, and Robert C. Miller. 2005. Automation and customization of rendered web pages. In <em>Proceedings of the 18th annual <span>ACM</span> symposium on <span>User</span> interface software and technology - <span>UIST</span> ’05</em>, <span>ACM Press</span>, <span>Seattle, WA, USA</span>, 163. DOI:https://doi.org/<a href="https://doi.org/10.1145/1095034.1095062">10.1145/1095034.1095062</a></div>
@@ -240,7 +240,7 @@
 <div class="csl-left-margin">[4] </div><div class="csl-right-inline">Sarah E. Chasins, Maria Mueller, and Rastislav Bodik. 2018. Rousillon: <span>Scraping Distributed Hierarchical Web Data</span>. In <em>The 31st <span>Annual ACM Symposium</span> on <span>User Interface Software</span> and <span>Technology</span> - <span>UIST</span> ’18</em>, <span>ACM Press</span>, <span>Berlin, Germany</span>, 963–975. DOI:https://doi.org/<a href="https://doi.org/10.1145/3242587.3242661">10.1145/3242587.3242661</a></div>
 </div>
 <div id="ref-dexi.io" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[5] </div><div class="csl-right-inline">dexi.io. The most powerful web scraping software available. </div>
+<div class="csl-left-margin">[5] </div><div class="csl-right-inline">dexi.io. The most powerful web scraping software available. Retrieved February 14, 2021 from <a href="https://webscraping.dexi.io">https://webscraping.dexi.io</a></div>
 </div>
 <div id="ref-drosos2020" class="csl-entry" role="doc-biblioentry">
 <div class="csl-left-margin">[6] </div><div class="csl-right-inline">Ian Drosos, Titus Barik, Philip J. Guo, Robert DeLine, and Sumit Gulwani. 2020. Wrex: <span>A Unified Programming</span>-by-<span>Example Interaction</span> for <span>Synthesizing Readable Code</span> for <span>Data Scientists</span>. In <em>Proceedings of the 2020 <span>CHI Conference</span> on <span>Human Factors</span> in <span>Computing Systems</span></em> (<span>CHI</span> ’20), <span>Association for Computing Machinery</span>, <span>New York, NY, USA</span>, 1–12. DOI:https://doi.org/<a href="https://doi.org/10.1145/3313831.3376442">10.1145/3313831.3376442</a></div>
@@ -252,7 +252,7 @@
 <div class="csl-left-margin">[8] </div><div class="csl-right-inline">David F. Huynh, Robert C. Miller, and David R. Karger. 2006. Enabling web browsers to augment web sites’ filtering and sorting functionalities. In <em>Proceedings of the 19th annual <span>ACM</span> symposium on <span>User</span> interface software and technology - <span>UIST</span> ’06</em>, <span>ACM Press</span>, <span>Montreux, Switzerland</span>, 125. DOI:https://doi.org/<a href="https://doi.org/10.1145/1166253.1166274">10.1145/1166253.1166274</a></div>
 </div>
 <div id="ref-import.io" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[9] </div><div class="csl-right-inline">import.io. Data <span>Scraping</span> | <span>Web Scraping</span> | <span>Screen Scraping</span> | <span>Extract</span>. <em>Import.io</em>.</div>
+<div class="csl-left-margin">[9] </div><div class="csl-right-inline">import.io. Data <span>Scraping</span> | <span>Web Scraping</span> | <span>Screen Scraping</span> | <span>Extract</span>. Retrieved February 14, 2021 from <a href="https://www.import.io/product/extract/">https://www.import.io/product/extract/</a></div>
 </div>
 <div id="ref-kushmerick2000" class="csl-entry" role="doc-biblioentry">
 <div class="csl-left-margin">[10] </div><div class="csl-right-inline">Nicholas Kushmerick. 2000. Wrapper induction: <span>Efficiency</span> and expressiveness. <em>Artificial Intelligence</em> 118, 1 (April 2000), 15–68. DOI:https://doi.org/<a href="https://doi.org/10.1016/S0004-3702(99)00100-9">10.1016/S0004-3702(99)00100-9</a></div>
@@ -276,10 +276,10 @@
 <div class="csl-left-margin">[16] </div><div class="csl-right-inline">Mikaël Mayer, Gustavo Soares, Maxim Grechkin, Vu Le, Mark Marron, Oleksandr Polozov, Rishabh Singh, Benjamin Zorn, and Sumit Gulwani. 2015. User <span>Interaction Models</span> for <span>Disambiguation</span> in <span>Programming</span> by <span>Example</span>. In <em>Proceedings of the 28th <span>Annual ACM Symposium</span> on <span>User Interface Software</span> &amp; <span>Technology</span></em>, <span>ACM</span>, <span>Charlotte NC USA</span>, 291–301. DOI:https://doi.org/<a href="https://doi.org/10.1145/2807442.2807459">10.1145/2807442.2807459</a></div>
 </div>
 <div id="ref-octoparse" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[17] </div><div class="csl-right-inline">Octoparse. Web <span>Scraping Tool</span> &amp; <span>Free Web Crawlers</span> | <span>Octoparse</span>. </div>
+<div class="csl-left-margin">[17] </div><div class="csl-right-inline">Octoparse. Web <span>Scraping Tool</span> &amp; <span>Free Web Crawlers</span> | <span>Octoparse</span>. Retrieved February 14, 2021 from <a href="https://www.octoparse.com/#">https://www.octoparse.com/#</a></div>
 </div>
 <div id="ref-parsehub" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[18] </div><div class="csl-right-inline">ParseHub. <span>ParseHub</span> | <span>Free</span> web scraping - <span>The</span> most powerful web scraper. </div>
+<div class="csl-left-margin">[18] </div><div class="csl-right-inline">ParseHub. <span>ParseHub</span> | <span>Free</span> web scraping - <span>The</span> most powerful web scraper. Retrieved February 14, 2021 from <a href="https://www.parsehub.com/">https://www.parsehub.com/</a></div>
 </div>
 </div>
 

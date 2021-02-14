@@ -1,7 +1,6 @@
 ---
 title: "Towards End-user Web Scraping For Customization"
 author: "Kapaya Katongo, Geoffrey Litt and Daniel Jackson"
-bibliography: references.bib
 link-citations: true
 csl: templates/acm.csl
 reference-section-title: References
@@ -208,12 +207,12 @@ The row-sibling constraint we mentioned earlier is important for the end goal of
 <div class="pdf-only">
 \begin{figure*}
   \includegraphics[width=\textwidth]{media/limitations.png}
-  \caption{\label{fig:limitations} Two example pages where our generalization algorithm does not currently work. The elements with the blue border correspond to rows of the data in each layout respectively.}
+  \caption{\label{fig:limitations} Two example pages where our generalization algorithm does not currently work. The elements with the blue border correspond to rows of the data and the elements with green borders correspond to tables of data in each layout respectively. For the layout on the left, sorting could lead to rows from one table ending up in the other. For the layout on the right, sorting would lead to a distortion of the table since the column elements cannot be moved as a unit.}
 \end{figure*}
 </div>
 
 <div class="html-only">
-![Two example pages where our generalization algorithm does not currently work. The elements with the blue border correspond to rows of the data and the elements with the green border correspond to the data table.](media/limitations.png){#fig:limitations}
+![Two example pages where our generalization algorithm does not currently work. The elements with the blue border correspond to rows of the data and the elements with green borders correspond to tables of data in each layout respectively. For the layout on the left, sorting could lead to rows from one table ending up in the other. For the layout on the right, sorting would lead to a distortion of the table since the column elements cannot be moved as a unit.](media/limitations.png){#fig:limitations}
 </div>
 
 *Generalization Limitation 1* shows a case where the data is displayed in a grouped structure. Without the constraint that row elements have to be direct siblings, the row generalization algorithm could determine the row selector to be *.avenger* (elements with blue border) because it matches the largest number of parallel structures (has the largest $n_{siblings}$). While this may be the correct result for the task of extraction, it is not necessarily suitable for the task of customization. When the user sorts and filters, this could result in rows moving between the two tables, disrupting the nested layout and producing a confusing result. Because of this, our system currently does not support such layouts. In the future, we may explore the possibility of extracting multiple tables from a website and joining them together.
