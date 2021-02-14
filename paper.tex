@@ -575,31 +575,38 @@ customization.
 In the previous iteration of Wildcard, web scraping was an entirely
 separate activity from customization. Programmers that wrote scraping
 adapters would need to switch into an IDE to write code as part of
-customizing a new website.
+customizing a new website. This divide between tasks is common in other
+domains:
 
-This type of divide between tasks appears in other domains. In data
-science, workflows revolve between cleaning and using data but this
-often happens in different environments. The creators of Wrex
-\citep{drosos2020}, an end-user programming-by-example system for data
-wrangling, reported that ``although data scientists were aware of and
-appreciated the productivity benefits of existing data wrangling tools,
-having to leave their native notebook environment to perform wrangling
-limited the usefulness of these tools.'' This was a major reason Wrex
-was developed as an add-on to Jupyter notebooks, the environment in
-which data scientists use their data. In web scraping, if a user comes
-across an omission while working with data scraped from a website, they
-need to switch from the environment in which they are using the data to
-the environment in which they created their scraping code in order to
-edit and re-run it. This can be seen in many end-user web scraping
-systems like Rousillon \citep{chasins2018}and FlashExtract
-\citep{le2014} and commercial tools like import.io \citep{import.io},
-dexi.io \citep{dexi.io}, Octoparse \citep{octoparse} and ParseHub
-\citep{parsehub}. In web customization, the creators of Vegemite
-\citep{lin2009}, a system for end-user programming of mashups, reported
-that participants of its user study thought ``it was confusing to use
-one technique to create the initial table, and another technique to add
-information to a new column.'' This hints at the need for both a unified
-environment and a unified workflow.
+\begin{itemize}
+\tightlist
+\item
+  In \textbf{data science}, workflows revolve between cleaning and using
+  data but this often happens in different environments. The creators of
+  Wrex \citep{drosos2020}, an end-user programming-by-example system for
+  data wrangling, reported that ``although data scientists were aware of
+  and appreciated the productivity benefits of existing data wrangling
+  tools, having to leave their native notebook environment to perform
+  wrangling limited the usefulness of these tools.'' This was a major
+  reason Wrex was developed as an add-on to Jupyter notebooks, the
+  environment in which data scientists use their data.
+\item
+  In \textbf{web scraping,} if a user comes across an omission while
+  working with data scraped from a website, they need to switch from the
+  environment in which they are using the data to the environment in
+  which they created their scraping code in order to edit and re-run it.
+  This can be seen in many end-user web scraping systems like Rousillon
+  \citep{chasins2018}and FlashExtract \citep{le2014} and commercial
+  tools like import.io \citep{import.io}, dexi.io \citep{dexi.io},
+  Octoparse \citep{octoparse} and ParseHub \citep{parsehub}.
+\item
+  In \textbf{web customization}, the creators of Vegemite
+  \citep{lin2009}, a system for end-user programming of mashups,
+  reported that participants of its user study thought ``it was
+  confusing to use one technique to create the initial table, and
+  another technique to add information to a new column.'' This hints at
+  the need for both a unified environment and a unified workflow.
+\end{itemize}
 
 In this work, we have combined scraping and customization into a single,
 unified environment with a unified workflow. The goal is to minimize the
@@ -610,9 +617,10 @@ might realize they need more data to perform their desired task, at
 which point they can easily extend the adapter by demonstrating new
 columns. All of these tasks take place right in the browser, where the
 user was initially already using the website. Instead of bringing the
-data to another tool, we have brought a tool to the data. This directly
-relates to the idea of ``in-place toolchains'' \citep{zotero-1362} being
-an integral part of end-user programming systems.
+data to another tool, we have brought a tool to the data. This principle
+relates to the idea of ``in-place toolchains'' \citep{zotero-1362} for
+end-user programming systems: that users should be able to program using
+familiar tools in the context where they already use their software.
 
 Of course, there is value in specialized tools: Wildcard has nowhere
 near the full capabilities of spreadsheet software or databases.
@@ -645,16 +653,16 @@ users to add new columns by demonstration but it is not clear whether
 deleting a column and re-demonstrating it could serve the purpose of
 repair.
 
-In Wildcard, if a website's hand-coded adapter ceases to function
-because the website changes, the table may lose its data which means
-that an end-user's customizations may also cease to function.
-Furthermore, end-users are powerless to extend the scraping adapter to
-add columns to the table in order to perform new customizations. This
-goes against MacLean et. al.'s vision of user-tailorable systems
-\citep{maclean1990} that give users ``a feeling of ownership of the
-system, to feel in control of changing the system and to understand what
-can be changed.'' Providing an easy way for users to edit programs is
-therefore fundamental to fully democratizing web customization.
+In the prior iteration of Wildcard, if a website's hand-coded adapter
+stops working correctly because the website changes, an end-user's
+customizations will often break too. Furthermore, end-users cannot
+extend the scraping adapter to add columns to the table in order to
+perform new customizations. This goes against MacLean et. al.'s vision
+of user-tailorable systems \citep{maclean1990} that give users ``a
+feeling of ownership of the system, to feel in control of changing the
+system and to understand what can be changed.'' Providing an easy way
+for users to edit programs is therefore fundamental to fully
+democratizing web customization.
 
 Editing by demonstration makes end-users first-class citizens in the
 customization ecosystem. Because users interact with the scraped data
@@ -681,11 +689,11 @@ column selectors.
 \subsection{Live Programming}\label{live-programming-1}}
 
 In many programming-by-demonstration web scraping systems
-\citep[\citet{lin2009}]{chasins2018}, users only get \emph{full}
-feedback about the program's execution (generalization and the scraped
-values) after providing \emph{all} the demonstrations. This means they
-cannot adjust their demonstrations in response to the system's feedback
-as they demonstrate.
+\citep{chasins2018, lin2009}, users only get \emph{full} feedback about
+the program's execution (generalization and the scraped values) after
+providing \emph{all} the demonstrations. This means they cannot adjust
+their demonstrations in response to the system's feedback as they
+demonstrate.
 
 Our end-user web scraping system employs live programming techniques to
 eliminate this edit-compile-debug cycle by running the generalization
