@@ -76,9 +76,11 @@ Jen tries hovering over several other elements in the page, taking advantage of 
 </div>
 
 <div class="pdf-only">
-- The selected row of data is annotated in the page with a border, to indicate that she will be demonstrating values from within that row (1 in @fig:creating).
-- The selected column of data is highlighted in the page with a green background, to show how the system has generalized her demonstration across all the rows in the data (3 & 4 in @fig:creating).
-- A table view appears at the bottom of the screen, and displays how the values will appear in the data table (5 in @fig:creating).
+The workflow steps are shown in @fig:creating:
+
+- The selected row of data is annotated in the page with a border, to indicate that she will be demonstrating values from within that row (Part 1).
+- The selected column of data is highlighted in the page with a green background, to show how the system has generalized her demonstration across all the rows in the data (Part 3 and 4).
+- A table view appears at the bottom of the screen, and displays how the values will appear in the data table (Part 5).
 
 Jen tries hovering over several other elements in the page, taking advantage of the live feedback environment to decide what data would be useful. After considering several options, she decides to save the date field in the first column of the table, and commits the action by clicking.
 </div>
@@ -91,7 +93,7 @@ Next, she performs a similar process to fill the next column with the weather de
 </div>
 
 <div class="pdf-only">
-Next, she performs a similar process to fill the next column with the weather descriptions. After filling both columns, she also tries hovering over previously scraped data, and the toolbar at the top of the page indicates which column corresponds to the previously scraped data. Finally, she ends the adapter creation process (7 in @fig:creating) and is able to immediately sort the forecast by the weather description column, because Wildcard provides a **unified environment** that combines both scraping and customizing.
+Next, she performs a similar process to fill the next column with the weather descriptions. After filling both columns, she also tries hovering over previously scraped data, and the toolbar at the top of the page indicates which column corresponds to the previously scraped data. Finally, she ends the adapter creation process (Part 7) and is able to immediately sort the forecast by the weather description column, because Wildcard provides a **unified environment** that combines both scraping and customizing.
 </div>
 
 <video controls="controls" src="media/2.1.3.mp4" muted playsinline controls class>
@@ -104,7 +106,7 @@ Jen has previously used Wildcard to customize timeanddate.com. In addition to so
 </div>
 
 <div class="pdf-only">
-Jen uses Wildcard on timeanddate.com as can be seen from 1 in @fig:extending. In addition to sorting the list of holidays in a year by the day of the week, she also wants to sort them by category so she can view all the federal holidays together. Previously, she would have needed to find a programmer to help her edit the adapter code to incorporate this additional data, but using our system’s support for **editing by demonstration**, Jen can extend the adapter herself.
+Jen uses Wildcard on timeanddate.com. In addition to sorting the list of holidays in a year by the day of the week, she also wants to sort them by category so she can view all the federal holidays together. Previously, she would have needed to find a programmer to help her edit the adapter code to incorporate this additional data, but using our system’s support for **editing by demonstration**, Jen can extend the adapter herself.
 </div>
 
 <div class="pdf-only">
@@ -119,7 +121,7 @@ While viewing the website, she clicks the "Edit Adapter" button above the Wildca
 </div>
 
 <div class="pdf-only">
-While viewing the website, she clicks the "Edit Adapter" button (2 in @fig:extending) above the Wildcard table to initiate the adapter editing process. As she hovers over the currently scraped values, the columns they belong to are highlighted. Finally, she clicks on “Federal Holiday” (3 in @fig:extending) to add the new column of data to the table (4 in @fig:extending) and saves the changes (5 in @fig:extending). Jen then proceeds to sort the list by the type of holiday without the intervention of a programmer.
+The workflow is shown in @fig:extending. While viewing the website, she clicks the "Edit Adapter" button (Part 2) above the Wildcard table to initiate the adapter editing process. As she hovers over the currently scraped values, the columns they belong to are highlighted. Finally, she clicks on “Federal Holiday” (Part 3) to add the new column of data to the table (Part 4) and saves the changes (Part 5). Jen then proceeds to sort the list by the type of holiday without the intervention of a programmer.
 </div>
 
 <video controls="controls" src="media/2.2.mp4" muted playsinline controls class>
@@ -132,7 +134,7 @@ Jen next visits Google Scholar to look up references for her thesis project. Unf
 </div>
 
 <div class="pdf-only">
-Jen next visits Google Scholar to look up references for her thesis project. Unfortunately, the customization she had applied to sort publications by their title (which is not natively supported by Google Scholar) is no longer working. In fact, the column in the Wildcard table that contained all the publication titles is empty (1 in @fig:repairing), because the website's internals changed and broke the adapter’s scraping logic. Jen can repair this on her own, again taking advantage of **editing by demonstration**.
+Jen next visits Google Scholar to look up references for her thesis project. Unfortunately, the customization she had applied to sort publications by their title (which is not natively supported by Google Scholar) is no longer working. In fact, the column in the Wildcard table that contained all the publication titles is empty, because the website's internals changed and broke the adapter’s scraping logic. Jen can repair this on her own, again taking advantage of **editing by demonstration**.
 </div>
 
 <div class="html-only">
@@ -140,7 +142,7 @@ Jen initiates the editing process, and initially hovers over the desired value t
 </div>
 
 <div class="pdf-only">
-Jen initiates the editing process (2 in @fig:repairing), and initially hovers over the desired value to demonstrate the column she wants to scrape. However, the **live programming** interface indicates to her that the values would be populated into column D; instead, she wants the values to be inserted into column A where they previously appeared. So, Jen clicks on the symbol for column A (3 in @fig:repairing) to indicate that she wants to scrape the values into that column and demonstrates the first publication title (4 in @fig:repairing). The missing values are now back in the table (5 in @fig:repairing). She then proceeds to save her changes (6 in fig:repairing) and re-apply her customization to the website by sorting the publications by their title without the intervention of a programmer.
+The workflow is shown in @fig:repairing. Jen initiates the editing process (Part 2), and initially hovers over the desired value to demonstrate the column she wants to scrape. However, the **live programming** interface indicates to her that the values would be populated into column D; instead, she wants the values to be inserted into column A where they previously appeared. So, Jen clicks on the symbol for column A (Part 3) to indicate that she wants to scrape the values into that column and demonstrates the first publication title (Part 4). The missing values are now back in the table (Part 5). She then proceeds to save her changes (Part 6) and re-apply her customization to the website by sorting the publications by their title without the intervention of a programmer.
 </div>
 
 <video controls="controls" src="media/2.3.mp4" muted playsinline controls class>
