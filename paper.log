@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  14 FEB 2021 15:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  14 FEB 2021 16:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1135,7 +1135,7 @@ Underfull \vbox (badness 3240) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [9.9 <./media/limitations.png>]
-Overfull \hbox (17.30411pt too wide) in paragraph at lines 719--726
+Overfull \hbox (17.30411pt too wide) in paragraph at lines 719--725
 \T1/LinuxLibertineT-TLF/m/n/10 (-20) com-plete (e.g \T1/zi4/m/n/10 SELECT * FRO
  \T1/LinuxLibertineT-TLF/m/n/10 (-20) ver-sus \T1/zi4/m/n/10 SELECT * FROM user
 _table\T1/LinuxLibertineT-TLF/m/n/10 (-20) ),
@@ -1148,21 +1148,15 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [10.10]
-Overfull \hbox (9.4725pt too wide) in paragraph at lines 777--797
+Overfull \hbox (9.4725pt too wide) in paragraph at lines 776--796
 []\T1/LinuxLibertineT-TLF/m/n/10 (-20) Vegemite [[]] is a tool for end-user pro
 -gram-ming of mashups.
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
 (./paper.bbl
 LaTeX Info: Redefining \tempurl on input line 89.
-LaTeX Info: Redefining \tempurl on input line 117.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
 [11.11]
+LaTeX Info: Redefining \tempurl on input line 117.
 LaTeX Info: Redefining \tempurl on input line 133.
 LaTeX Info: Redefining \tempurl on input line 152.
 LaTeX Info: Redefining \tempurl on input line 178.
@@ -1180,20 +1174,20 @@ Class acmart Warning: Some images may lack descriptions.
 Overfull \vbox (1.90399pt too high) has occurred while \output is active []
 
 [12.12]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 861.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 861.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 866.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 866.
 (./paper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 861.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 861.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 866.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 866.
 Package rerunfilecheck Info: File `paper.out' has not changed.
 (rerunfilecheck)             Checksum: 5A0BA73E77BAC30F155FD85C8B25311E;2892.
  ) 
 Here is how much of TeX's memory you used:
- 18486 strings out of 492616
- 280969 string characters out of 6129482
- 406787 words of memory out of 5000000
+ 18489 strings out of 492616
+ 281047 string characters out of 6129482
+ 407787 words of memory out of 5000000
  21458 multiletter control sequences out of 15000+600000
- 161948 words of font info for 359 fonts, out of 8000000 for 9000
+ 162319 words of font info for 361 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  60i,12n,94p,796b,569s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/newtx/libertinealt.enc}{/
@@ -1214,10 +1208,10 @@ r/local/texlive/2019/texmf-dist/fonts/type1/public/libertine/LinLibertineTI.pfb
 ></usr/local/texlive/2019/texmf-dist/fonts/type1/public/newtx/fxlri-7letters.pf
 b></usr/local/texlive/2019/texmf-dist/fonts/type1/public/newtx/txsys.pfb></usr/
 local/texlive/2019/texmf-dist/fonts/type1/public/newtx/zxlri.pfb>
-Output written on paper.pdf (12 pages, 2731303 bytes).
+Output written on paper.pdf (12 pages, 2731254 bytes).
 PDF statistics:
- 348 PDF objects out of 1000 (max. 8388607)
- 295 compressed objects within 3 object streams
+ 347 PDF objects out of 1000 (max. 8388607)
+ 294 compressed objects within 3 object streams
  78 named destinations out of 1000 (max. 500000)
  50875 words of extra memory for PDF output out of 51595 (max. 10000000)
 

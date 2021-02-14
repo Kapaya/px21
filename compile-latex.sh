@@ -3,7 +3,8 @@ set -e
 pandoc \
   --filter conditional-render \
   --filter pandoc-crossref \
-    --citeproc \
+  --citeproc \
+  --bibliography=references-bibtex.bib\
   -s \
   -o \
   paper.tex \

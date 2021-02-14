@@ -1,7 +1,6 @@
 ---
 title: "Towards End-user Web Scraping For Customization"
 author: "Kapaya Katongo, Geoffrey Litt and Daniel Jackson"
-bibliography: references.bib
 link-citations: true
 csl: templates/acm.csl
 reference-section-title: References

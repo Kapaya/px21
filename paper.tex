@@ -719,9 +719,8 @@ end-user programming is ``interaction with a living system''
 Unlike text-based commands which are only valid once complete (e.g
 \texttt{SELECT\ *\ FRO} versus \texttt{SELECT\ *\ FROM\ user\_table}),
 the target of demonstration commands (the value of a DOM element under
-the cursor) is the same during both hover and click (incomplete command
-versus complete command). This allows us to take a small step further by
-executing a command before a user completes it, thereby providing them
+the cursor) is the same during both hover and click. This allows us to
+execute a command before a user completes it, thereby providing them
 with a preview of the results on hover.
 
 There are limits to this approach. Providing live feedback on websites
@@ -757,7 +756,7 @@ Rousillon \citep{chasins2018} is a tool that enables end-users to scrape
 distributed, hierarchical web data. Because demonstrations can span
 across several websites and involve complex data access automation
 tasks, its interface does not provide \emph{full} live feedback about
-its generalizations or the values to be scrapped until all the
+its generalizations or the values to be scraped until all the
 demonstrations have been provided and the generated program has been
 run. If run on a website it has encountered before, Rousillon makes all
 the previously determined generalizations visible to the user by
@@ -795,22 +794,28 @@ is created via ``sloppy programming'' \citep{lin2009} techniques.
 However, this editing does not extend to the web scraping interface used
 for demonstrations and presents a change in the model used for creation.
 
-Sifter \citep{huynh2006} is a tool that augments well structured
-websites with advanced sorting and filtering functionality. Like
-Wildcard, it uses web scraping to extract data from websites in order to
-enable customizations (sorting and filtering). Unlike Wildcard, it does
-not support adding annotations to websites and running computations on
-the scraped data using a spreadsheet formula language. Both of these
-significantly expand the types of customizations end-users can make to
-websites. Sifter performs the web scraping automatically using a variety
-of heuristics and solicits guidance from the user if this fails. While
-automatic web scraping seems desirable, it is unclear how useful it is
-if the goal is customization. Given a row with ten scrapable values, and
-therefore ten columns, would a user prefer to simply demonstrate the
-value for the single column they are interested in or un-demonstrate the
-nine values they are not interested in? This automatic web scraping
-approach can be also be seen in tools like import.io \citep{import.io}
-so it is certainly worth evaluating as part of a user study.
+Sifter \citep{huynh2006} is a tool that augments websites with advanced
+sorting and filtering functionality. Similarly to Wildcard, it uses web
+scraping techniques to extract data from websites in order to enable
+customizations. However, Wildcard supports a broader range of
+customizations beyond sorting and filtering, including adding
+annotations to websites and running computations with a spreadsheet
+formula language.
+
+Our scraping tool intentionally provides less automation than Sifter.
+Sifter attempts to automatically detect items and fields on the page
+with a variety of clever heuristics, including automatically detecting
+link tags and considering the size of elements on the page. It then
+gives the user the option of correcting the result if the heuristics do
+not work properly. In contrast, our heuristics are simpler and make
+fewer assumptions about the structure of websites. Rather, we give more
+control to the user from the beginning of the process, and incorporate
+live feedback to help the user provide useful demonstrations. We
+hypothesize that focusing on a tight feedback loop rather than
+automation may support a scraping process that is just as fast as an
+automated one, but gives the user finer control and extends to a greater
+variety of websites where more complex heuristics do not apply. However,
+further user testing is required to actually validate this hypothesis.
 
 \hypertarget{sec:conclusion}{%
 \section{Conclusion And Future Work}\label{sec:conclusion}}
@@ -841,7 +846,7 @@ To assess our design principles, we plan to carry out a broader
 evaluation of our system through a user study. So far, we have only
 tested the system amongst ourselves and a small number of colleagues.
 More testing is needed to understand whether it can be successfully used
-among a broader set set of users across a wider variety of websites.
+among a broader set of users across a wider variety of websites.
 Furthermore, we plan to incorporate the program viewer and
 disambiguation features of FlashProg \citep{mayer2015} to give users
 more insight and control into the generalization process.
@@ -856,7 +861,7 @@ of its users.
 %% The next two lines define the bibliography style to be used, and
 %% the bibliography file.
 \bibliographystyle{ACM-Reference-Format}
-\bibliography{references.bib}
+\bibliography{references-bibtex.bib}
 
 \end{document}
 \endinput

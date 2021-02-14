@@ -13,4 +13,5 @@ set -e
   --toc-depth=1 \
   --variable=toc-title:"Contents" \
   --template=templates/pandoc-template-html.html \
+  --bibliography=references-biblatex.bib \
   paper.md
