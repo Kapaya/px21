@@ -636,7 +636,10 @@ demonstration can only be edited by editing the text-based
 representation of the automtation. In fact, only the automation script
 that works on the scraped website data can be edited. If a user needs to
 add a new column or repair an exisiting one in the table, they need to
-re-demonstrate the columns and then re-run the automation script.
+re-demonstrate the columns and then re-run the automation script. One
+exception to point out is import.io {[}zotero-77{]} which allows users
+to add new columns by demonstration and delete columns and
+re-demonstrate them which could serve the purpose of repair.
 
 In Wildcard, if a website's hand-coded adapter ceases to function
 because the website changes, the table may lose its data which means
@@ -673,11 +676,11 @@ column selectors.
 \hypertarget{live-programming-1}{%
 \subsection{Live Programming}\label{live-programming-1}}
 
-In some end-user web scraping systems like Rousillon
-\citep{chasins2018}, users only get \emph{full} feedback about the
-program's execution (generalization and the scraped values) after
-providing all the demonstrations. This means they cannot adjust their
-demonstrations in response to the system's feedback as they demonstrate.
+In many programming-by-demonstration web scraping systems, users only
+get \emph{full} feedback about the program's execution (generalization
+and the scraped values) after providing all the demonstrations. This
+means they cannot adjust their demonstrations in response to the
+system's feedback as they demonstrate.
 
 Our end-user web scraping system employs live programming techniques to
 eliminate this edit-compile-debug cycle by running the generalization
