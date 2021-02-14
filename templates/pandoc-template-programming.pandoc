@@ -61,7 +61,7 @@ $endif$
 \authorinfo{is Professor in the Department of Electrical Engineering and Computer Science at MIT,  a MacVicar teaching fellow, and Associate Director of the Computer Science and Artificial Intelligence Laboratory. He leads the Software Design Group. Contact him at \email{dnj@csail.mit.edu}.}
 \affiliation{Massachusetts Institute of Technology}
 
-\keywords{end-user programming, software customization, web browser extensions} % please provide 1--5 keywords
+\keywords{end-user programming, software customization, web browser extensions, programming-by-demonstration, web scraping} % please provide 1--5 keywords
 
 
 %%%%%%%%%%%%%%%%%%

@@ -139,8 +139,8 @@
   receive live feedback during their demonstrations.
 
   We have successfully used our system to create, extend and repair
-  adapters by demonstration on a variety of websites. We provide example
-  usage scenarios that showcase each of our design principles.
+  adapters by demonstration on a variety of websites and we provide
+  example usage scenarios that showcase each of our design principles.
 \end{abstract}
 
 %%
@@ -455,7 +455,7 @@ element. For each parent element \(n\), the process is as follows:
   which \(s\) returned an element
 \end{enumerate}
 
-Notice how the \emph{row-sibling constraint} simplifies the problem: row
+Notice how the \emph{row-sibling} constraint simplifies the problem: row
 candidates without siblings that return an element after \(s\) is
 executed on them ((b1) in Figure~\ref{fig:algorithm}) have
 \(n_{siblings}\) = 0, thus disqualifying them. Furthermore, a candidate
@@ -534,34 +534,43 @@ For \emph{Generalization Limitation 1} shown in
 Figure~\ref{fig:limitations}, without the constraint that row elements
 have to be direct siblings, the row generalization algorithm could
 determine the row selector to be \emph{.avenger} (elements with blue
-border in Figure~\ref{fig:limitations}) because it matches the largest
-number of parallel structures (has the largest \(n_{siblings}\)). While
-this may be the correct result for the task of extraction, it is not for
-the task of customization. The selector matches all rows across the two
-tables so the sorting and filtering customizations could place rows in
+border) because it matches the largest number of parallel structures
+(has the largest \(n_{siblings}\)). While this may be the correct result
+for the task of extraction, it is not for the task of customization. The
+selector matches all rows across the two tables (elements with green
+border) so the sorting and filtering customizations could place rows in
 the incorrect table and thereby distort what the tables represent.
-Because of this, our system currently does not support such DOM
-structures but we plan to explore the possibility of extracting multiple
-tables from a website and joining them.
+Because of this, our system currently does not support such layouts but
+we plan to explore the possibility of extracting multiple tables from a
+website and joining them.
 
 For \emph{Generalization Limitation 2} shown in
 Figure~\ref{fig:limitations}, website contains one table of data in
 which rows are made up of the alternating H1 and SPAN tags (elements
-with blue border in Figure~\ref{fig:limitations}). For the task of
-extraction, the DOM elements can be scraped using the shown classes to
-output a table in which the values of the H1 tags form the first column
-and the values of the SPAN tag form the second column. For the task of
-customization, our system would need to know what the row boundaries
-were in order for customizations such as sorting and filtering to work
-as expected. In Wildcard, this can be done with a hand-coded adapter by
-creating artificial row boundaries. In the above DOM structure, an
-artificial row boundary could be created by representing a row as an H1
-tag and the SPAN tag that immediately follows it. These artificial rows
-would form a single unit which would not distort the website after a
-sorting or filtering customization. We plan to explore how such
-artificial row boundaries might be created via demonstration in order to
-support these structures (which are not uncommon, and can be seen, for
-example, in HackerNews).
+with blue border). For the task of extraction, the DOM elements can be
+scraped using the shown classes to output a table in which the values of
+the H1 tags form the first column and the values of the SPAN tag form
+the second column. For the task of customization, our system would need
+to know what the row boundaries were in order for customizations such as
+sorting and filtering to work as expected. In Wildcard, this can be done
+with a hand-coded adapter by creating artificial row boundaries. In
+\emph{Generalization Limitation 2}'s layout, an artificial row boundary
+could be created by representing a row as an H1 tag and the SPAN tag
+that immediately follows it. These artificial rows would form a single
+unit which would not distort the website after a sorting or filtering
+customization. We plan to explore how such artificial row boundaries
+might be created via demonstration in order to support these structures
+(which are not uncommon, and can be seen, for example, in HackerNews).
+
+Another major limitation of our system is our current lack of support
+for scraping data loaded after the initial websites render as the user
+scrolls. Hand-coded adapters can specify event listeners on the DOM to
+re-execute the scraping code when new data is loaded as a user scrolls.
+In future work, will we provide a mechanism for end-users to specify
+when the adapter created via demonstration should re-execute its
+scraping code in response to user scrolling. There is a similar
+limitation for websites that have paged data but it is not clear how
+suitable such pages are for customization to begin with.
 
 \hypertarget{sec:design-principles}{%
 \section{Design Principles}\label{sec:design-principles}}
@@ -592,14 +601,15 @@ across an omission while working with data scraped from a website, they
 need to switch from the environment in which they are using the data to
 the environment in which they created their scraping code in order to
 edit and re-run it. This can be seen in many end-user web scraping
-systems like Rousillon \citep{chasins2018} and commercial tools like
-import.io \citep{zotero-77}, dexi.io \citep{dexi.io}, Octoparse
-\citep{zotero-83} and ParseHub \citep{zotero-86}. In web customization,
-the creators of Vegemite \citep{lin2009}, a system for end-user
-programming of mashups, reported that participants of its user study
-thought ``it was confusing to use one technique to create the initial
-table, and another technique to add information to a new column.'' This
-hints at the need for both a unified environment and a unified workflow.
+systems like Rousillon \citep{chasins2018}and FlashExtract
+\citep{le2014} and commercial tools like import.io \citep{zotero-77},
+dexi.io \citep{dexi.io}, Octoparse \citep{zotero-83} and ParseHub
+\citep{zotero-86}. In web customization, the creators of Vegemite
+\citep{lin2009}, a system for end-user programming of mashups, reported
+that participants of its user study thought ``it was confusing to use
+one technique to create the initial table, and another technique to add
+information to a new column.'' This hints at the need for both a unified
+environment and a unified workflow.
 
 In this work, we have combined scraping and customization into a single,
 unified environment with a unified workflow. The goal is to minimize the
@@ -635,13 +645,15 @@ the web scraping code to add new columns after the demonstration or
 repairing it to provide new selectors if the website changes. In
 Vegemite \citep{lin2009}, a web automation program created through
 demonstration can only be edited by editing the text-based
-representation of the automtation. In fact, only the automation script
-that works on the scraped website data can be edited. If a user needs to
-add a new column or repair an exisiting one in the table, they need to
-re-demonstrate the columns and then re-run the automation script. One
-exception to point out is import.io \citep{zotero-77} which allows users
-to add new columns by demonstration and delete columns and
-re-demonstrate them which could serve the purpose of repair.
+representation of the automtation demonstrations. In fact, only the
+demonstrations used to perform automations on the scraped website data
+can be edited. If a user needs to add a new column or repair an
+exisiting one in the scraped data table, they need to re-demonstrate the
+columns and then re-run the automation script. One exception to existing
+editing models worth pointing out is import.io \citep{zotero-77}. It
+allows users to add new columns by demonstration but it is not clear
+whether deleting a column and re-demonstrating it could serve the
+purpose of repair.
 
 In Wildcard, if a website's hand-coded adapter ceases to function
 because the website changes, the table may lose its data which means
@@ -656,16 +668,16 @@ therefore fundamental to fully democratizing web customization.
 
 Editing by demonstration makes end-users first-class citizens in the
 customization ecosystem. Because users interact with the scraped data
-directly in the context of the website, it is easy to initiate the
-scraping system in editing mode: the scraping system is simply booted up
-using metadata stored with the scraping adapter to the state when the
-demonstration was completed. Users that have gone through the creation
-process will immediately realize what to do in order to extend or repair
-the adapter. Users that have not gone through the creation process might
-have a harder time but we provide visual clues (such as highlighting the
-row to perform demonstrations from with a green border) and live
-programming (immediately preview the results of demonstrations) that
-serve as guides.
+through a unified environment directly in the context of the website, it
+is easy to initiate the scraping system in editing mode: the scraping
+system is simply booted up using metadata stored with the scraping
+adapter to the state when the demonstration was completed. Users that
+have gone through the creation process will immediately realize what to
+do in order to extend or repair the adapter. Users that have not gone
+through the creation process might have a harder time but we provide
+visual clues (such as highlighting the row to perform demonstrations
+from with a green border) and live programming (immediately preview the
+results of demonstrations) that serve as guides.
 
 As discussed in Section~\ref{sec:implementation}, editing by
 demonstration in the web scraping domain is feasible because column
@@ -678,11 +690,12 @@ column selectors.
 \hypertarget{live-programming-1}{%
 \subsection{Live Programming}\label{live-programming-1}}
 
-In many programming-by-demonstration web scraping systems, users only
-get \emph{full} feedback about the program's execution (generalization
-and the scraped values) after providing all the demonstrations. This
-means they cannot adjust their demonstrations in response to the
-system's feedback as they demonstrate.
+In many programming-by-demonstration web scraping systems
+\citep[\citet{lin2009}]{chasins2018}, users only get \emph{full}
+feedback about the program's execution (generalization and the scraped
+values) after providing \emph{all} the demonstrations. This means they
+cannot adjust their demonstrations in response to the system's feedback
+as they demonstrate.
 
 Our end-user web scraping system employs live programming techniques to
 eliminate this edit-compile-debug cycle by running the generalization
