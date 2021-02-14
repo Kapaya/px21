@@ -122,11 +122,12 @@
   websites without traditional programming via a browser extension
   called Wildcard. However, Wildcard only opened part of the
   customization process to end-users, and still required programmers to
-  write site-specific adapters to map website data to a table structure.
-  This means that end-users can only customize a website if a programmer
-  has written an adapter for it. Furthermore, end-users do not have the
-  ability to extend adapters in order to perform new customizations or
-  repair adapters to fix broken customizations.
+  write site-specific adapters to map website data to a table view
+  through which the customizations are made. This means that end-users
+  can only customize a website if a programmer has written an adapter
+  for it. Furthermore, end-users do not have the ability to extend
+  adapters in order to perform new customizations or repair adapters to
+  fix broken customizations.
 
   In this paper, we extend Wildcard with a new system for \emph{end-user
   web scraping for customization} which enables end-users to create,
@@ -282,14 +283,16 @@ page, and hovers over a data value she might like to scrape.
   \caption{\label{fig:creating} Creating an adapter: 1) column data will be scraped into, 2) system's controls, 3) demonstrated column value and row from which columns should be demonstrated from 4) column values determined by generalization algorithm 5) column values populated in table, 6) next column to scrape data into and 7) button to save adapter created by demonstration}
 \end{figure*}
 
-The workflow steps are shown in Figure~\ref{fig:creating}:
+The system provides live feedback as Jen hovers, demonstrating the
+\textbf{live programming} principle. The workflow steps are shown in
+Figure~\ref{fig:creating}:
 
 \begin{itemize}
 \tightlist
 \item
   The selected row of data is annotated in the page with a border, to
   indicate that she will be demonstrating values from within that row
-  (Part 1).
+  (Part 3).
 \item
   The selected column of data is highlighted in the page with a green
   background, to show how the system has generalized her demonstration
