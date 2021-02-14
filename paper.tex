@@ -24,6 +24,8 @@
 %% The first command in your LaTeX source must be the \documentclass command.
 \documentclass[sigconf,10pt]{acmart}
 
+\settopmatter{printfolios=true}
+
 
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
@@ -637,7 +639,7 @@ representation of the automtation. In fact, only the automation script
 that works on the scraped website data can be edited. If a user needs to
 add a new column or repair an exisiting one in the table, they need to
 re-demonstrate the columns and then re-run the automation script. One
-exception to point out is import.io {[}zotero-77{]} which allows users
+exception to point out is import.io \citep{zotero-77} which allows users
 to add new columns by demonstration and delete columns and
 re-demonstrate them which could serve the purpose of repair.
 
