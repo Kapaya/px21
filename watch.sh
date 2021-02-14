@@ -4,7 +4,7 @@ set -e
 ps aux | grep node | grep browser-sync | awk '{ print $2}' | xargs kill
 
 ls *.md | entr ./compile-html.sh &
-browser-sync start --server --files paper.html --no-notify --no-open --port 9000 &
+browser-sync start --server --files index.html --no-notify --no-open --port 9000 &
 
-open "http://localhost:9000/paper.html"
+open "http://localhost:9000/index.html"
 
