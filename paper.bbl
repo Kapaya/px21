@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{18}
+\begin{thebibliography}{17}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -52,24 +52,6 @@
 \newblock \bibinfo{title}{Helena | {{Web Automation}} for {{End Users}}}.
 \newblock \bibinfo{howpublished}{http://helena-lang.org/}.
 \newblock
-
-
-\bibitem[\protect\citeauthoryear{Bolin, Webber, Rha, Wilson, and Miller}{Bolin
-  et~al\mbox{.}}{2005}]%
-        {bolin2005}
-\bibfield{author}{\bibinfo{person}{Michael Bolin}, \bibinfo{person}{Matthew
-  Webber}, \bibinfo{person}{Philip Rha}, \bibinfo{person}{Tom Wilson}, {and}
-  \bibinfo{person}{Robert~C. Miller}.} \bibinfo{year}{2005}\natexlab{}.
-\newblock \showarticletitle{Automation and Customization of Rendered Web
-  Pages}. In \bibinfo{booktitle}{\emph{Proceedings of the 18th Annual {{ACM}}
-  Symposium on {{User}} Interface Software and Technology - {{UIST}} '05}}.
-  \bibinfo{publisher}{{ACM Press}}, \bibinfo{address}{{Seattle, WA, USA}},
-  \bibinfo{pages}{163}.
-\newblock
-\showISBNx{978-1-59593-271-6}
-\urldef\tempurl%
-\url{https://doi.org/10.1145/1095034.1095062}
-\showDOI{\tempurl}
 
 
 \bibitem[\protect\citeauthoryear{Chasins, Mueller, and Bodik}{Chasins

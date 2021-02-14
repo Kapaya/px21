@@ -118,27 +118,30 @@
   them. However, this malleability is typically only accessible to
   programmers with knowledge of HTML and Javascript. Previously, we
   developed a tool called Wildcard which empowers end-users to customize
-  websites through a data table interface without doing traditional
-  programming. However, there is a limit on end-user flexibility with
-  Wildcard, because programmers need to create site-specific adapters
-  mapping website data to a table view. This means that end-users can
-  only customize a website if a programmer has written an adapter for
-  it, and cannot extend or repair existing adapters.
+  websites through a spreadsheet-like table interface without doing
+  traditional programming. However, there is a limit to end-user agency
+  with Wildcard, because programmers need to first create site-specific
+  adapters mapping website data to the table interface. This means that
+  end-users can only customize a website if a programmer has written an
+  adapter for it, and cannot extend or repair existing adapters.
 
   In this paper, we extend Wildcard with a new system for \emph{end-user
   web scraping for customization}. It enables end-users to create,
   extend and repair adapters, by performing concrete demonstrations of
-  how the webpage UI maps to a data table. We describe three design
-  principles that guided our system's development and are applicable to
-  other end-user web scraping and customization systems: (a) users
-  should be able to scrape data and use it in a single, unified
-  environment, (b) users should be able to extend and repair the
+  how the website user interface maps to a data table. We describe three
+  design principles that guided our system's development and are
+  applicable to other end-user web scraping and customization systems:
+  (a) users should be able to scrape data and use it in a single,
+  unified environment, (b) users should be able to extend and repair the
   programs that scrape data via demonstration and (c) users should
   receive live feedback during their demonstrations.
 
   We have successfully used our system to create, extend and repair
   adapters by demonstration on a variety of websites and we provide
   example usage scenarios that showcase each of our design principles.
+  Our ultimate goal is to empower end-users to customize websites in an
+  intuitive and flexible way, and thus make websites more malleable for
+  all of its users.
 \end{abstract}
 
 %%
@@ -184,19 +187,18 @@
 \section{Introduction}\label{sec:introduction}}
 
 Many websites on the internet do not meet the exact needs of all of
-their users. End-user web customization systems like Chickenfoot
-\citep{bolin2005}, Thresher \citep{hogue2005}, Sifter \citep{huynh2006}
-and Vegemite \citep{lin2009} help users tweak and adapt websites to fit
-their unique requirements, ranging from reorganizing or annotating
-content on the website to automating common tasks. In our prior work, we
-presented Wildcard \citep{litt2020a}, a customization system which
-enables end-users to customize websites through direct manipulation. It
-does this by augmenting websites with a table view that shows their
-underlying structured data. The table is bidirectionally synchronized
-with the original website, so end-users can easily customize the website
-by interacting with the table, including sorting and filtering data,
-adding annotations, and running computations in a spreadsheet formula
-language.
+their users. End-user web customization systems like Thresher
+\citep{hogue2005}, Sifter \citep{huynh2006} and Vegemite \citep{lin2009}
+help users tweak and adapt websites to fit their unique requirements,
+ranging from reorganizing or annotating content on the website to
+automating common tasks. In our prior work, we presented Wildcard
+\citep{litt2020a}, a customization system which enables end-users to
+customize websites through direct manipulation. It does this by
+augmenting websites with a table view that shows their underlying
+structured data. The table is bidirectionally synchronized with the
+original website, so end-users can easily customize the website by
+interacting with the table, including sorting and filtering data, adding
+annotations, and running computations in a spreadsheet formula language.
 
 Wildcard has a key limitation. In order to enable end-users to customize
 a website, a programmer first needs to code a Javascript adapter that
@@ -251,11 +253,11 @@ applied to other end-user web scraping and customization tools
   and quickly arrive at the desired result.
 \end{itemize}
 
-Finally, we share our broader vision for web scraping for customization,
-and some opportunities for future work, including a proposal for how
-Wildcard's spreadsheet-like formula language might augment
-demonstrations to provide end-users with more expressiveness in the web
-scraping process (Section~\ref{sec:conclusion}).
+Finally, we share our broader vision for \emph{end-user web scraping for
+customization}, and some opportunities for future work, including a
+proposal for how Wildcard's spreadsheet-like formula language might
+augment demonstrations to provide end-users with more expressiveness in
+the web scraping process (Section~\ref{sec:conclusion}).
 
 \hypertarget{sec:demos}{%
 \section{Motivating Examples}\label{sec:demos}}
@@ -286,13 +288,12 @@ Figure~\ref{fig:creating}:
 \begin{itemize}
 \tightlist
 \item
-  The selected row of data is annotated in the page with a border, to
-  indicate that she will be demonstrating values from within that row
-  (Part 3).
+  The row of data is annotated in the page with a border, to indicate
+  that she will be demonstrating values from within that row (Part 3).
 \item
-  The selected column of data is highlighted in the page with a green
-  background, to show how the system has generalized her demonstration
-  across all the rows in the data (Part 4).
+  The column of data is highlighted in the page with a green background,
+  to show how the system has generalized her demonstration across all
+  the rows in the data (Part 4).
 \item
   A table view appears at the bottom of the screen, and displays how the
   values will appear in the data table (Part 5).
@@ -341,14 +342,13 @@ the intervention of a programmer.
 \hypertarget{repairing-an-adapter}{%
 \subsection{Repairing An Adapter}\label{repairing-an-adapter}}
 
-Jen next visits Google Scholar to look up references for her thesis
-project. Unfortunately, the customization she had applied to sort
-publications by their title (which is not natively supported by Google
-Scholar) is no longer working. In fact, the column in the Wildcard table
-that contained all the publication titles is empty, because the
-website's internals changed and broke the adapter's scraping logic. Jen
-can repair this on her own, again taking advantage of \textbf{editing by
-demonstration}.
+Jen next visits Google Scholar to look up references for a project.
+Unfortunately, the customization she had applied to sort publications by
+their title (which is not natively supported by Google Scholar) is no
+longer working. In fact, the column in the Wildcard table that contained
+all the publication titles is empty, because the website's internals
+changed and broke the adapter's scraping logic. Jen can repair this on
+her own, again taking advantage of \textbf{editing by demonstration}.
 
 The workflow is shown in Figure~\ref{fig:repairing}. Jen initiates the
 editing process (Part 2), and initially hovers over the desired value to
@@ -360,8 +360,7 @@ symbol for column A (Part 3) to indicate that she wants to scrape the
 values into that column and demonstrates the first publication title
 (Part 4). The missing values are now back in the table (Part 5). She
 then proceeds to save her changes (Part 6) and re-apply her
-customization to the website by sorting the publications by their title
-without the intervention of a programmer.
+customization to the website by sorting the publications by their title.
 
 \begin{figure*}
   \includegraphics[width=\textwidth]{media/repairing.png}
@@ -421,19 +420,19 @@ At a high level, the generalization algorithm's challenge is to traverse
 far enough up in the DOM tree from the demonstrated element to find the
 element which corresponds to the row. We solve this using a heuristic;
 the basic intuition is to find a large set of elements with similar
-parallel structure. Consider the following sample HTML layout, which
-displays a truncated table of superheroes, with each row containing some
-nested structure:
+parallel structure. Consider the sample HTML layout in
+Figure~\ref{fig:algorithm}, which displays a truncated table of
+superheroes, with each row containing some nested structure:
 
 \begin{figure*}
   \includegraphics[width=\textwidth]{media/algorithm.png}
   \caption{\label{fig:algorithm}Our system applies a heuristic to identify DOM elements that correspond to rows in the data table.}
 \end{figure*}
 
-The user performs a demonstration by clicking on element (a) in
+The user performs a demonstration by clicking on element \(a\) in
 Figure~\ref{fig:algorithm} containing ``Tony Stark.'' Our algorithm
 traverses upwards from the demonstrated element, considering each
-successive parent element ((b1), (c1) and (d) in
+successive parent element (\(b1\), \(c1\) and \(d\) in
 Figure~\ref{fig:algorithm}) as a potential candidate for the row
 element. For each parent element \texttt{el}, the process is as follows:
 
@@ -450,24 +449,25 @@ element. For each parent element \texttt{el}, the process is as follows:
   \texttt{el\textquotesingle{}} has some parallel structure to
   \texttt{el}.
 \item
-  compute \(n_{siblings}\), the number of sibling elements of
+  compute \(el_{siblings}\), the number of sibling elements of
   \texttt{el} which have parallel structure.
 \end{enumerate}
 
 Notice how the \emph{row-sibling} constraint simplifies the problem. Row
-candidates without siblings with parallel structure ((b1) in
-Figure~\ref{fig:algorithm}) have \(n_{siblings}\) = 0, thus
+candidates without siblings with parallel structure (\(b1\) in
+Figure~\ref{fig:algorithm}) have \(el_{siblings}\) = 0, thus
 disqualifying them.
 
-The algorithm stops traversing upwards once it reaches the BODY element.
-It chooses the element with the largest positive value of
-\(n_{siblings}\) as the row element, preferring nodes lower in the tree
+The algorithm stops traversing upwards once it reaches the \texttt{BODY}
+element. It chooses the element with the largest positive value of
+\(el_{siblings}\) as the row element, preferring nodes lower in the tree
 as a tiebreaker. It then generates a \emph{row selector} which returns
-the row element and all its direct siblings. The column selector is the
-selector that traverses from the row element to the demonstrated data
-value. These row and column selectors are then used to generate a
-scraping adapter which returns the DOM elements corresponding to a data
-row in the table and sets up the bidirectional synchronization.
+the row element and all its direct siblings. The final value of
+\texttt{selector} is the column selector since traverses from the row
+element to the demonstrated data value. These row and column selectors
+are then used to generate a scraping adapter which returns the DOM
+elements corresponding to a data row in the table and sets up the
+bidirectional synchronization.
 
 \hypertarget{live-programming}{%
 \subsection{Live Programming}\label{live-programming}}
@@ -482,7 +482,11 @@ about the system's generalization to the user. Creating an adapter
 enables the system to populate the table view and set up the
 bidirectional synchronization. Because the table is populated and the
 bidirectional synchronization is set up, users can customize as they
-scrape.
+scrape. Live programming is possible in our system because the
+generalization algorithm and adapters execute very quickly. We are yet
+to benchmark the performance and compare it to other
+programming-by-demonstration systems like FlashExtract \citep{le2014}
+that that provide live feedback.
 
 \hypertarget{editing-by-demonstration}{%
 \subsection{Editing By Demonstration}\label{editing-by-demonstration}}
@@ -506,7 +510,7 @@ adapters are repaired to fix broken columns.
 Extending and repairing adapters in this manner is feasible because
 column selectors are independent of each other: changing one column's
 selector does not affect another column's selector. This is not the case
-for system's in which the output of demonstrations are dependent on each
+for systems in which the output of demonstrations are dependent on each
 other. For example, in a web automation sequence that involves clicking
 on a button to open a menu and then entering text into the menu's text
 input, the step that enters the text is not independent because it
@@ -514,6 +518,9 @@ depends on the step that clicks the button to open the menu.
 
 \hypertarget{limitations}{%
 \subsection{Limitations}\label{limitations}}
+
+\hypertarget{generalization-algorithm}{%
+\subsection{Generalization Algorithm}\label{generalization-algorithm}}
 
 The row-sibling constraint we mentioned earlier is important for the end
 goal of customization because row elements that are not direct siblings
@@ -532,7 +539,7 @@ displayed in a grouped structure. Without the constraint that row
 elements have to be direct siblings, the row generalization algorithm
 could determine the row selector to be \emph{.avenger} (elements with
 blue border) because it matches the largest number of parallel
-structures (has the largest \(n_{siblings}\)). While this may be the
+structures (has the largest \(el_{siblings}\)). While this may be the
 correct result for the task of extraction, it is not necessarily
 suitable for the task of customization. When the user sorts and filters,
 this could result in rows moving between the two tables, disrupting the
@@ -543,16 +550,21 @@ joining them together.
 
 \emph{Generalization Limitation 2}, also in
 Figure~\ref{fig:limitations}, shows a case where the website contains
-one table of data in which rows are made up of alternating H1 and SPAN
-tags (elements with blue border). This poses a challenge because each
-row does not correspond directly to a single DOM element; instead, each
-row consists of multiple consecutive DOM elements without any grouped
-structure. Moving the rows when customizing the webpage would require
-treating multiple consecutive elements as a single row. This is
-supported in the underlying Wildcard system, but not yet by our tool.
+one table of data in which rows are made up of alternating \texttt{H1}
+and \texttt{SPAN} tags (elements within blue border). This poses a
+challenge because each row does not correspond directly to a single DOM
+element; instead, each row consists of multiple consecutive DOM elements
+without any grouped structure. Moving the rows when customizing the
+website would require treating multiple consecutive elements as a single
+row. This is supported in the underlying Wildcard system, but not yet by
+our demonstration-based approach.
 
-Our system also does not support scraping data loaded after the initial
-websites render as the user scrolls. Site adapters hand-coded in
+\hypertarget{data-loaded-after-initial-render}{%
+\subsection{Data Loaded After Initial
+Render}\label{data-loaded-after-initial-render}}
+
+Our currently system does not support scraping data loaded after the
+initial websites render as the user scrolls. Site adapters hand-coded in
 Javascript can specify event listeners on the DOM to re-execute the
 scraping code when new data is loaded as a user scrolls. In future work,
 we plan to provide a mechanism for end-users to specify when a
@@ -619,7 +631,7 @@ columns. All of these tasks take place right in the browser, where the
 user was initially already using the website. Instead of bringing the
 data to another tool, we have brought a tool to the data. This principle
 relates to the idea of ``in-place toolchains'' \citep{zotero-1362} for
-end-user programming systems: that users should be able to program using
+end-user programming systems: users should be able to program using
 familiar tools in the context where they already use their software.
 
 Of course, there is value in specialized tools: Wildcard has nowhere
@@ -792,7 +804,7 @@ the table is only populated with the scraped values after all the
 demonstrations have been provided. The scripting interface utilizes
 CoScripter \citep{leshed2008} which is used to record operations on the
 scraped values for automation. For example, the scripting interface can
-be used to demonstrate the task of copying an address in the table,
+be used to demonstrate the task of copying an address in the data table,
 pasting it into a walk score calculator and pasting the result back into
 the table. The script would then be generalized to all the rows and
 re-run to fill in the remaining walk scores. CoScripter provides the
@@ -808,7 +820,7 @@ scraping techniques to extract data from websites in order to enable
 customizations. However, Wildcard supports a broader range of
 customizations beyond sorting and filtering, including adding
 annotations to websites and running computations with a spreadsheet
-formula language. Our scraping tool intentionally provides less
+formula language. Our scraping system intentionally provides less
 automation than Sifter. Sifter attempts to automatically detect items
 and fields on the page with a variety of clever heuristics, including
 automatically detecting link tags and considering the size of elements
@@ -858,7 +870,7 @@ Furthermore, we plan to incorporate the program viewer and
 disambiguation features of FlashProg \citep{mayer2015} to give users
 more insight and control into the generalization process.
 
-Our end goal is to empower end-users to customize websites in an
+Our ultimate goal is to empower end-users to customize websites in an
 intuitive and flexible way, and thus make the web more malleable for all
 of its users.
 
