@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{18}
+\begin{thebibliography}{16}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -37,76 +37,16 @@
 \providecommand\natexlab[1]{#1}
 \providecommand\showeprint[2][]{arXiv:#2}
 
-\bibitem[\protect\citeauthoryear{{Import.io}}{zot}{[n.d.]a}]%
-        {zotero-77}
-{Import.io} \bibinfo{year}{[n.d.]}\natexlab{a}.
-\newblock \bibinfo{booktitle}{\emph{Data {{Scraping}} | {{Web Scraping}} |
-  {{Screen Scraping}} | {{Extract}}}}.
-\newblock {Import.io}.
-\newblock
-\urldef\tempurl%
-\url{https://www.import.io/product/extract/}
-\showURL{%
-\tempurl}
-
-
-\bibitem[\protect\citeauthoryear{??}{zot}{[n.d.]b}]%
-        {zotero-60}
- \bibinfo{year}{[n.d.]}\natexlab{b}.
-\newblock \bibinfo{booktitle}{\emph{End-User Programming}}.
-\newblock
-\urldef\tempurl%
-\url{https://www.inkandswitch.com/end-user-programming.html}
-\showURL{%
-\tempurl}
-
-
-\bibitem[\protect\citeauthoryear{??}{zot}{[n.d.]c}]%
-        {zotero-51}
- \bibinfo{year}{[n.d.]}\natexlab{c}.
-\newblock \bibinfo{booktitle}{\emph{Helena | {{Web Automation}} for {{End
-  Users}}}}.
-\newblock
-\urldef\tempurl%
-\url{http://helena-lang.org/}
-\showURL{%
-\tempurl}
-
-
-\bibitem[\protect\citeauthoryear{??}{zot}{[n.d.]d}]%
-        {zotero-86}
- \bibinfo{year}{[n.d.]}\natexlab{d}.
-\newblock \bibinfo{booktitle}{\emph{{{ParseHub}} | {{Free}} Web Scraping -
-  {{The}} Most Powerful Web Scraper}}.
-\newblock
-\urldef\tempurl%
-\url{https://www.parsehub.com/}
-\showURL{%
-\tempurl}
-
-
-\bibitem[\protect\citeauthoryear{??}{zot}{[n.d.]e}]%
-        {zotero-83}
- \bibinfo{year}{[n.d.]}\natexlab{e}.
-\newblock \bibinfo{booktitle}{\emph{Web {{Scraping Tool}} \& {{Free Web
-  Crawlers}} | {{Octoparse}}}}.
-\newblock
-\urldef\tempurl%
-\url{https://www.octoparse.com/#}
-\showURL{%
-\tempurl}
-
-
 \bibitem[\protect\citeauthoryear{Bolin, Webber, Rha, Wilson, and Miller}{Bolin
-  et~al\mbox{.}}{[n.d.]}]%
+  et~al\mbox{.}}{2005}]%
         {bolin2005}
 \bibfield{author}{\bibinfo{person}{Michael Bolin}, \bibinfo{person}{Matthew
   Webber}, \bibinfo{person}{Philip Rha}, \bibinfo{person}{Tom Wilson}, {and}
-  \bibinfo{person}{Robert~C. Miller}.} \bibinfo{year}{[n.d.]}\natexlab{}.
+  \bibinfo{person}{Robert~C. Miller}.} \bibinfo{year}{2005}\natexlab{}.
 \newblock \showarticletitle{Automation and Customization of Rendered Web
   Pages}. In \bibinfo{booktitle}{\emph{Proceedings of the 18th Annual {{ACM}}
-  Symposium on {{User}} Interface Software and Technology - {{UIST}} '05}}
-  ({Seattle, WA, USA}, 2005). \bibinfo{publisher}{{ACM Press}},
+  Symposium on {{User}} Interface Software and Technology - {{UIST}} '05}}.
+  \bibinfo{publisher}{{ACM Press}}, \bibinfo{address}{{Seattle, WA, USA}},
   \bibinfo{pages}{163}.
 \newblock
 \showISBNx{978-1-59593-271-6}
@@ -116,15 +56,16 @@
 
 
 \bibitem[\protect\citeauthoryear{Chasins, Mueller, and Bodik}{Chasins
-  et~al\mbox{.}}{[n.d.]}]%
+  et~al\mbox{.}}{2018}]%
         {chasins2018}
 \bibfield{author}{\bibinfo{person}{Sarah~E. Chasins}, \bibinfo{person}{Maria
   Mueller}, {and} \bibinfo{person}{Rastislav Bodik}.}
-  \bibinfo{year}{[n.d.]}\natexlab{}.
+  \bibinfo{year}{2018}\natexlab{}.
 \newblock \showarticletitle{Rousillon: {{Scraping Distributed Hierarchical Web
   Data}}}. In \bibinfo{booktitle}{\emph{The 31st {{Annual ACM Symposium}} on
-  {{User Interface Software}} and {{Technology}} - {{UIST}} '18}} ({Berlin,
-  Germany}, 2018). \bibinfo{publisher}{{ACM Press}}, \bibinfo{pages}{963--975}.
+  {{User Interface Software}} and {{Technology}} - {{UIST}} '18}}.
+  \bibinfo{publisher}{{ACM Press}}, \bibinfo{address}{{Berlin, Germany}},
+  \bibinfo{pages}{963--975}.
 \newblock
 \showISBNx{978-1-4503-5948-1}
 \urldef\tempurl%
@@ -136,26 +77,23 @@
         {dexi.io}
 \bibfield{author}{\bibinfo{person}{{dexi.io}}.}
   \bibinfo{year}{[n.d.]}\natexlab{}.
-\newblock \bibinfo{booktitle}{\emph{The Most Powerful Web Scraping Software
-  Available}}.
+\newblock \bibinfo{title}{The Most Powerful Web Scraping Software Available}.
+\newblock \bibinfo{howpublished}{https://webscraping.dexi.io}.
 \newblock
-\urldef\tempurl%
-\url{https://webscraping.dexi.io}
-\showURL{%
-\tempurl}
 
 
 \bibitem[\protect\citeauthoryear{Drosos, Barik, Guo, DeLine, and
-  Gulwani}{Drosos et~al\mbox{.}}{[n.d.]}]%
+  Gulwani}{Drosos et~al\mbox{.}}{2020}]%
         {drosos2020}
 \bibfield{author}{\bibinfo{person}{Ian Drosos}, \bibinfo{person}{Titus Barik},
   \bibinfo{person}{Philip~J. Guo}, \bibinfo{person}{Robert DeLine}, {and}
-  \bibinfo{person}{Sumit Gulwani}.} \bibinfo{year}{[n.d.]}\natexlab{}.
+  \bibinfo{person}{Sumit Gulwani}.} \bibinfo{year}{2020}\natexlab{}.
 \newblock \showarticletitle{Wrex: {{A Unified Programming}}-by-{{Example
   Interaction}} for {{Synthesizing Readable Code}} for {{Data Scientists}}}. In
   \bibinfo{booktitle}{\emph{Proceedings of the 2020 {{CHI Conference}} on
-  {{Human Factors}} in {{Computing Systems}}}} ({Honolulu HI USA}, 2020-04-21).
-  \bibinfo{publisher}{{ACM}}, \bibinfo{pages}{1--12}.
+  {{Human Factors}} in {{Computing Systems}}}} \emph{(\bibinfo{series}{{{CHI}}
+  '20})}. \bibinfo{publisher}{{Association for Computing Machinery}},
+  \bibinfo{address}{{New York, NY, USA}}, \bibinfo{pages}{1--12}.
 \newblock
 \showISBNx{978-1-4503-6708-0}
 \urldef\tempurl%
@@ -163,15 +101,15 @@
 \showDOI{\tempurl}
 
 
-\bibitem[\protect\citeauthoryear{Hogue and Karger}{Hogue and Karger}{[n.d.]}]%
+\bibitem[\protect\citeauthoryear{Hogue and Karger}{Hogue and Karger}{2005}]%
         {hogue2005}
 \bibfield{author}{\bibinfo{person}{Andrew Hogue} {and} \bibinfo{person}{David
-  Karger}.} \bibinfo{year}{[n.d.]}\natexlab{}.
+  Karger}.} \bibinfo{year}{2005}\natexlab{}.
 \newblock \showarticletitle{Thresher: Automating the Unwrapping of Semantic
   Content from the {{World Wide Web}}}. In
   \bibinfo{booktitle}{\emph{Proceedings of the 14th International Conference on
-  {{World Wide Web}} - {{WWW}} '05}} ({Chiba, Japan}, 2005).
-  \bibinfo{publisher}{{ACM Press}}, \bibinfo{pages}{86}.
+  {{World Wide Web}} - {{WWW}} '05}}. \bibinfo{publisher}{{ACM Press}},
+  \bibinfo{address}{{Chiba, Japan}}, \bibinfo{pages}{86}.
 \newblock
 \showISBNx{978-1-59593-046-0}
 \urldef\tempurl%
@@ -180,16 +118,17 @@
 
 
 \bibitem[\protect\citeauthoryear{Huynh, Miller, and Karger}{Huynh
-  et~al\mbox{.}}{[n.d.]}]%
+  et~al\mbox{.}}{2006}]%
         {huynh2006}
 \bibfield{author}{\bibinfo{person}{David~F. Huynh}, \bibinfo{person}{Robert~C.
   Miller}, {and} \bibinfo{person}{David~R. Karger}.}
-  \bibinfo{year}{[n.d.]}\natexlab{}.
+  \bibinfo{year}{2006}\natexlab{}.
 \newblock \showarticletitle{Enabling Web Browsers to Augment Web Sites'
   Filtering and Sorting Functionalities}. In
   \bibinfo{booktitle}{\emph{Proceedings of the 19th Annual {{ACM}} Symposium on
-  {{User}} Interface Software and Technology - {{UIST}} '06}} ({Montreux,
-  Switzerland}, 2006). \bibinfo{publisher}{{ACM Press}}, \bibinfo{pages}{125}.
+  {{User}} Interface Software and Technology - {{UIST}} '06}}.
+  \bibinfo{publisher}{{ACM Press}}, \bibinfo{address}{{Montreux, Switzerland}},
+  \bibinfo{pages}{125}.
 \newblock
 \showISBNx{978-1-59593-313-3}
 \urldef\tempurl%
@@ -197,14 +136,25 @@
 \showDOI{\tempurl}
 
 
-\bibitem[\protect\citeauthoryear{Kushmerick}{Kushmerick}{[n.d.]}]%
+\bibitem[\protect\citeauthoryear{{import.io}}{{import.io}}{[n.d.]}]%
+        {import.io}
+\bibfield{author}{\bibinfo{person}{{import.io}}.}
+  \bibinfo{year}{[n.d.]}\natexlab{}.
+\newblock \bibinfo{title}{Data {{Scraping}} | {{Web Scraping}} | {{Screen
+  Scraping}} | {{Extract}}}.
+\newblock
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Kushmerick}{Kushmerick}{2000}]%
         {kushmerick2000}
 \bibfield{author}{\bibinfo{person}{Nicholas Kushmerick}.}
-  \bibinfo{year}{[n.d.]}\natexlab{}.
+  \bibinfo{year}{2000}\natexlab{}.
 \newblock \showarticletitle{Wrapper Induction: {{Efficiency}} and
   Expressiveness}.
-\newblock  \bibinfo{volume}{118}, \bibinfo{number}{1}
-  (\bibinfo{year}{[n.\,d.]}), \bibinfo{pages}{15--68}.
+\newblock \bibinfo{journal}{\emph{Artificial Intelligence}}
+  \bibinfo{volume}{118}, \bibinfo{number}{1} (\bibinfo{date}{April}
+  \bibinfo{year}{2000}), \bibinfo{pages}{15--68}.
 \newblock
 \showISSN{0004-3702}
 \urldef\tempurl%
@@ -212,15 +162,15 @@
 \showDOI{\tempurl}
 
 
-\bibitem[\protect\citeauthoryear{Le and Gulwani}{Le and Gulwani}{[n.d.]}]%
+\bibitem[\protect\citeauthoryear{Le and Gulwani}{Le and Gulwani}{2014}]%
         {le2014}
 \bibfield{author}{\bibinfo{person}{Vu Le} {and} \bibinfo{person}{Sumit
-  Gulwani}.} \bibinfo{year}{[n.d.]}\natexlab{}.
+  Gulwani}.} \bibinfo{year}{2014}\natexlab{}.
 \newblock \showarticletitle{{{FlashExtract}}: A Framework for Data Extraction
   by Examples}. In \bibinfo{booktitle}{\emph{Proceedings of the 35th {{ACM
   SIGPLAN Conference}} on {{Programming Language Design}} and
-  {{Implementation}}}} ({Edinburgh United Kingdom}, 2014-06-09).
-  \bibinfo{publisher}{{ACM}}, \bibinfo{pages}{542--553}.
+  {{Implementation}}}}. \bibinfo{publisher}{{ACM}},
+  \bibinfo{address}{{Edinburgh United Kingdom}}, \bibinfo{pages}{542--553}.
 \newblock
 \showISBNx{978-1-4503-2784-8}
 \urldef\tempurl%
@@ -229,16 +179,16 @@
 
 
 \bibitem[\protect\citeauthoryear{Leshed, Haber, Matthews, and Lau}{Leshed
-  et~al\mbox{.}}{[n.d.]}]%
+  et~al\mbox{.}}{2008}]%
         {leshed2008}
 \bibfield{author}{\bibinfo{person}{Gilly Leshed}, \bibinfo{person}{Eben~M.
   Haber}, \bibinfo{person}{Tara Matthews}, {and} \bibinfo{person}{Tessa Lau}.}
-  \bibinfo{year}{[n.d.]}\natexlab{}.
+  \bibinfo{year}{2008}\natexlab{}.
 \newblock \showarticletitle{{{CoScripter}}: Automating \&amp; Sharing How-to
   Knowledge in the Enterprise}. In \bibinfo{booktitle}{\emph{Proceedings of the
-  {{SIGCHI Conference}} on {{Human Factors}} in {{Computing Systems}}}} ({New
-  York, NY, USA}, 2008-04-06) \emph{(\bibinfo{series}{{{CHI}} '08})}.
-  \bibinfo{publisher}{{Association for Computing Machinery}},
+  {{SIGCHI Conference}} on {{Human Factors}} in {{Computing Systems}}}}
+  \emph{(\bibinfo{series}{{{CHI}} '08})}. \bibinfo{publisher}{{Association for
+  Computing Machinery}}, \bibinfo{address}{{New York, NY, USA}},
   \bibinfo{pages}{1719--1728}.
 \newblock
 \showISBNx{978-1-60558-011-1}
@@ -248,16 +198,16 @@
 
 
 \bibitem[\protect\citeauthoryear{Lin, Wong, Nichols, Cypher, and Lau}{Lin
-  et~al\mbox{.}}{[n.d.]}]%
+  et~al\mbox{.}}{2009}]%
         {lin2009}
 \bibfield{author}{\bibinfo{person}{James Lin}, \bibinfo{person}{Jeffrey Wong},
   \bibinfo{person}{Jeffrey Nichols}, \bibinfo{person}{Allen Cypher}, {and}
-  \bibinfo{person}{Tessa~A. Lau}.} \bibinfo{year}{[n.d.]}\natexlab{}.
+  \bibinfo{person}{Tessa~A. Lau}.} \bibinfo{year}{2009}\natexlab{}.
 \newblock \showarticletitle{End-User Programming of Mashups with Vegemite}. In
   \bibinfo{booktitle}{\emph{Proceedings of the 14th International Conference on
-  {{Intelligent}} User Interfaces}} ({New York, NY, USA}, 2009-02-08)
-  \emph{(\bibinfo{series}{{{IUI}} '09})}. \bibinfo{publisher}{{Association for
-  Computing Machinery}}, \bibinfo{pages}{97--106}.
+  {{Intelligent}} User Interfaces}} \emph{(\bibinfo{series}{{{IUI}} '09})}.
+  \bibinfo{publisher}{{Association for Computing Machinery}},
+  \bibinfo{address}{{New York, NY, USA}}, \bibinfo{pages}{97--106}.
 \newblock
 \showISBNx{978-1-60558-168-2}
 \urldef\tempurl%
@@ -265,33 +215,36 @@
 \showDOI{\tempurl}
 
 
-\bibitem[\protect\citeauthoryear{Litt and Jackson}{Litt and Jackson}{[n.d.]}]%
+\bibitem[\protect\citeauthoryear{Litt, Jackson, Millis, and Quaye}{Litt
+  et~al\mbox{.}}{2020}]%
         {litt2020a}
-\bibfield{author}{\bibinfo{person}{Geoffrey Litt} {and} \bibinfo{person}{Daniel
-  Jackson}.} \bibinfo{year}{[n.d.]}\natexlab{}.
-\newblock \showarticletitle{Wildcard: {{Spreadsheet}}-{{Driven Customization}}
-  of {{Web Applications}}}. In \bibinfo{booktitle}{\emph{Companion
-  {{Proceedings}} of the 4th {{International Conference}} on the {{Art}},
-  {{Science}}, and {{Engineering}} of {{Programming}}}} ({Porto, Portugal.},
-  2020). \bibinfo{publisher}{{Association for Computing Machinery}},
-  \bibinfo{pages}{10}.
+\bibfield{author}{\bibinfo{person}{Geoffrey Litt}, \bibinfo{person}{Daniel
+  Jackson}, \bibinfo{person}{Tyler Millis}, {and} \bibinfo{person}{Jessica
+  Quaye}.} \bibinfo{year}{2020}\natexlab{}.
+\newblock \showarticletitle{End-User {{Software Customization}} by {{Direct
+  Manipulation}} of {{Tabular Data}}}. In \bibinfo{booktitle}{\emph{Proceedings
+  of the 2020 {{ACM SIGPLAN International Symposium}} on {{New Ideas}}, {{New
+  Paradigms}}, and {{Reflections}} on {{Programming}} and {{Software}}}}.
+  \bibinfo{publisher}{{ACM}}, \bibinfo{address}{{Virtual USA}},
+  \bibinfo{pages}{18--33}.
 \newblock
+\showISBNx{978-1-4503-8178-9}
 \urldef\tempurl%
-\url{https://doi.org/10.1145/3397537.3397541}
+\url{https://doi.org/10.1145/3426428.3426914}
 \showDOI{\tempurl}
 
 
-\bibitem[\protect\citeauthoryear{MacLean, Carter, Lövstrand, and
-  Moran}{MacLean et~al\mbox{.}}{[n.d.]}]%
+\bibitem[\protect\citeauthoryear{MacLean, Carter, L{\"o}vstrand, and
+  Moran}{MacLean et~al\mbox{.}}{1990}]%
         {maclean1990}
 \bibfield{author}{\bibinfo{person}{Allan MacLean}, \bibinfo{person}{Kathleen
-  Carter}, \bibinfo{person}{Lennart Lövstrand}, {and} \bibinfo{person}{Thomas
-  Moran}.} \bibinfo{year}{[n.d.]}\natexlab{}.
+  Carter}, \bibinfo{person}{Lennart L{\"o}vstrand}, {and}
+  \bibinfo{person}{Thomas Moran}.} \bibinfo{year}{1990}\natexlab{}.
 \newblock \showarticletitle{User-Tailorable Systems: Pressing the Issues with
   Buttons}. In \bibinfo{booktitle}{\emph{Proceedings of the {{SIGCHI
-  Conference}} on {{Human Factors}} in {{Computing Systems}}}} ({New York, NY,
-  USA}, 1990-03-01) \emph{(\bibinfo{series}{{{CHI}} '90})}.
-  \bibinfo{publisher}{{Association for Computing Machinery}},
+  Conference}} on {{Human Factors}} in {{Computing Systems}}}}
+  \emph{(\bibinfo{series}{{{CHI}} '90})}. \bibinfo{publisher}{{Association for
+  Computing Machinery}}, \bibinfo{address}{{New York, NY, USA}},
   \bibinfo{pages}{175--182}.
 \newblock
 \showISBNx{978-0-201-50932-8}
@@ -301,23 +254,43 @@
 
 
 \bibitem[\protect\citeauthoryear{Mayer, Soares, Grechkin, Le, Marron, Polozov,
-  Singh, Zorn, and Gulwani}{Mayer et~al\mbox{.}}{[n.d.]}]%
+  Singh, Zorn, and Gulwani}{Mayer et~al\mbox{.}}{2015}]%
         {mayer2015}
-\bibfield{author}{\bibinfo{person}{Mikaël Mayer}, \bibinfo{person}{Gustavo
+\bibfield{author}{\bibinfo{person}{Mika{\"e}l Mayer}, \bibinfo{person}{Gustavo
   Soares}, \bibinfo{person}{Maxim Grechkin}, \bibinfo{person}{Vu Le},
   \bibinfo{person}{Mark Marron}, \bibinfo{person}{Oleksandr Polozov},
   \bibinfo{person}{Rishabh Singh}, \bibinfo{person}{Benjamin Zorn}, {and}
-  \bibinfo{person}{Sumit Gulwani}.} \bibinfo{year}{[n.d.]}\natexlab{}.
+  \bibinfo{person}{Sumit Gulwani}.} \bibinfo{year}{2015}\natexlab{}.
 \newblock \showarticletitle{User {{Interaction Models}} for {{Disambiguation}}
   in {{Programming}} by {{Example}}}. In \bibinfo{booktitle}{\emph{Proceedings
   of the 28th {{Annual ACM Symposium}} on {{User Interface Software}} \&
-  {{Technology}}}} ({Charlotte NC USA}, 2015-11-05).
-  \bibinfo{publisher}{{ACM}}, \bibinfo{pages}{291--301}.
+  {{Technology}}}}. \bibinfo{publisher}{{ACM}}, \bibinfo{address}{{Charlotte NC
+  USA}}, \bibinfo{pages}{291--301}.
 \newblock
 \showISBNx{978-1-4503-3779-3}
 \urldef\tempurl%
 \url{https://doi.org/10.1145/2807442.2807459}
 \showDOI{\tempurl}
+
+
+\bibitem[\protect\citeauthoryear{Octoparse}{Octoparse}{[n.d.]}]%
+        {octoparse}
+\bibfield{author}{\bibinfo{person}{Octoparse}.}
+  \bibinfo{year}{[n.d.]}\natexlab{}.
+\newblock \bibinfo{title}{Web {{Scraping Tool}} \& {{Free Web Crawlers}} |
+  {{Octoparse}}}.
+\newblock \bibinfo{howpublished}{https://www.octoparse.com/\#}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{ParseHub}{ParseHub}{[n.d.]}]%
+        {parsehub}
+\bibfield{author}{\bibinfo{person}{ParseHub}.}
+  \bibinfo{year}{[n.d.]}\natexlab{}.
+\newblock \bibinfo{title}{{{ParseHub}} | {{Free}} Web Scraping - {{The}} Most
+  Powerful Web Scraper}.
+\newblock \bibinfo{howpublished}{https://www.parsehub.com/}.
+\newblock
 
 
 \end{thebibliography}

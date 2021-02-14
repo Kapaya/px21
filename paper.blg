@@ -6,118 +6,57 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Database file #1: references.bib
+Warning--I didn't find a database entry for "zotero-60"
+Warning--I didn't find a database entry for "zotero-51"
+Warning--I didn't find a database entry for "zotero-77"
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-Warning--no key, author in zotero-77
-Warning--to sort, need author or key in zotero-77
-Warning--no key, author in zotero-83
-Warning--no author, editor, organization, or key in zotero-83
-Warning--to sort, need author or key in zotero-83
-Warning--no key, author in zotero-86
-Warning--no author, editor, organization, or key in zotero-86
-Warning--to sort, need author or key in zotero-86
-Warning--no key, author in zotero-60
-Warning--no author, editor, organization, or key in zotero-60
-Warning--to sort, need author or key in zotero-60
-Warning--no key, author in zotero-51
-Warning--no author, editor, organization, or key in zotero-51
-Warning--to sort, need author or key in zotero-51
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
 Reallocated global_strs (elt_size=20001) to 20 items from 10.
 Reallocated glb_str_end (elt_size=4) to 20 items from 10.
-Warning--no key, author in zotero-77
-Warning--no key, author in zotero-77
-Warning--no key, author in zotero-60
-Warning--no key, author in zotero-51
-Warning--no key, author in zotero-86
-Warning--no key, author in zotero-83
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-Warning--no key, author in zotero-77
-Warning--empty year in zotero-77
-Warning--no key, author in zotero-60
-Warning--no author, editor, organization, or key in zotero-60
-Warning--empty organization in zotero-60
-Warning--empty year in zotero-60
-Warning--empty organization in zotero-60
-Warning--no key, author in zotero-51
-Warning--no author, editor, organization, or key in zotero-51
-Warning--empty organization in zotero-51
-Warning--empty year in zotero-51
-Warning--empty organization in zotero-51
-Warning--no key, author in zotero-86
-Warning--no author, editor, organization, or key in zotero-86
-Warning--empty organization in zotero-86
-Warning--empty year in zotero-86
-Warning--empty organization in zotero-86
-Warning--no key, author in zotero-83
-Warning--no author, editor, organization, or key in zotero-83
-Warning--empty organization in zotero-83
-Warning--empty year in zotero-83
-Warning--empty organization in zotero-83
-Warning--empty year in bolin2005
-Warning--empty address in bolin2005
-Warning--empty year in chasins2018
-Warning--empty address in chasins2018
 Warning--empty year in dexi.io
-Warning--empty organization in dexi.io
-Warning--empty year in drosos2020
-Warning--empty address in drosos2020
-Warning--empty year in hogue2005
-Warning--empty address in hogue2005
-Warning--empty year in huynh2006
-Warning--empty address in huynh2006
-Warning--empty year in kushmerick2000
-Warning--no journal in kushmerick2000
-Warning--empty year in le2014
-Warning--empty address in le2014
-Warning--empty year in leshed2008
-Warning--empty address in leshed2008
-Warning--empty year in lin2009
-Warning--empty address in lin2009
-Warning--empty year in litt2020a
-Warning--empty address in litt2020a
-Warning--empty year in maclean1990
-Warning--empty address in maclean1990
-Warning--empty year in mayer2015
-Warning--empty address in mayer2015
-You've used 18 entries,
+Warning--empty year in import.io
+Warning--empty year in octoparse
+Warning--empty year in parsehub
+You've used 16 entries,
             5945 wiz_defined-function locations,
-            1465 strings with 19398 characters,
-and the built_in function-call counts, 18401 in all, are:
-= -- 1709
-> -- 636
+            1453 strings with 18748 characters,
+and the built_in function-call counts, 18637 in all, are:
+= -- 2006
+> -- 710
 < -- 0
-+ -- 220
-- -- 216
-* -- 1489
-:= -- 1864
++ -- 230
+- -- 240
+* -- 1388
+:= -- 1968
 add.period$ -- 80
-call.type$ -- 18
-change.case$ -- 118
-chr.to.int$ -- 14
-cite$ -- 102
-duplicate$ -- 1705
-empty$ -- 1238
-format.name$ -- 260
-if$ -- 4278
-int.to.chr$ -- 6
+call.type$ -- 16
+change.case$ -- 115
+chr.to.int$ -- 16
+cite$ -- 20
+duplicate$ -- 1694
+empty$ -- 1184
+format.name$ -- 284
+if$ -- 4282
+int.to.chr$ -- 2
 int.to.str$ -- 1
 missing$ -- 59
-newline$ -- 239
-num.names$ -- 104
-pop$ -- 1043
+newline$ -- 205
+num.names$ -- 128
+pop$ -- 683
 preamble$ -- 1
-purify$ -- 168
+purify$ -- 235
 quote$ -- 0
-skip$ -- 523
+skip$ -- 619
 stack$ -- 0
-substring$ -- 1040
-swap$ -- 201
+substring$ -- 1313
+swap$ -- 193
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 502
-warning$ -- 68
-while$ -- 100
+type$ -- 466
+warning$ -- 4
+while$ -- 122
 width$ -- 0
-write$ -- 399
-(There were 68 warnings)
+write$ -- 373
+(There were 7 warnings)
