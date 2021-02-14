@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{16}
+\begin{thebibliography}{18}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -36,6 +36,23 @@
 \providecommand\bibinfo[2]{#2}
 \providecommand\natexlab[1]{#1}
 \providecommand\showeprint[2][]{arXiv:#2}
+
+\bibitem[\protect\citeauthoryear{??}{zot}{[n.d.]a}]%
+        {zotero-1362}
+ \bibinfo{year}{[n.d.]}\natexlab{a}.
+\newblock \bibinfo{title}{End-User Programming}.
+\newblock
+  \bibinfo{howpublished}{https://www.inkandswitch.com/end-user-programming.html}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{??}{zot}{[n.d.]b}]%
+        {zotero-1349}
+ \bibinfo{year}{[n.d.]}\natexlab{b}.
+\newblock \bibinfo{title}{Helena | {{Web Automation}} for {{End Users}}}.
+\newblock \bibinfo{howpublished}{http://helena-lang.org/}.
+\newblock
+
 
 \bibitem[\protect\citeauthoryear{Bolin, Webber, Rha, Wilson, and Miller}{Bolin
   et~al\mbox{.}}{2005}]%
