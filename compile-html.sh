@@ -2,6 +2,7 @@ set -e
 
  pandoc \
   --filter pandoc-crossref \
+  --filter conditional-render \
   --citeproc \
   --metadata=format:html \
   -s \

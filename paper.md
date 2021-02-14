@@ -15,7 +15,7 @@ abstract: |
  Websites are malleable: users can install browser extensions and run arbitrary Javascript in the developer console to change them. However, this malleability is only accessible to programmers with knowledge of HTML and Javascript. To broaden access to customization, our prior work developed an approach that empowers end-users to customize websites without traditional programming via a browser extension called Wildcard. However, Wildcard only opened part of the customization process to end-users, and still required programmers to write site-specific adapters to map website data to a table structure. This means that end-users can only customize a website if a programmer has written an adapter for it. Furthermore, end-users do not have the ability to extend adapters in order to perform new customizations or repair adapters to fix broken customizations.
 
  In this paper, we extend Wildcard with a new system for *end-user web scraping for customization* which enables end-users to create, extend and repair adapters by demonstration. We describe three design principles that guided our system's development and are applicable to other end-user web scraping and customization systems: (a) users should be able to scrape data and use it in a single, unified environment, (b) users should be able to extend and repair the programs that scrape data via demonstration and (c) users should receive live feedback during their demonstrations.
- 
+
  We have successfully used our system to create, extend and repair adapters by demonstration on a variety of websites. We provide example usage scenarios that showcase each of our design principles.
 
 ---
