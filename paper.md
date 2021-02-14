@@ -24,7 +24,7 @@ abstract: |
 
 Many websites on the internet do not meet the exact needs of all of their users. End-user web customization systems like Chickenfoot [@bolin2005], Thresher [@hogue2005], Sifter [@huynh2006] and Vegemite [@lin2009] help users tweak and adapt websites to fit their unique requirements, ranging from reorganizing or annotating content on the website to automating common tasks. In our prior work, we presented Wildcard [@litt2020a], a customization system which enables end-users to customize websites through direct manipulation. It does this by augmenting websites with a table view that shows their underlying structured data. The table is bidirectionally synchronized with the original website, so end-users can easily customize the website by interacting with the table, including sorting and filtering data, adding annotations, and running computations in a spreadsheet formula language.
 
-Wildcard has a key limitation. In order to enable end-users to customize a website, a Javascript programmer first needs to code an adapter that specifies how to scrape the website content and set up a bidirectional synchronization with Wildcard's table view. Even though programmers can share adapters with end-users, this means that an end-user can only use Wildcard on websites where some programmer has already written an adapter. Additionally, if an adapter doesn't scrape the desired data, or stops functioning correctly when a website changes, an end-user has no recourse to extend or repair it on their own.
+Wildcard has a key limitation. In order to enable end-users to customize a website, a programmer first needs to code a Javascript adapter that specifies how to scrape the website content and set up a bidirectional synchronization with Wildcard's table view. Even though programmers can share adapters with end-users, this means that an end-user can only use Wildcard on websites where some programmer has already written an adapter. Additionally, if an adapter doesn't scrape the desired data, or stops functioning correctly when a website changes, an end-user has no recourse to extend or repair it on their own.
 
 <div class="pdf-only">
 \begin{figure*}
@@ -42,7 +42,7 @@ In this paper, we describe an addition to Wildcard: a system that enables end-us
 Our key contribution is a set of three design principles that guided the development of our system, which also offer insights that might be applied to other end-user web scraping and customization tools ([@sec:design-principles]):
 
 - **Unified Environment**: Users should be able to scrape data and interact with the scraped data in a single, unified environment. This minimizes the barrier to fluidly switching back and forth between the two tasks, rather than treating them as entirely independent tasks.
-- **Editing By Demonstration**: Users should be able to not only create programs for scraping data by demonstration, but also extend and repair the programs by demonstration. This enables users to build on other user's work, and is especially important in the context of web scraping since programs that scrape data sometimes break as the underlying website changes.
+- **Editing By Demonstration**: Users should be able to not only create programs for scraping data by demonstration, but also extend and repair the programs by demonstration. This enables users to build on other users' work, and is especially important in the context of web scraping since scrapers break as the underlying website changes.
 - **Live Programming**: Users should receive live feedback as they perform demonstrations. The system should indicate how it is generalizing from the user's example and what the resulting data will look like, so that the user can adjust their demonstrations on the fly and quickly arrive at the desired result.
 
 Finally, we share our broader vision for web scraping for customization, and some opportunities for future work, including a proposal for how Wildcard’s spreadsheet-like formula language might augment demonstrations to provide end-users with more expressiveness in the web scraping process ([@sec:conclusion]).
@@ -79,7 +79,7 @@ Jen tries hovering over several other elements in the page, taking advantage of 
 The system provides live feedback as Jen hovers, demonstrating the **live programming** principle. The workflow steps are shown in @fig:creating:
 
 - The selected row of data is annotated in the page with a border, to indicate that she will be demonstrating values from within that row (Part 3).
-- The selected column of data is highlighted in the page with a green background, to show how the system has generalized her demonstration across all the rows in the data (Part 3 and 4).
+- The selected column of data is highlighted in the page with a green background, to show how the system has generalized her demonstration across all the rows in the data (Part 4).
 - A table view appears at the bottom of the screen, and displays how the values will appear in the data table (Part 5).
 
 Jen tries hovering over several other elements in the page, taking advantage of the live feedback environment to decide what data would be useful. After considering several options, she decides to save the date field in the first column of the table, and commits the action by clicking.
@@ -101,13 +101,7 @@ Next, she performs a similar process to fill the next column with the weather de
 
 ## Extending An Adapter
 
-<div class="html-only">
-Jen has previously used Wildcard to customize timeanddate.com. In addition to sorting the list of holidays in a year by the day of the week, she also wants to sort them by category so she can view all the federal holidays together. Previously, she would have needed to find a programmer to help her edit the adapter code to incorporate this additional data, but using our system’s support for **editing by demonstration**, Jen can extend the adapter herself.
-</div>
-
-<div class="pdf-only">
-Jen uses Wildcard on timeanddate.com. In addition to sorting the list of holidays in a year by the day of the week, she also wants to sort them by category so she can view all the federal holidays together. Previously, she would have needed to find a programmer to help her edit the adapter code to incorporate this additional data, but using our system’s support for **editing by demonstration**, Jen can extend the adapter herself.
-</div>
+Jen has previously used Wildcard to customize timeanddate.com, sorting holidays by day of the week. She comes up with a new customization idea: sorting holidays by category so she can view all the federal holidays together. The current site adapter she is using does not populate the category column in the table, so she needs to extend the adapter. She can immediately perform the extension in the context of the page, using our system's support for **editing by demonstration**.
 
 <div class="pdf-only">
 \begin{figure*}
@@ -168,7 +162,7 @@ We take an approach similar to that used in other tools like Vegemite [@lin2009]
 - We generate a single *row selector* for the website: a CSS selector that returns a set of Document Object Model (DOM) elements corresponding to individual rows of the table.
 - For each column in the table, we generate a *column selector*, a CSS selector that returns the element containing the column value within that row.
 
-One important difference is that our algorithm only accepts row elements that have direct siblings with a similar structure. We refer to this as the *row-sibling* constraint. Later in this section, we describe how the constraint provides a useful simplification of the wrapper induction task and discuss the resulting limitations this puts on our system in a section that follows.
+One important difference is that our algorithm only accepts row elements that have direct siblings with a similar structure. We refer to this as the *row-sibling* constraint. Later, we describe how the constraint provides a useful simplification of the wrapper induction task and discuss the resulting limitations this puts on our system.
 
 When a user first demonstrates a column value, the generalization algorithm is responsible for turning the demonstration into a row selector that will correctly identify all the row elements in the website and a column selector that will correctly identify the element that contains the column value within a row element. During subsequent demonstrations, the generalization algorithm uses the generated row selector to find the row element that contains the column value and generates a column selector which identifies the corresponding column element.
 
@@ -185,15 +179,15 @@ At a high level, the generalization algorithm’s challenge is to traverse far e
 ![Our system applies a heuristic to identify DOM elements that correspond to rows in the data table.](media/algorithm.png){#fig:algorithm}
 </div>
 
-The user performs a demonstration by clicking on element (a) in @fig:algorithm containing “Tony Stark”. Our algorithm traverses upwards from the demonstrated element, considering each successive parent element ((b1), (c1) and (d) in @fig:algorithm) as a potential candidate for the row element. For each parent element $n$, the process is as follows:
+The user performs a demonstration by clicking on element (a) in @fig:algorithm containing “Tony Stark”. Our algorithm traverses upwards from the demonstrated element, considering each successive parent element ((b1), (c1) and (d) in @fig:algorithm) as a potential candidate for the row element. For each parent element `el`, the process is as follows:
 
-1. compute a column selector $s$ that when executed on $n$ only returns the demonstrated element
-2. for each sibling $m$ of $n$, execute $s$ on $m$ and record whether the selector returned an element. Intuitively, if the selector returns an element, this suggests that the sibling $m$ has some parallel structure to $n$
-3. compute $n_{siblings}$, the number of sibling elements of $n$ for which $s$ returned an element
+1. compute a column selector `selector` that, when executed on `el`, only returns the demonstrated element
+2. for each sibling `el'` of `el`, execute `selector` on `el'` and record whether the selector returns an element. If it does, this suggests that `el'` has some parallel structure to `el`.
+3. compute $n_{siblings}$, the number of sibling elements of `el` which have parallel structure.
 
-Notice how the *row-sibling* constraint simplifies the problem: row candidates without siblings that return an element after $s$ is executed on them ((b1) in @fig:algorithm) have $n_{siblings}$ = 0, thus disqualifying them. Furthermore, a candidate element $n$ is only accepted as the row element if the row selector $n_{selector}$ associated with it only matches itself and elements that are its direct siblings.
+Notice how the *row-sibling* constraint simplifies the problem. Row candidates without siblings with parallel structure ((b1) in @fig:algorithm) have $n_{siblings}$ = 0, thus disqualifying them.
 
-The algorithm stops traversing upwards once it reaches the BODY element. Then, it generates a selector $n_{selector}$ for each $n$ and discards any $n$ with an $n_{selector}$ that matches elements that are either not itself or a direct sibling. Finally, the algorithm picks an $n$ with the largest, positive $n_{siblings}$, preferring nodes lower in the tree as a tiebreaker. $n_{selector}$ is used as the selector for the row and $s$ is used as the selector for the column. The row and column selectors are used to generate a scraping adapter which returns the DOM elements corresponding to a superhero data row in the table and sets up the bidirectional synchronization.
+The algorithm stops traversing upwards once it reaches the BODY element. It chooses the element with the largest positive value of $n_{siblings}$ as the row element, preferring nodes lower in the tree as a tiebreaker. It then generates a _row selector_ which returns the row element and all its direct siblings. The column selector is the selector that traverses from the row element to the demonstrated data value. These row and column selectors are then used to generate a scraping adapter which returns the DOM elements corresponding to a data row in the table and sets up the bidirectional synchronization.
 
 ## Live Programming
 
@@ -209,24 +203,24 @@ Extending and repairing adapters in this manner is feasible because column selec
 
 ## Limitations
 
-The row-sibling constraint we mentioned earlier is important for the end goal of customization because row elements that are not direct siblings may not represent data on the website that should be related as part of the same table by customizations such as sorting and filtering.
+The row-sibling constraint we mentioned earlier is important for the end goal of customization because row elements that are not direct siblings may not represent data on the website that should be related as part of the same table by customizations such as sorting and filtering. In @fig:limitations we demonstrate two examples where this limitation becomes relevant.
 
 <div class="pdf-only">
 \begin{figure*}
   \includegraphics[width=\textwidth]{media/limitations.png}
-  \caption{\label{fig:limitations} Our generalization algorithm cannot generalize on websites with the shown layouts. The elements with the blue border correspond to rows of the data in each layout respectively.}
+  \caption{\label{fig:limitations} Two example pages where our generalization algorithm does not currently work. The elements with the blue border correspond to rows of the data in each layout respectively.}
 \end{figure*}
 </div>
 
 <div class="html-only">
-![Our generalization algorithm cannot generalize on websites with the shown layouts. The elements with the blue border correspond to rows of the data and the elements with the green border correspond to the data table.](media/limitations.png){#fig:limitations}
+![Two example pages where our generalization algorithm does not currently work. The elements with the blue border correspond to rows of the data and the elements with the green border correspond to the data table.](media/limitations.png){#fig:limitations}
 </div>
 
-For *Generalization Limitation 1* shown in @fig:limitations, without the constraint that row elements have to be direct siblings, the row generalization algorithm could determine the row selector to be *.avenger* (elements with blue border) because it matches the largest number of parallel structures (has the largest $n_{siblings}$). While this may be the correct result for the task of extraction, it is not for the task of customization. The selector matches all rows across the two tables (elements with green border) so the sorting and filtering customizations could place rows in the incorrect table and thereby distort what the tables represent. Because of this, our system currently does not support such layouts but we plan to explore the possibility of extracting multiple tables from a website and joining them.
+*Generalization Limitation 1* shows a case where the data is displayed in a grouped structure. Without the constraint that row elements have to be direct siblings, the row generalization algorithm could determine the row selector to be *.avenger* (elements with blue border) because it matches the largest number of parallel structures (has the largest $n_{siblings}$). While this may be the correct result for the task of extraction, it is not necessarily suitable for the task of customization. When the user sorts and filters, this could result in rows moving between the two tables, disrupting the nested layout and producing a confusing result. Because of this, our system currently does not support such layouts. In the future, we may explore the possibility of extracting multiple tables from a website and joining them together.
 
-For *Generalization Limitation 2* shown in @fig:limitations, website contains one table of data in which rows are made up of the alternating H1 and SPAN tags (elements with blue border). For the task of extraction, the DOM elements can be scraped using the shown classes to output a table in which the values of the H1 tags form the first column and the values of the SPAN tag form the second column. For the task of customization, our system would need to know what the row boundaries were in order for customizations such as sorting and filtering to work as expected. In Wildcard, this can be done with a hand-coded  adapter by creating artificial row boundaries. In *Generalization Limitation 2*'s layout, an artificial row boundary could be created by representing a row as an H1 tag and the SPAN tag that immediately follows it. These artificial rows would form a single unit which would not distort the website after a sorting or filtering customization. We plan to explore how such artificial row boundaries might be created via demonstration in order to support these structures (which are not uncommon, and can be seen, for example, in HackerNews).
+*Generalization Limitation 2*, also in @fig:limitations, shows a case where the website contains one table of data in which rows are made up of alternating H1 and SPAN tags (elements with blue border). This poses a challenge because each row does not correspond directly to a single DOM element; instead, each row consists of multiple consecutive DOM elements without any grouped structure. Moving the rows when customizing the webpage would require treating multiple consecutive elements as a single row. This is supported in the underlying Wildcard system, but not yet by our tool.
 
-Another major limitation of our system is our current lack of support for scraping data loaded after the initial websites render as the user scrolls. Hand-coded adapters can specify event listeners on the DOM to re-execute the scraping code when new data is loaded as a user scrolls. In future work, will we provide a mechanism for end-users to specify when the adapter created via demonstration should re-execute its scraping code in response to user scrolling. There is a similar limitation for websites that have paged data but it is not clear how suitable such pages are for customization to begin with.
+Our system also does not support scraping data loaded after the initial websites render as the user scrolls. Site adapters hand-coded in Javascript can specify event listeners on the DOM to re-execute the scraping code when new data is loaded as a user scrolls. In future work, we plan to provide a mechanism for end-users to specify when a demonstrated adapter should re-execute its scraping code in response to user scrolling. We also do not support scraping data across multiple pages of related data, but this context poses more fundamental challenges to the idea of web customization, since users would somehow need to perform customizations across multiple pages in coordination.
 
 # Design Principles {#sec:design-principles}
 
