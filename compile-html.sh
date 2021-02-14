@@ -6,7 +6,7 @@ set -e
   --metadata=format:html \
   -s \
   --number-sections \
-  -o paper.html \
+  -o index.html \
   --css basic.css \
   --toc \
   --toc-depth=1 \

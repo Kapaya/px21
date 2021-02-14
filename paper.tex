@@ -24,44 +24,6 @@
 %% The first command in your LaTeX source must be the \documentclass command.
 \documentclass[sigconf,10pt]{acmart}
 
-\usepackage{color}
-\usepackage{fancyvrb}
-\newcommand{\VerbBar}{|}
-\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-% Add ',fontsize=\small' for more characters per line
-\newenvironment{Shaded}{}{}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
-\newcommand{\BuiltInTok}[1]{#1}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
-\newcommand{\ExtensionTok}[1]{#1}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
-\newcommand{\ImportTok}[1]{#1}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
-\newcommand{\NormalTok}[1]{#1}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
-\newcommand{\RegionMarkerTok}[1]{#1}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
 
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
@@ -105,7 +67,7 @@
 %%
 %% The "title" command has an optional parameter,
 %% allowing the author to define a "short title" to be used in page headers.
-\title{End-user Web Scraping For Customization}
+\title{Towards End-user Web Scraping For Customization}
 
 %%
 %% The "author" command and its associated commands are used to define
@@ -153,15 +115,16 @@
   Websites are malleable: users can install browser extensions and run
   arbitrary Javascript in the developer console to change them. However,
   this malleability is only accessible to programmers with knowledge of
-  HTML, CSS, Javascript and the DOM. To broaden access to customization,
-  our prior work developed an approach that empowers end-users to
-  customize websites without traditional programming via a browser
-  extension called Wildcard. Wildcard's customizations are powered by
-  web scraping adapters which are currently written in Javascript by
-  programmers. This means that end-users can only customize a website if
-  a programmer has written an adapter for it. Furthermore, end-users do
-  not have the ability to extend adapters in order to perform new
-  customizations or repair adapters to fix broken customizations.
+  HTML and Javascript. To broaden access to customization, our prior
+  work developed an approach that empowers end-users to customize
+  websites without traditional programming via a browser extension
+  called Wildcard. However, Wildcard only opened part of the
+  customization process to end-users, and still required programmers to
+  write site-specific adapters to map website data to a table structure.
+  This means that end-users can only customize a website if a programmer
+  has written an adapter for it. Furthermore, end-users do not have the
+  ability to extend adapters in order to perform new customizations or
+  repair adapters to fix broken customizations.
 
   In this paper, we extend Wildcard with a new system for \emph{end-user
   web scraping for customization} which enables end-users to create,
@@ -169,12 +132,12 @@
   principles that guided our system's development and are applicable to
   other end-user web scraping and customization systems: (a) users
   should be able to scrape data and use it in a single, unified
-  environment, (b) users should be able to extend and repair the program
-  that scrapes data via demonstration and (c) users should receive live
-  feedback when providing demonstrations to scrape data.
+  environment, (b) users should be able to extend and repair the
+  programs that scrape data via demonstration and (c) users should
+  receive live feedback during their demonstrations.
 
   We have successfully used our system to create, extend and repair
-  adapters by demonstration on a variety of websites and provide example
+  adapters by demonstration on a variety of websites. We provide example
   usage scenarios that showcase each of our design principles.
 \end{abstract}
 
@@ -238,34 +201,29 @@ language.
 Wildcard has a key limitation. In order to enable end-users to customize
 a website, a Javascript programmer first needs to code an adapter that
 specifies how to scrape the website content and set up a bidirectional
-synchronization with Wildcard's table view. Take Alice, an end-user who
-uses Wildcard to customize her experience on Google Scholar as shown
-above. Wildcard's sorting customization gives her the power to sort
-publications by title which the website does not natively allow. She
-thinks this will be useful on Weather.com to sort the ten day forecast
-by the weather descriptions so that she can quickly find all the sunny
-days. Unfortunately, a programmer has not coded an adapter for
-Weather.com so Alice is unable to customize it. Additionally, if the
-adapter for Google Scholar stops functioning when the website changes,
-Alice has no recourse to repair it on her own.
-
-In this paper, we describe an addition to Wildcard: a system that
-enables end-users to create, extend and repair website adapters by
-demonstration within the browser. Using this scraping system, an
-end-user can perform end-to-end web customizations using Wildcard on
-arbitrary websites, without ever needing to code an adapter. Through a
-series of examples, we show that end-users can utilize our system to
-successfully create Wildcard adapters on a variety of websites via
-demonstration (Section~\ref{sec:demos}). We also describe key aspects of
-our system and how web scraping for customization reveals a constraint
-that simplifies the \emph{wrapper induction} \citep{kushmerick2000} task
-used to generalize user demonstrations
-(Section~\ref{sec:implementation}).
+synchronization with Wildcard's table view. Even though programmers can
+share adapters with end-users, this means that an end-user can only use
+Wildcard on websites where some programmer has already written an
+adapter. Additionally, if an adapter doesn't scrape the desired data, or
+stops functioning correctly when a website changes, an end-user has no
+recourse to extend or repair it on their own.
 
 \begin{figure*}
   \includegraphics[width=\textwidth]{media/overview.png}
   \caption{\label{fig:overview}Our work enables end-users to create Wildcard site adapters by demonstration.}
 \end{figure*}
+
+In this paper, we describe an addition to Wildcard: a system that
+enables end-users to create, extend and repair website adapters by
+demonstration within the browser. Using this scraping system, an
+end-user can perform web customizations using Wildcard on arbitrary
+websites, without ever needing to code an adapter. Through a series of
+examples, we show that our system can create Wildcard adapters on a
+variety of websites via demonstration (Section~\ref{sec:demos}). We also
+describe key aspects of our system and how web scraping for
+customization leads to a constraint that simplifies the \emph{wrapper
+induction} \citep{kushmerick2000} task used to generalize user
+demonstrations (Section~\ref{sec:implementation}).
 
 Our key contribution is a set of three design principles that guided the
 development of our system, which also offer insights that might be
@@ -304,36 +262,40 @@ scraping process (Section~\ref{sec:conclusion}).
 \section{Motivating Examples}\label{sec:demos}}
 
 In this section, we show how end-users can create, extend and repair
-adapters for Wildcard via demonstration.
+adapters for Wildcard via demonstration.{ These demos are best viewed as
+videos in the online version of this paper
+(\url{https://kapaya.github.io/px21}).}
 
 \hypertarget{creating-an-adapter}{%
 \subsection{Creating An Adapter}\label{creating-an-adapter}}
 
-Alice, our end-user from Section~\ref{sec:introduction}, wants to
-customize her experience on Weather.com by sorting the ten-day forecast
-based on the description of the weather on each day, allowing her to
-easily view all the sunny days. She starts the adapter creation process
-by clicking a context menu item within the Weather.com page, and hovers
-over a data value she might like to scrape.
+Jen wants to customize her experience on Weather.com by sorting the
+ten-day forecast based on the description of the weather on each day,
+allowing her to easily view all the sunny days. She starts the adapter
+creation process by clicking a context menu item within the Weather.com
+page, and hovers over a data value she might like to scrape.
 
-The system provides live feedback as Alice hovers, demonstrating the
-\textbf{live programming} principle:
+\begin{figure*}
+  \includegraphics[width=\textwidth]{media/creating.png}
+  \caption{\label{fig:creating} Creating an adapter: 1) column data will be scraped into, 2) system's controls, 3) demonstrated column value and row from which colums should be demonstrated from 4) column values determined by generalization algorithm 5) column values populated in table, 6) next column to scrape data into and 7) button to save adapter created by demonstration}
+\end{figure*}
 
 \begin{itemize}
 \tightlist
 \item
   The selected row of data is annotated in the page with a border, to
-  indicate that she will be demonstrating values from within that row.
+  indicate that she will be demonstrating values from within that row (1
+  in Figure~\ref{fig:creating}).
 \item
   The selected column of data is highlighted in the page with a green
   background, to show how the system has generalized her demonstration
-  across all the rows in the data.
+  across all the rows in the data (3 \& 4 in Figure~\ref{fig:creating}).
 \item
   A table view appears at the bottom of the screen, and displays how the
-  values will appear in the data table.
+  values will appear in the data table (5 in Figure~\ref{fig:creating}).
 \end{itemize}
 
-Alice tries hovering over several other elements in the page, taking
+Jen tries hovering over several other elements in the page, taking
 advantage of the live feedback environment to decide what data would be
 useful. After considering several options, she decides to save the date
 field in the first column of the table, and commits the action by
@@ -343,50 +305,69 @@ Next, she performs a similar process to fill the next column with the
 weather descriptions. After filling both columns, she also tries
 hovering over previously scraped data, and the toolbar at the top of the
 page indicates which column corresponds to the previously scraped data.
-Finally, she ends the adapter creation process and is able to
-immediately sort the forecast by the weather description column, because
-Wildcard provides a \textbf{unified environment} that combines both
-scraping and customizing:
+Finally, she ends the adapter creation process (7 in
+Figure~\ref{fig:creating}) and is able to immediately sort the forecast
+by the weather description column, because Wildcard provides a
+\textbf{unified environment} that combines both scraping and
+customizing.
 
 \hypertarget{extending-an-adapter}{%
 \subsection{Extending An Adapter}\label{extending-an-adapter}}
 
-Alice has previously used Wildcard to customize timeanddate.com. In
-addition to sorting the list of holidays in a year by the day of the
-week, she also wants to sort them by category so she can view all the
-federal holidays together. Previously, she would have needed to find a
-programmer to help her edit the adapter code to incorporate this
-additional data, but using our system's support for \textbf{editing by
-demonstration}, Alice can extend the adapter herself.
+Jen uses Wildcard on timeanddate.com as can be seen from 1 in
+Figure~\ref{fig:extending}. In addition to sorting the list of holidays
+in a year by the day of the week, she also wants to sort them by
+category so she can view all the federal holidays together. Previously,
+she would have needed to find a programmer to help her edit the adapter
+code to incorporate this additional data, but using our system's support
+for \textbf{editing by demonstration}, Jen can extend the adapter
+herself.
 
-While viewing the website, she clicks the ``Edit Adapter'' button above
-the Wildcard table to initiate the adapter editing process. As she
-hovers over the currently scraped values, the columns they belong to are
-highlighted. Finally, she clicks on ``Federal Holiday'' to add the new
-column of data and saves the changes. Alice then proceeds to sort the
-list by the type of holiday without the intervention of a programmer.
+\begin{figure*}
+  \includegraphics[width=\textwidth]{media/extending.png}
+  \caption{\label{fig:extending} Extending an adapter: 1) table showing current columns and rows, 2) button for initiating adapter extension process, 3) new column value demonstrated and generalized, 4) new column values in the table and 5) button to save adapter extended by demonstration.}
+\end{figure*}
+
+While viewing the website, she clicks the ``Edit Adapter'' button (2 in
+Figure~\ref{fig:extending}) above the Wildcard table to initiate the
+adapter editing process. As she hovers over the currently scraped
+values, the columns they belong to are highlighted. Finally, she clicks
+on ``Federal Holiday'' (3 in Figure~\ref{fig:extending}) to add the new
+column of data to the table (4 in Figure~\ref{fig:extending}) and saves
+the changes (5 in Figure~\ref{fig:extending}). Jen then proceeds to sort
+the list by the type of holiday without the intervention of a
+programmer.
 
 \hypertarget{repairing-an-adapter}{%
 \subsection{Repairing An Adapter}\label{repairing-an-adapter}}
 
-Alice next visits Google Scholar to look up references for her thesis
+Jen next visits Google Scholar to look up references for her thesis
 project. Unfortunately, the customization she had applied to sort
 publications by their title (which is not natively supported by Google
 Scholar) is no longer working. In fact, the column in the Wildcard table
-that contained all the publication titles is empty, because the
-website's internals changed and broke the adapter's scraping logic.
-Alice can repair this on her own, again taking advantage of
-\textbf{editing by demonstration}.
+that contained all the publication titles is empty (1 in
+Figure~\ref{fig:repairing}), because the website's internals changed and
+broke the adapter's scraping logic. Jen can repair this on her own,
+again taking advantage of \textbf{editing by demonstration}.
 
-Alice initiates the editing process, and initially hovers over the
-desired value to demonstrate the column she wants to scrape. However,
-the \textbf{live programming} interface indicates to her that the values
-would be populated into column D; instead, she wants the values to be
-inserted into column A where they previously appeared. So, Alice clicks
-on the symbol for column A to indicate that she wants to scrape the
-values into that column. She then proceeds to re-apply her customization
-to the website by sorting the publications by their title without the
+Jen initiates the editing process (2 in Figure~\ref{fig:repairing}), and
+initially hovers over the desired value to demonstrate the column she
+wants to scrape. However, the \textbf{live programming} interface
+indicates to her that the values would be populated into column D;
+instead, she wants the values to be inserted into column A where they
+previously appeared. So, Jen clicks on the symbol for column A (3 in
+Figure~\ref{fig:repairing}) to indicate that she wants to scrape the
+values into that column and demonstrates the first publication title (4
+in Figure~\ref{fig:repairing}). The missing values are now back in the
+table (5 in Figure~\ref{fig:repairing}). She then proceeds to save her
+changes (6 in fig:repairing) and re-apply her customization to the
+website by sorting the publications by their title without the
 intervention of a programmer.
+
+\begin{figure*}
+  \includegraphics[width=\textwidth]{media/repairing.png}
+  \caption{\label{fig:repairing} Repairing an adapter: 1) empty column in table because website changed and adapter can no longer scrape values, 2) button for initiating adapter repair 3) column to scrape data into, 4) missing column value demonstrated and generalized, 5) missing column values back in the table and 6) button to save adapter repaired by demonstration.}
+\end{figure*}
 
 \hypertarget{sec:implementation}{%
 \section{System Implementation}\label{sec:implementation}}
@@ -413,8 +394,8 @@ We take an approach similar to that used in other tools like Vegemite
 \tightlist
 \item
   We generate a single \emph{row selector} for the website: a CSS
-  selector that returns a set of DOM elements corresponding to
-  individual rows of the table.
+  selector that returns a set of Document Object Model (DOM) elements
+  corresponding to individual rows of the table.
 \item
   For each column in the table, we generate a \emph{column selector}, a
   CSS selector that returns the element containing the column value
@@ -451,43 +432,19 @@ nested structure:
   \caption{\label{fig:algorithm}Our system applies a heuristic to identify DOM elements that correspond to rows in the data table.}
 \end{figure*}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{\textless{}body\textgreater{}}
-    \KeywordTok{\textless{}h1\textgreater{}}\NormalTok{ Team Iron Man }\KeywordTok{\textless{}/h1\textgreater{}}
-    \KeywordTok{\textless{}div}\OtherTok{ class=}\StringTok{’container’}\KeywordTok{\textgreater{}}
-        \KeywordTok{\textless{}div}\OtherTok{ class=}\StringTok{\textquotesingle{}avenger\textquotesingle{}}\KeywordTok{\textgreater{}}
-            \KeywordTok{\textless{}div}\OtherTok{ class=}\StringTok{\textquotesingle{}names\textquotesingle{}}\KeywordTok{\textgreater{}}
-                \KeywordTok{\textless{}span}\OtherTok{ class=}\StringTok{\textquotesingle{}super\_hero\_name\textquotesingle{}}\KeywordTok{\textgreater{}}\NormalTok{ Iron Man }\KeywordTok{\textless{}/span\textgreater{}}
-                \KeywordTok{\textless{}span}\OtherTok{ class=}\StringTok{\textquotesingle{}real\_name\textquotesingle{}}\KeywordTok{\textgreater{}}\NormalTok{ Tony Stark }\KeywordTok{\textless{}/span\textgreater{}}
-            \KeywordTok{\textless{}/div\textgreater{}}
-           \KeywordTok{\textless{}span}\OtherTok{ class=}\StringTok{’gender’}\KeywordTok{\textgreater{}}\NormalTok{ Male }\KeywordTok{\textless{}/span\textgreater{}}
-        \KeywordTok{\textless{}/div\textgreater{}}
-        \KeywordTok{\textless{}div}\OtherTok{ class=}\StringTok{\textquotesingle{}avenger\textquotesingle{}}\KeywordTok{\textgreater{}}
-            \KeywordTok{\textless{}div}\OtherTok{ class=}\StringTok{\textquotesingle{}names\textquotesingle{}}\KeywordTok{\textgreater{}}
-                \KeywordTok{\textless{}span}\OtherTok{ class=}\StringTok{\textquotesingle{}super\_hero\_name\textquotesingle{}}\KeywordTok{\textgreater{}}\NormalTok{  Black Widow }\KeywordTok{\textless{}/span\textgreater{}}
-                \KeywordTok{\textless{}span}\OtherTok{ class=}\StringTok{\textquotesingle{}real\_name\textquotesingle{}}\KeywordTok{\textgreater{}}\NormalTok{ Natalia Romanoff }\KeywordTok{\textless{}/span\textgreater{}}
-            \KeywordTok{\textless{}/div\textgreater{}}
-            \KeywordTok{\textless{}span}\OtherTok{ class=}\StringTok{’gender’}\KeywordTok{\textgreater{}}\NormalTok{ Female }\KeywordTok{\textless{}/span\textgreater{}}
-        \KeywordTok{\textless{}/div\textgreater{}}
-\NormalTok{        ...}
-    \KeywordTok{\textless{}/div\textgreater{}}
-\KeywordTok{\textless{}/body\textgreater{}}
-\end{Highlighting}
-\end{Shaded}
-
-The user performs a demonstration by clicking on the SPAN element
-containing ``Tony Stark.'' Our algorithm traverses upwards from the
-demonstrated element, considering each successive parent element as a
-potential candidate for the row element. For each parent element \(n\),
-the process is as follows:
+The user performs a demonstration by clicking on element (a) in
+Figure~\ref{fig:algorithm} containing ``Tony Stark.'' Our algorithm
+traverses upwards from the demonstrated element, considering each
+successive parent element ((b1), (c1) and (d) in
+Figure~\ref{fig:algorithm}) as a potential candidate for the row
+element. For each parent element \(n\), the process is as follows:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  compute a selector \(s\) that when executed on \(n\) only returns the
-  demonstrated element
+  compute a column selector \(s\) that when executed on \(n\) only
+  returns the demonstrated element
 \item
   for each sibling \(m\) of \(n\), execute \(s\) on \(m\) and record
   whether the selector returned an element. Intuitively, if the selector
@@ -498,36 +455,24 @@ the process is as follows:
   which \(s\) returned an element
 \end{enumerate}
 
-Notice how the row-sibling constraint simplifies the problem: row
+Notice how the \emph{row-sibling constraint} simplifies the problem: row
 candidates without siblings that return an element after \(s\) is
-executed on them have \(n_{siblings}\) = 0, thus disqualifying them.
-Furthermore, a candidate element \(n\) is only accepted as the row
-element if the row selector associated with it only matches itself and
-elements that are its direct siblings.
+executed on them ((b1) in Figure~\ref{fig:algorithm}) have
+\(n_{siblings}\) = 0, thus disqualifying them. Furthermore, a candidate
+element \(n\) is only accepted as the row element if the row selector
+\(n_{selector}\) associated with it only matches itself and elements
+that are its direct siblings.
 
-From the parent of the initial SPAN element, the algorithm moves up the
-DOM tree until it reaches the BODY element. Then, it generates a
-selector for each \(n\) and discards any \(n\) with a selector that
-matches elements that are either not itself or a direct sibling.
-Finally, the algorithm picks an \(n\) with the largest, positive
-\(n_{siblings}\), preferring nodes lower in the tree as a tiebreaker.
-\(s\) is used as the selector for the column.
-
-Applying this to our example, if the user clicks on the SPAN element
-containing ``Tony Stark,'' , the first parent element is the DIV with
-the class \emph{names}This DIV has a sibling SPAN element, but the
-sibling doesn't return an element when \emph{.super\_hero}, the selector
-that identifies the initial SPAN in the DIV, is executed on it. As a
-result, it has \(n_{siblings}\) = 0. At the level above that, we
-consider the DIV with class \emph{avenger}, which has at least one
-sibling that returns an element when the selector \emph{.super\_hero} is
-executed on it. Finally, the level above that once again has no siblings
-that return an element when the selector \emph{.super\_hero} is executed
-on them. Therefore, our algorithm returns the DIV element and outputs
-\emph{.avenger} as the row selector and \emph{.super\_hero} as the
-column selector. These selectors are used to generate a DOM scraping
-adapter which returns the DOM elements corresponding to a superhero data
-row in the table.
+The algorithm stops traversing upwards once it reaches the BODY element.
+Then, it generates a selector \(n_{selector}\) for each \(n\) and
+discards any \(n\) with an \(n_{selector}\) that matches elements that
+are either not itself or a direct sibling. Finally, the algorithm picks
+an \(n\) with the largest, positive \(n_{siblings}\), preferring nodes
+lower in the tree as a tiebreaker. \(n_{selector}\) is used as the
+selector for the row and \(s\) is used as the selector for the column.
+The row and column selectors are used to generate a scraping adapter
+which returns the DOM elements corresponding to a superhero data row in
+the table and sets up the bidirectional synchronization.
 
 \hypertarget{live-programming}{%
 \subsection{Live Programming}\label{live-programming}}
@@ -578,70 +523,31 @@ depends on the step that clicks the button to open the menu.
 The row-sibling constraint we mentioned earlier is important for the end
 goal of customization because row elements that are not direct siblings
 may not represent data on the website that should be related as part of
-the same table by customizations such as sorting and filtering. Take the
-following sample HTML layout showing two tables of superheros (Team Iron
-Man and Team Captain America):
+the same table by customizations such as sorting and filtering.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{\textless{}body\textgreater{}}
-  \KeywordTok{\textless{}h1\textgreater{}}\NormalTok{ Team Iron Man }\KeywordTok{\textless{}/h1\textgreater{}}
-  \KeywordTok{\textless{}div}\OtherTok{ class=}\StringTok{’container’}\KeywordTok{\textgreater{}}
-      \KeywordTok{\textless{}div}\OtherTok{ class=}\StringTok{\textquotesingle{}avenger\textquotesingle{}}\KeywordTok{\textgreater{}}
-          \KeywordTok{\textless{}span}\OtherTok{ class=}\StringTok{\textquotesingle{}super\_hero\_name\textquotesingle{}}\KeywordTok{\textgreater{}}\NormalTok{ Iron Man }\KeywordTok{\textless{}/span\textgreater{}}
-      \KeywordTok{\textless{}/div\textgreater{}}
-      \KeywordTok{\textless{}div}\OtherTok{ class=}\StringTok{\textquotesingle{}avenger\textquotesingle{}}\KeywordTok{\textgreater{}}
-          \KeywordTok{\textless{}span}\OtherTok{ class=}\StringTok{\textquotesingle{}super\_hero\_name\textquotesingle{}}\KeywordTok{\textgreater{}}\NormalTok{  Black Widow }\KeywordTok{\textless{}/span\textgreater{}}
-      \KeywordTok{\textless{}/div\textgreater{}}
-\NormalTok{      ...}
-  \KeywordTok{\textless{}/div\textgreater{}}
-  \KeywordTok{\textless{}h1\textgreater{}}\NormalTok{ Team Captain America }\KeywordTok{\textless{}/h1\textgreater{}}
-  \KeywordTok{\textless{}div\textgreater{}}
-      \KeywordTok{\textless{}div}\OtherTok{ class=}\StringTok{\textquotesingle{}avenger\textquotesingle{}}\KeywordTok{\textgreater{}}
-          \KeywordTok{\textless{}span}\OtherTok{ class=}\StringTok{\textquotesingle{}super\_hero\_name\textquotesingle{}}\KeywordTok{\textgreater{}}\NormalTok{ Captain America }\KeywordTok{\textless{}/span\textgreater{}}
-      \KeywordTok{\textless{}/div\textgreater{}}
-      \KeywordTok{\textless{}div}\OtherTok{ class=}\StringTok{\textquotesingle{}avenger\textquotesingle{}}\KeywordTok{\textgreater{}}
-          \KeywordTok{\textless{}span}\OtherTok{ class=}\StringTok{\textquotesingle{}super\_hero\_name\textquotesingle{}}\KeywordTok{\textgreater{}}\NormalTok{  Scarlet Witch }\KeywordTok{\textless{}/span\textgreater{}}
-      \KeywordTok{\textless{}/div\textgreater{}}
-\NormalTok{      ...}
-  \KeywordTok{\textless{}/div\textgreater{}}
-\KeywordTok{\textless{}/body\textgreater{}}
-\end{Highlighting}
-\end{Shaded}
+\begin{figure*}
+  \includegraphics[width=\textwidth]{media/limitations.png}
+  \caption{\label{fig:limitations} Our generalization algorithm cannot generalize on websites with the shown layouts. The elements with the blue border correspond to rows of the data in each layout respectively.}
+\end{figure*}
 
-Without the constraint that row elements have to be direct siblings, the
-row generalization algorithm could determine the row selector to be
-\emph{.avenger} because it matches the largest number of parallel
-structures (has the largest \(n_{siblings}\)). While this may be the
-correct result for the task of extraction, it is not for the task of
-customization. The selector matches all rows across the two tables so
-the sorting and filtering customizations could place rows in the
-incorrect table and thereby distort what the tables represent. Because
-of this, our system currently does not support such DOM structures but
-we plan to explore the possibility of extracting multiple tables from a
-website and joining them.
+For \emph{Generalization Limitation 1} shown in
+Figure~\ref{fig:limitations}, without the constraint that row elements
+have to be direct siblings, the row generalization algorithm could
+determine the row selector to be \emph{.avenger} (elements with blue
+border in Figure~\ref{fig:limitations}) because it matches the largest
+number of parallel structures (has the largest \(n_{siblings}\)). While
+this may be the correct result for the task of extraction, it is not for
+the task of customization. The selector matches all rows across the two
+tables so the sorting and filtering customizations could place rows in
+the incorrect table and thereby distort what the tables represent.
+Because of this, our system currently does not support such DOM
+structures but we plan to explore the possibility of extracting multiple
+tables from a website and joining them.
 
-Another structure that our system cannot currently generalize over is
-one in which column elements are not contained within a row element that
-is a direct sibling of all the other row elements. Take the following
-sample HTML layout showing a table of superheros:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{\textless{}body\textgreater{}}
-  \KeywordTok{\textless{}h1}\OtherTok{ class=}\StringTok{\textquotesingle{}super\_hero\_name\textquotesingle{}}\KeywordTok{\textgreater{}}\NormalTok{ Iron Man }\KeywordTok{\textless{}/h1\textgreater{}}
-  \KeywordTok{\textless{}span}\OtherTok{ class=}\StringTok{\textquotesingle{}real\_name\textquotesingle{}}\KeywordTok{\textgreater{}}\NormalTok{ Real Name: Tony Stark }\KeywordTok{\textless{}/span\textgreater{}}
-  \KeywordTok{\textless{}h1}\OtherTok{ class=}\StringTok{\textquotesingle{}super\_hero\_name\textquotesingle{}}\KeywordTok{\textgreater{}}\NormalTok{ Captain America }\KeywordTok{\textless{}/h1\textgreater{}}
-  \KeywordTok{\textless{}span}\OtherTok{ class=}\StringTok{\textquotesingle{}real\_name\textquotesingle{}}\KeywordTok{\textgreater{}}\NormalTok{ Real Name: Steven Rogers }\KeywordTok{\textless{}/span\textgreater{}}
-  \KeywordTok{\textless{}h1}\OtherTok{ class=}\StringTok{\textquotesingle{}super\_hero\_name\textquotesingle{}}\KeywordTok{\textgreater{}}\NormalTok{ Black Widow }\KeywordTok{\textless{}/h1\textgreater{}}
-  \KeywordTok{\textless{}span}\OtherTok{ class=}\StringTok{\textquotesingle{}real\_name\textquotesingle{}}\KeywordTok{\textgreater{}}\NormalTok{ Real Name: Natalia Romanoff }\KeywordTok{\textless{}/span\textgreater{}}
-\NormalTok{  ...}
-\KeywordTok{\textless{}/body\textgreater{}}
-\end{Highlighting}
-\end{Shaded}
-
-This page contains one table of data in which rows are made up of an H1
-tag (super hero name) and a SPAN tag (real name). For the task of
+For \emph{Generalization Limitation 2} shown in
+Figure~\ref{fig:limitations}, website contains one table of data in
+which rows are made up of the alternating H1 and SPAN tags (elements
+with blue border in Figure~\ref{fig:limitations}). For the task of
 extraction, the DOM elements can be scraped using the shown classes to
 output a table in which the values of the H1 tags form the first column
 and the values of the SPAN tag form the second column. For the task of
@@ -670,41 +576,40 @@ customization.
 In the previous iteration of Wildcard, web scraping was an entirely
 separate activity from customization. Programmers that wrote scraping
 adapters would need to switch into an IDE to write code as part of
-customizing a new website, making it a much less unified environment.
+customizing a new website.
 
 This type of divide between tasks appears in other domains. In data
 science, workflows revolve between cleaning and using data but this
 often happens in different environments. The creators of Wrex
-\citep{drosos2020}, a programming-by-example system for data wrangling,
-reported that ``although data scientists were aware of and appreciated
-the productivity benefits of existing data wrangling tools, having to
-leave their native notebook environment to perform wrangling limited the
-usefulness of these tools.'' This was a major reason Wrex was developed
-as an add-on to Jupyter notebooks, the environment in which data
-scientists use their data. In web scraping, if a user comes across an
-omission while working with data scraped from a website, they need to
-switch from the environment in which they are using the data to the
-environment in which they wrote their scraping code in order to edit and
-re-run it. Sometimes, the divide is more subtle. Vegemite
-\citep{lin2009}, a system for end-user programming of mashups, had a
-unified environment for scraping and augmenting data but separate
-interfaces for the scraping and augmentation tasks. During a user study,
-participants reported that ``it was confusing to use one technique to
-create the initial table, and another technique to add information to a
-new column.''
+\citep{drosos2020}, an end-user programming-by-example system for data
+wrangling, reported that ``although data scientists were aware of and
+appreciated the productivity benefits of existing data wrangling tools,
+having to leave their native notebook environment to perform wrangling
+limited the usefulness of these tools.'' This was a major reason Wrex
+was developed as an add-on to Jupyter notebooks, the environment in
+which data scientists use their data. In web scraping, if a user comes
+across an omission while working with data scraped from a website, they
+need to switch from the environment in which they are using the data to
+the environment in which they wrote their scraping code in order to edit
+and re-run it. In web customization, Vegemite \citep{lin2009}, a system
+for end-user programming of mashups, reported that participants of its
+user study thought ``it was confusing to use one technique to create the
+initial table, and another technique to add information to a new
+column.'' This hints at the need for a unified environment and a unified
+workflow.
 
-In this work, we have combined scraping and customization into a unified
-activity within a single environment. The goal is to minimize the
+In this work, we have combined scraping and customization into a single,
+unified environment with a unified workflow. The goal is to minimize the
 environment switch between \emph{extracting} the data and \emph{using}
-the data. A user might start out by scraping some data, and then switch
-to customizing the website using the results. Then, they might realize
-they need more data to perform their desired task, at which point they
-can easily augment the adapter by demonstrating new columns. All of
-these tasks take place right in the browser, where the user was
-initially already using the website. Instead of bringing the data to
-another tool, we have brought a tool to the data. This directly relates
-to the idea of ``in-place toolchains'' \citep{zotero-60} being an
-integral part of end-user programming systems.
+the data. A user might start out by scraping some data on a website, and
+then switch to customizing the website using the results. Then, they
+might realize they need more data to perform their desired task, at
+which point they can easily extend the adapter by demonstrating new
+columns. All of these tasks take place right in the browser, where the
+user was initially already using the website. Instead of bringing the
+data to another tool, we have brought a tool to the data. This directly
+relates to the idea of ``in-place toolchains'' \citep{zotero-60} being
+an integral part of end-user programming systems.
 
 Of course, there is value in specialized tools: Wildcard has nowhere
 near the full capabilities of spreadsheet software or databases.
@@ -787,7 +692,7 @@ support for programming-by-demonstration systems like FlashExtract
 end-user programming is ``interaction with a living system''
 \citep{zotero-60}.
 
-Unlike text-based commands which are only valid when complete (e.g
+Unlike text-based commands which are only valid once complete (e.g
 \texttt{SELECT\ *\ FRO} versus \texttt{SELECT\ *\ FROM\ user\_table}),
 the target of demonstration commands (the value of a DOM element under
 the cursor) is the same during both hover and click (incomplete command
@@ -813,7 +718,7 @@ end-user web scraping by a number of tools.
 FlashProg \citep{mayer2015} is a framework that provides user interface
 support for FlashExtract \citep{le2014}, a framework for data scraping
 by examples. FlashProg's interface provides immediate visual feedback
-about the generalization and scrapes the matched values in an output
+about the generalization and scrapes the matched values into an output
 tab. In addition, it has a program viewer tab that contains a high level
 description of what the generated program is doing and provides a list
 of alternative programs. Finally, it has a disambiguation tab that
@@ -823,24 +728,23 @@ programs. Though FlashProg has many desirable features we aim to
 implement in future iterations, it does not offer a unified environment
 within a browser for scraping and customizing websites.
 
-Roussillon \citep{chasins2018} is a tool that enables end-users to
-scrape distributed, hierarchical web data. Its interface does not
-provide \emph{full} live feedback about its generalizations or the
-values to be scrapped until all the demonstrations have been provided
-and the generated program has been run. If run on a website it has
-encountered before, Roussillon makes all the previously determined
-generalizations visible to the user by color-coding the values on the
-website that belong to the same column. This is a desirable feature for
-our system as users will not have to actively explore in order to
-discover which values are available for scraping and how they are
-related to each other. On the extension and repair front, Roussillon
-presents the web scraping code generated by demonstration as an
-editable, high-level, block-based language called Helena
-\citep{zotero-51}. While Helena can be used to perform more complex
-editing tasks like adding control flow, it presents a change in the
-model used for creation. Our system maintains the model used for
-creation by allowing users to extend and repair web scraping code via
-demonstration.
+Rousillon \citep{chasins2018} is a tool that enables end-users to scrape
+distributed, hierarchical web data. Its interface does not provide
+\emph{full} live feedback about its generalizations or the values to be
+scrapped until all the demonstrations have been provided and the
+generated program has been run. If run on a website it has encountered
+before, Rousillon makes all the previously determined generalizations
+visible to the user by color-coding the values on the website that
+belong to the same column. This is a desirable feature for our system as
+users will not have to actively explore in order to discover which
+values are available for scraping and how they are related to each
+other. On the extension and repair front, Rousillon presents the web
+scraping code generated by demonstration as an editable, high-level,
+block-based language called Helena \citep{zotero-51}. While Helena can
+be used to perform more complex editing tasks like adding control flow,
+it presents a change in the model used for creation. Our system
+maintains the model used for creation by allowing users to extend and
+repair web scraping code via demonstration.
 
 Vegemite \citep{lin2009} is a tool for end-user programming of mashups.
 It has two interfaces: one for scraping values from a website and
@@ -866,15 +770,18 @@ for demonstrations.
 Sifter \citep{huynh2006} is a tool that augments well structured
 websites with advanced sorting and filtering functionality. Like
 Wildcard, it uses web scraping to extract data from websites in order to
-enable customizations (sorting and filtering). It performs the web
-scraping automatically using a variety of heuristics and solicits
-guidance from the user if this fails. While automatic web scraping seems
-desirable, it is unclear how useful it is if the goal is customization.
-Given a row with ten scrapable values, and therefore ten columns, would
-a user prefer to simply demonstrate the value for the single column they
-are interested in or un-demonstrate the nine values they are not
-interested in? This is a question we can only answer after performing a
-user study.
+enable customizations (sorting and filtering). Unlike Wildcard, it does
+not support adding annotations to websites and running computations on
+the scraped data using a spreadsheet formula language. Both of these
+significantly expand the types of customizations end-users can make to
+websites. Sifter performs the web scraping automatically using a variety
+of heuristics and solicits guidance from the user if this fails. While
+automatic web scraping seems desirable, it is unclear how useful it is
+if the goal is customization. Given a row with ten scrapable values, and
+therefore ten columns, would a user prefer to simply demonstrate the
+value for the single column they are interested in or un-demonstrate the
+nine values they are not interested in? This is a question we can only
+answer after performing a user study.
 
 \hypertarget{sec:conclusion}{%
 \section{Conclusion And Future Work}\label{sec:conclusion}}
@@ -902,10 +809,13 @@ that write web scraping code in Javascript which supports a wide variety
 of DOM access and processing ability.
 
 To assess our design principles, we plan to carry out a broader
-evaluation of our system through a user study. Furthermore, we plan to
-incorporate the program viewer and disambiguation features of FlashProg
-\citep{mayer2015} to give users more insight and control into the
-generalization process.
+evaluation of our system through a user study. So far, we have only
+tested the system amongst overselves and a small number of collegues.
+More testing is needed to understand whether it can be succussfully used
+among a broader set set of users across a wider variety of websites.
+Furthermore, we plan to incorporate the program viewer and
+disambiguation features of FlashProg \citep{mayer2015} to give users
+more insight and control into the generalization process.
 
 Our end goal is to empower end-users to customize websites in an
 intuitive and flexible way, and thus make the web more malleable for all
