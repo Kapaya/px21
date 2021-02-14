@@ -7,6 +7,14 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Database file #1: references.bib
 Reallocated singl_function (elt_size=4) to 100 items from 50.
+Warning--no key, author in zotero-77
+Warning--to sort, need author or key in zotero-77
+Warning--no key, author in zotero-83
+Warning--no author, editor, organization, or key in zotero-83
+Warning--to sort, need author or key in zotero-83
+Warning--no key, author in zotero-86
+Warning--no author, editor, organization, or key in zotero-86
+Warning--to sort, need author or key in zotero-86
 Warning--no key, author in zotero-60
 Warning--no author, editor, organization, or key in zotero-60
 Warning--to sort, need author or key in zotero-60
@@ -16,10 +24,15 @@ Warning--to sort, need author or key in zotero-51
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
 Reallocated global_strs (elt_size=200001) to 20 items from 10.
 Reallocated glb_str_end (elt_size=4) to 20 items from 10.
-Warning--no key, author in zotero-60
+Warning--no key, author in zotero-77
+Warning--no key, author in zotero-77
 Warning--no key, author in zotero-60
 Warning--no key, author in zotero-51
+Warning--no key, author in zotero-86
+Warning--no key, author in zotero-83
 Reallocated singl_function (elt_size=4) to 100 items from 50.
+Warning--no key, author in zotero-77
+Warning--empty year in zotero-77
 Warning--no key, author in zotero-60
 Warning--no author, editor, organization, or key in zotero-60
 Warning--empty organization in zotero-60
@@ -30,10 +43,22 @@ Warning--no author, editor, organization, or key in zotero-51
 Warning--empty organization in zotero-51
 Warning--empty year in zotero-51
 Warning--empty organization in zotero-51
+Warning--no key, author in zotero-86
+Warning--no author, editor, organization, or key in zotero-86
+Warning--empty organization in zotero-86
+Warning--empty year in zotero-86
+Warning--empty organization in zotero-86
+Warning--no key, author in zotero-83
+Warning--no author, editor, organization, or key in zotero-83
+Warning--empty organization in zotero-83
+Warning--empty year in zotero-83
+Warning--empty organization in zotero-83
 Warning--empty year in bolin2005
 Warning--empty address in bolin2005
 Warning--empty year in chasins2018
 Warning--empty address in chasins2018
+Warning--empty year in dexi.io
+Warning--empty organization in dexi.io
 Warning--empty year in drosos2020
 Warning--empty address in drosos2020
 Warning--empty year in hogue2005
@@ -54,45 +79,45 @@ Warning--empty year in maclean1990
 Warning--empty address in maclean1990
 Warning--empty year in mayer2015
 Warning--empty address in mayer2015
-You've used 14 entries,
+You've used 18 entries,
             5945 wiz_defined-function locations,
-            1451 strings with 18972 characters,
-and the built_in function-call counts, 16028 in all, are:
-= -- 1516
-> -- 616
+            1465 strings with 19398 characters,
+and the built_in function-call counts, 18401 in all, are:
+= -- 1709
+> -- 636
 < -- 0
-+ -- 207
-- -- 208
-* -- 1315
-:= -- 1668
-add.period$ -- 66
-call.type$ -- 14
-change.case$ -- 101
-chr.to.int$ -- 13
-cite$ -- 64
-duplicate$ -- 1453
-empty$ -- 1044
-format.name$ -- 252
-if$ -- 3720
-int.to.chr$ -- 3
++ -- 220
+- -- 216
+* -- 1489
+:= -- 1864
+add.period$ -- 80
+call.type$ -- 18
+change.case$ -- 118
+chr.to.int$ -- 14
+cite$ -- 102
+duplicate$ -- 1705
+empty$ -- 1238
+format.name$ -- 260
+if$ -- 4278
+int.to.chr$ -- 6
 int.to.str$ -- 1
 missing$ -- 59
-newline$ -- 194
-num.names$ -- 96
-pop$ -- 855
+newline$ -- 239
+num.names$ -- 104
+pop$ -- 1043
 preamble$ -- 1
-purify$ -- 142
+purify$ -- 168
 quote$ -- 0
-skip$ -- 449
+skip$ -- 523
 stack$ -- 0
-substring$ -- 936
-swap$ -- 173
+substring$ -- 1040
+swap$ -- 201
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 400
-warning$ -- 43
-while$ -- 92
+type$ -- 502
+warning$ -- 68
+while$ -- 100
 width$ -- 0
-write$ -- 327
-(There were 43 warnings)
+write$ -- 399
+(There were 68 warnings)
