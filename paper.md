@@ -15,7 +15,7 @@ abstract: |
 
  In this paper, we extend Wildcard with a new system for *end-user web scraping for customization*. It enables end-users to create, extend and repair adapters, by performing concrete demonstrations of how the website user interface maps to a data table. We describe three design principles that guided our system's development and are applicable to other end-user web scraping and customization systems: (a) users should be able to scrape data and use it in a single, unified environment, (b) users should be able to extend and repair the programs that scrape data via demonstration and (c) users should receive live feedback during their demonstrations.
 
- We have successfully used our system to create, extend and repair adapters by demonstration on a variety of websites and we provide example usage scenarios that showcase each of our design principles. Our ultimate goal is to empower end-users to customize websites in an intuitive and flexible way, and thus make websites more malleable for all of its users.
+ We have successfully used our system to create, extend and repair adapters by demonstration on a variety of websites and we provide example usage scenarios that showcase each of our design principles. Our ultimate goal is to empower end-users to customize websites in an intuitive and flexible way, making the web more malleable for all of its users.
 
 ---
 
@@ -190,7 +190,7 @@ The algorithm stops traversing upwards once it reaches the `BODY` element. It ch
 
 ## Live Programming
 
-Live programming is implemented by continually running the generalization algorithm on the DOM element under the user’s cursor, reverting if the user hovers away and committing when the user clicks. The generated row and column selectors are used to highlight all the matching elements on the website and create an adapter. Highlighting all the matching column elements on the website provides visual feedback about the system’s generalization to the user. Creating an adapter enables the system to  populate the table view and set up the bidirectional synchronization. Because the table is populated and the bidirectional synchronization is set up, users can customize as they scrape. Live programming is possible in our system because the generalization algorithm and adapters execute very quickly. We are yet to benchmark the performance and compare it to other programming-by-demonstration systems like FlashExtract [@le2014] that that provide live feedback.
+Live programming is implemented by continually running the generalization algorithm on the DOM element under the user’s cursor, reverting if the user hovers away and committing when the user clicks. The generated row and column selectors are used to highlight all the matching elements on the website and create an adapter. Highlighting all the matching column elements on the website provides visual feedback about the system’s generalization to the user. Creating an adapter enables the system to  populate the table view and set up the bidirectional synchronization. Because the table is populated and the bidirectional synchronization is set up, users can customize as they scrape. Live programming is possible in our system because the generalization algorithm and adapters execute very quickly. We have yet to benchmark the performance in detail and compare it to other programming-by-demonstration systems like FlashExtract [@le2014] that provide live feedback.
 
 ## Editing By Demonstration
 
