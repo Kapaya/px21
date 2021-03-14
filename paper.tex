@@ -141,9 +141,9 @@
   We have successfully used our system to create, extend and repair
   adapters by demonstration on a variety of websites and we provide
   example usage scenarios that showcase each of our design principles.
-  Our ultimate goal is to empower end-users to customize websites in an
-  intuitive and flexible way, making the web more malleable for all of
-  its users.
+  Our ultimate goal is to empower end-users to customize websites in the
+  course of their daily use in an intuitive and flexible way, and thus
+  making the web more malleable for all of its users.
 \end{abstract}
 
 %%
@@ -193,16 +193,23 @@ This paper is directed at publication. We have provided a PDF but it is best vie
 Many websites on the internet do not meet the exact needs of all of
 their users. End-user web customization systems like Thresher
 \citep{hogue2005}, Sifter \citep{huynh2006} and Vegemite \citep{lin2009}
-help users tweak and adapt websites to fit their unique requirements,
+help users to tweak and adapt websites to fit their unique requirements,
 ranging from reorganizing or annotating content on the website to
-automating common tasks. In our prior work, we presented Wildcard
-\citep{litt2020a}, a customization system which enables end-users to
-customize websites through direct manipulation. It does this by
-augmenting websites with a table view that shows their underlying
-structured data. The table is bidirectionally synchronized with the
-original website, so end-users can easily customize the website by
-interacting with the table, including sorting and filtering data, adding
-annotations, and running computations in a spreadsheet formula language.
+automating common tasks. Millions of people also use tools like
+Greasemonkey \citep{zotero-90} and Tampermonkey \citep{zotero-92} to
+install browser userscripts, snippets of Javascript code which customize
+the behavior of websites.
+
+In our prior work, we presented Wildcard \citep{litt2020a}, a
+customization system which enables end-users to customize websites
+through direct manipulation. It does this by augmenting websites with a
+table view that shows their underlying structured data. The table is
+bidirectionally synchronized with the original website, so end-users can
+easily customize the website by interacting with the table, including
+sorting and filtering data, adding annotations, and running computations
+in a spreadsheet formula language. Wildcard enables end-users to be
+\emph{creators} of browser userscripts (and not just consumers) without
+having to write Javascript code.
 
 Wildcard has a key limitation. In order to enable end-users to customize
 a website, a programmer first needs to code a Javascript adapter that
@@ -231,9 +238,7 @@ customization leads to a constraint that simplifies the \emph{wrapper
 induction} \citep{kushmerick2000} task used to generalize user
 demonstrations (Section~\ref{sec:implementation}).
 
-Our key contribution is a set of three design principles that guided the
-development of our system, which also offer insights that might be
-applied to other end-user web scraping and customization tools
+We then describe the principles underlying the design of our system
 (Section~\ref{sec:design-principles}):
 
 \begin{itemize}
@@ -256,6 +261,10 @@ applied to other end-user web scraping and customization tools
   look like, so that the user can adjust their demonstrations on the fly
   and quickly arrive at the desired result.
 \end{itemize}
+
+While each of these principles has been explored in prior work, our
+contribution in this work is combining them into a novel application to
+the domain of end user web scraping and customization.
 
 Finally, we share our broader vision for \emph{end-user web scraping for
 customization}, and some opportunities for future work, including a
@@ -375,13 +384,16 @@ customization to the website by sorting the publications by their title.
 \section{System Implementation}\label{sec:implementation}}
 
 We implemented our end-user web scraping system as an addition to the
-Wildcard browser extension. We start by describing our implementations
-of row and column generalization, live programming, and editing by
-demonstration, and then discuss some of the current limitations of our
-system.
+Wildcard browser extension. Prior to this work, website adapters were
+manually coded in Javascript by programmers. Now, adapters can be
+automatically created via demonstration. We start by describing our
+implementations of \emph{wrapper induction} \citep{kushmerick2000}, live
+programming, and editing by demonstration, and then discuss some of the
+current limitations of our system.
 
-\hypertarget{generalization-algorithms}{%
-\subsection{Generalization Algorithms}\label{generalization-algorithms}}
+\hypertarget{wrapper-induction-algorithm}{%
+\subsection{Wrapper Induction
+Algorithm}\label{wrapper-induction-algorithm}}
 
 In order to generate reusable scrapers from user demonstrations, our
 system solves the \emph{wrapper induction} \citep{kushmerick2000} task:
@@ -420,11 +432,11 @@ selector to find the row element that contains the column value and
 generates a column selector which identifies the corresponding column
 element.
 
-At a high level, the generalization algorithm's challenge is to traverse
-far enough up in the DOM tree from the demonstrated element to find the
-element which corresponds to the row. We solve this using a heuristic;
-the basic intuition is to find a large set of elements with similar
-parallel structure. Consider the sample HTML layout in
+At a high level, the wrapper induction algorithm's challenge is to
+traverse far enough up in the DOM tree from the demonstrated element to
+find the element which corresponds to the row. We solve this using a
+heuristic; the basic intuition is to find a large set of elements with
+similar parallel structure. Consider the sample HTML layout in
 Figure~\ref{fig:algorithm}, which displays a truncated table of
 superheroes, with each row containing some nested structure:
 
@@ -476,21 +488,28 @@ bidirectional synchronization.
 \hypertarget{live-programming}{%
 \subsection{Live Programming}\label{live-programming}}
 
-Live programming is implemented by continually running the
-generalization algorithm on the DOM element under the user's cursor,
-reverting if the user hovers away and committing when the user clicks.
-The generated row and column selectors are used to highlight all the
-matching elements on the website and create an adapter. Highlighting all
-the matching column elements on the website provides visual feedback
-about the system's generalization to the user. Creating an adapter
-enables the system to populate the table view and set up the
-bidirectional synchronization. Because the table is populated and the
-bidirectional synchronization is set up, users can customize as they
-scrape. Live programming is possible in our system because the
-generalization algorithm and adapters execute very quickly. We have yet
-to benchmark the performance in detail and compare it to other
-programming-by-demonstration systems like FlashExtract \citep{le2014}
-that provide live feedback.
+The idea of ``liveness'' in programming can be traced back to Tanimoto's
+work on VIVA \citep{tanimoto1990}. It generally describes programming
+environments in which programmers receive immediate feedback about a
+program while it is being created. In the context of Wildcard, adapters
+are the program, the table interface is the output of the program and
+the highlighting on the website is the visual representation of the
+program. Live programming in our system is implemented by continually
+re-generating an adapter based on the DOM element under the user's
+cursor and the previous demonstrations if any, reverting if the user
+hovers away and committing when the user clicks. The row and column
+selectors generated during the wrapper induction process are used to
+highlight all the matching elements on the website and create an
+adapter. Highlighting all the matching column elements on the website
+provides visual feedback about the system's generalization to the user.
+Creating an adapter enables the system to populate the table view and
+set up the bidirectional synchronization. Because the table is populated
+and the bidirectional synchronization is set up, users can customize as
+they scrape. Live programming is possible in our system because the
+wrapper induction algorithm and adapters execute very quickly. We have
+yet to benchmark the performance in detail and compare it to other
+end-user web scraping systems like FlashProg \citep{mayer2015} that
+offer live programming environments.
 
 \hypertarget{editing-by-demonstration}{%
 \subsection{Editing By Demonstration}\label{editing-by-demonstration}}
@@ -523,9 +542,12 @@ depends on the step that clicks the button to open the menu.
 \hypertarget{limitations}{%
 \subsection{Limitations}\label{limitations}}
 
-\hypertarget{generalization-algorithm}{%
-\subsubsection{Generalization
-Algorithm}\label{generalization-algorithm}}
+Since our system is still under development, it has a variety of
+limitations. In this section we describe two of the most notable ones.
+
+\hypertarget{wrapper-induction-algorithm-1}{%
+\subsubsection{Wrapper Induction
+Algorithm}\label{wrapper-induction-algorithm-1}}
 
 The row-sibling constraint we mentioned earlier is important for the end
 goal of customization because row elements that are not direct siblings
@@ -582,9 +604,8 @@ need to perform customizations across multiple pages in coordination.
 \hypertarget{sec:design-principles}{%
 \section{Design Principles}\label{sec:design-principles}}
 
-Below, we discuss the three design principles underlying our work and
-how they relate to the broader field of end-user web scraping and
-customization.
+Below, we describe our use of three existing design principles in a
+novel way for the domains of end-user web scraping and customization.
 
 \hypertarget{unified-environment}{%
 \subsection{Unified Environment}\label{unified-environment}}
@@ -635,7 +656,7 @@ which point they can easily extend the adapter by demonstrating new
 columns. All of these tasks take place right in the browser, where the
 user was initially already using the website. Instead of bringing the
 data to another tool, we have brought a tool to the data. This principle
-relates to the idea of ``in-place toolchains'' \citep{zotero-1362} for
+relates to the idea of ``in-place toolchains'' \citep{zotero-60} for
 end-user programming systems: users should be able to program using
 familiar tools in the context where they already use their software.
 
@@ -653,7 +674,7 @@ Many end-user web scraping and macro systems allow users to
 \emph{edit} them by demonstration. In Rousillon \citep{chasins2018}, a
 web scraping program created by demonstration can only be edited through
 a high-level, block-based programming language called Helena
-\citep{zotero-1349}. Helena supports adding control flow logic
+\citep{zotero-51}. Helena supports adding control flow logic
 (conditional execution, wait times etc) which is invaluable for
 automating access to websites. However, it does not support extending
 the web scraping code to add new columns after the demonstration or
@@ -707,22 +728,26 @@ column selectors.
 
 In many programming-by-demonstration web scraping systems
 \citep{chasins2018, lin2009}, users only get \emph{full} feedback about
-the program's execution (generalization and the scraped values) after
-providing \emph{all} the demonstrations. This means they cannot adjust
-their demonstrations in response to the system's feedback as they
-demonstrate.
+the program's execution (result of wrapper induction and the scraped
+values) after providing \emph{all} the demonstrations. This means they
+cannot adjust their demonstrations in response to the system's feedback
+as they demonstrate.
 
-Our end-user web scraping system employs live programming techniques to
-eliminate this edit-compile-debug cycle by running the generalization
-algorithm and generating an adapter after each user demonstration. As we
-showed in Section~\ref{sec:demos}, when a user demonstrates a value of a
-column they wish to scrape, our system immediately shows how it has
-generalized the user's demonstration across the other rows of the data
-by highlighting the all relevant values. It also populates the table
-with the scraped data based on the latest demonstration. The
-highlighting and table population serve to give users a view of how
-their demonstration has been generalized and what data will be available
-in the table once scraped.
+Our end-user web scraping system provides level 3 liveness under
+Tanimoto's liveness hierarchy \citep{tanimoto1990}. Level 3 liveness
+describes a system that is constantly listening for actions from the
+user, automatically re-constructing and re-executing the program
+whenever one happens instead of requiring an explicit command from the
+user. To eliminate the described edit-compile-debug cycle, our system
+automatically runs the wrapper induction algorithm and generates an
+adapter after each user demonstration. As we showed in
+Section~\ref{sec:demos}, when a user demonstrates a value of a column
+they wish to scrape, our system immediately shows how it has generalized
+the user's demonstration across the other rows of the data by
+highlighting the all relevant values on the website. It also populates
+the table with the scraped data based on the latest demonstration. The
+highlighting and table population serve to provide a visual
+representation of the adapter's execution.
 
 Many successful end-user programming systems such as spreadsheets and
 SQL provide users with immediate results after entering commands. Our
@@ -731,7 +756,7 @@ FlashProg \citep{mayer2015}, a framework that provides user interface
 support for programming-by-demonstration systems like FlashExtract
 \citep{le2014}, and relates to the idea that an important quality of
 end-user programming is ``interaction with a living system''
-\citep{zotero-1362}.
+\citep{zotero-60}.
 
 Unlike text-based commands which are only valid once complete (e.g
 \texttt{SELECT\ *\ FRO} versus \texttt{SELECT\ *\ FROM\ user\_table}),
@@ -787,7 +812,7 @@ actively explore in order to discover which values are available for
 scraping and how they are related to each other. On the extension and
 repair front, Rousillon presents the web scraping code generated by
 demonstration as an editable, high-level, block-based language called
-Helena \citep{zotero-1349}. While Helena can be used to perform more
+Helena \citep{zotero-51}. While Helena can be used to perform more
 complex editing tasks like adding control flow, it does not support
 adding or repairing columns after the demonstrations and presents a
 change in the model used for creation. Our system maintains the model
@@ -851,33 +876,42 @@ several outstanding issues and open questions we hope to address in
 future work.
 
 Like existing programming-by-demonstration approaches, web scraping in
-our current implementation is limited to what can be demonstrated. This
-is problematic if users want to scrape the URL associated with a link
-element, which is not visible, or only scrape a substring of a value. To
-solve this, we plan to harness Wildcard's formula language. End-users
-will be able to use formulas targeted at web scraping to access DOM
-element properties and attributes. For example, a formula like
-\texttt{=GetAttribute(link\_column,\ ‘href’)} could be used to scrape
-URLs of link elements. End-users will also be able to use formulas
-targeted at data processing. For example, a formula like
-\texttt{=GetSubstring(name\_column,\ 1,\ 2)} could be used to scrape
-substrings of text values. Such web scraping and data processing
-formulas will give end-users some of the power available to programmers
-that write web scraping code in Javascript which supports a wide variety
-of DOM access and processing ability.
+our current implementation is limited to what can be demonstrated by
+point-and-click. More generally, this surfaces a fundamental limitation
+of programming-by-demonstration: the inability to specify logic. One
+solution for this is taking advantage of spreadsheet formulas which have
+enabled millions of end-users to specify logic. Because of this,
+Wildcard already includes a spreadsheet-like formula language for
+specifying customizations. We plan to extend this language to augment
+our demonstration-based web scraping with the goal of raising the
+ceiling on the expressiveness available to end-users. One concrete use
+case for this is scraping DOM element attributes which cannot be
+demonstrated by point-and-click but contain valuable data. For example,
+link elements have an \emph{href} attribute which contain the URLs
+associated with the link element and video elements have
+\emph{currentTime} and \emph{duration} attributes which contain data
+about the current playback position and duration respectively. This use
+of spreadsheet-like formulas to specify logic is related to approaches
+taken by Microsoft Power Apps \citep{zotero-94}, Glide
+\citep{zotero-108}, Coda \citep{zotero-110} and Gneiss
+\citep{chang2014}.
 
 To assess our design principles, we plan to carry out a broader
 evaluation of our system through a user study. So far, we have only
 tested the system amongst ourselves and a small number of colleagues.
 More testing is needed to understand whether it can be successfully used
-among a broader set of users across a wider variety of websites.
-Furthermore, we plan to incorporate the program viewer and
-disambiguation features of FlashProg \citep{mayer2015} to give users
-more insight and control into the generalization process.
+among a broader set of users across a wider variety of websites. We also
+plan to provide more insight, feedback and control into the wrapper
+induction process. This is particularly important when the system
+produces an error or is not able to generate an adapter for a website.
+One solution for this would be to incorporate a version of the program
+viewer and disambiguation features of FlashProg \citep{mayer2015}.
+Wrangler \citep{kandel2011}, whose interface is also centered around a
+table representation, could also provide some inspiration.
 
-Our ultimate goal is to empower end-users to customize websites in an
-intuitive and flexible way, and thus make the web more malleable for all
-of its users.
+Our ultimate goal is to empower end-users to customize websites in the
+course of their daily use in an intuitive and flexible way, and thus
+make the web more malleable for all of its users.
 
 % \printbibliography
 
