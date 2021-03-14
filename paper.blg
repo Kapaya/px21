@@ -96,6 +96,8 @@ Warning--empty year in lin2009
 Warning--empty address in lin2009
 Warning--empty year in litt2020a
 Warning--empty address in litt2020a
+Warning--empty year in litt2020b
+Warning--empty address in litt2020b
 Warning--empty year in maclean1990
 Warning--empty address in maclean1990
 Warning--empty year in mayer2015
@@ -106,45 +108,45 @@ Warning--empty year in parsehub
 Warning--empty organization in parsehub
 Warning--empty year in tanimoto1990
 Warning--no journal in tanimoto1990
-You've used 25 entries,
+You've used 26 entries,
             5945 wiz_defined-function locations,
-            1503 strings with 20403 characters,
-and the built_in function-call counts, 23620 in all, are:
-= -- 2197
-> -- 743
+            1513 strings with 20824 characters,
+and the built_in function-call counts, 24867 in all, are:
+= -- 2318
+> -- 795
 < -- 0
-+ -- 253
-- -- 260
-* -- 1850
-:= -- 2403
-add.period$ -- 109
-call.type$ -- 25
-change.case$ -- 151
-chr.to.int$ -- 19
-cite$ -- 142
-duplicate$ -- 2210
-empty$ -- 1613
-format.name$ -- 308
-if$ -- 5469
++ -- 270
+- -- 276
+* -- 1955
+:= -- 2534
+add.period$ -- 114
+call.type$ -- 26
+change.case$ -- 159
+chr.to.int$ -- 20
+cite$ -- 145
+duplicate$ -- 2322
+empty$ -- 1693
+format.name$ -- 328
+if$ -- 5761
 int.to.chr$ -- 8
 int.to.str$ -- 1
-missing$ -- 68
-newline$ -- 318
-num.names$ -- 144
-pop$ -- 1359
+missing$ -- 73
+newline$ -- 329
+num.names$ -- 152
+pop$ -- 1423
 preamble$ -- 1
-purify$ -- 220
+purify$ -- 231
 quote$ -- 0
-skip$ -- 688
+skip$ -- 722
 stack$ -- 0
-substring$ -- 1340
-swap$ -- 263
+substring$ -- 1417
+swap$ -- 276
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 686
-warning$ -- 95
-while$ -- 146
+type$ -- 716
+warning$ -- 97
+while$ -- 153
 width$ -- 0
-write$ -- 531
-(There were 95 warnings)
+write$ -- 552
+(There were 97 warnings)

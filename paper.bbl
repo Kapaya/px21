@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{25}
+\begin{thebibliography}{26}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -329,6 +329,25 @@
 \newblock
 \urldef\tempurl%
 \url{https://doi.org/10.1145/3397537.3397541}
+\showDOI{\tempurl}
+
+
+\bibitem[\protect\citeauthoryear{Litt, Jackson, Millis, and Quaye}{Litt
+  et~al\mbox{.}}{[n.d.]}]%
+        {litt2020b}
+\bibfield{author}{\bibinfo{person}{Geoffrey Litt}, \bibinfo{person}{Daniel
+  Jackson}, \bibinfo{person}{Tyler Millis}, {and} \bibinfo{person}{Jessica
+  Quaye}.} \bibinfo{year}{[n.d.]}\natexlab{}.
+\newblock \showarticletitle{End-User Software Customization by Direct
+  Manipulation of Tabular Data}. In \bibinfo{booktitle}{\emph{Proceedings of
+  the 2020 {{ACM SIGPLAN International Symposium}} on {{New Ideas}}, {{New
+  Paradigms}}, and {{Reflections}} on {{Programming}} and {{Software}}}}
+  ({Virtual USA}, 2020-11-18). \bibinfo{publisher}{{ACM}},
+  \bibinfo{pages}{18--33}.
+\newblock
+\showISBNx{978-1-4503-8178-9}
+\urldef\tempurl%
+\url{https://doi.org/10.1145/3426428.3426914}
 \showDOI{\tempurl}
 
 

@@ -23,7 +23,7 @@ abstract: |
 
 Many websites on the internet do not meet the exact needs of all of their users. End-user web customization systems like Thresher [@hogue2005], Sifter [@huynh2006] and Vegemite [@lin2009] help users to tweak and adapt websites to fit their unique requirements, ranging from reorganizing or annotating content on the website to automating common tasks. Millions of people also use tools like Greasemonkey [@zotero-90] and Tampermonkey [@zotero-92] to install browser userscripts, snippets of Javascript code which customize the behavior of websites. 
 
-In our prior work, we presented Wildcard [@litt2020a], a customization system which enables end-users to customize websites through direct manipulation. It does this by augmenting websites with a table view that shows their underlying structured data. The table is bidirectionally synchronized with the original website, so end-users can easily customize the website by interacting with the table, including sorting and filtering data, adding annotations, and running computations in a spreadsheet formula language. Wildcard enables end-users to be *creators* of browser userscripts (and not just consumers) without having to write Javascript code. 
+In our prior work, we presented Wildcard [@litt2020a; @litt2020b], a customization system which enables end-users to customize websites through direct manipulation. It does this by augmenting websites with a table view that shows their underlying structured data. The table is bidirectionally synchronized with the original website, so end-users can easily customize the website by interacting with the table, including sorting and filtering data, adding annotations, and running computations in a spreadsheet formula language. Wildcard enables end-users to be *creators* of browser userscripts (and not just consumers) without having to write Javascript code. 
 
 Wildcard has a key limitation. In order to enable end-users to customize a website, a programmer first needs to code a Javascript adapter that specifies how to scrape the website content and set up a bidirectional synchronization with Wildcard's table view. Even though programmers can share adapters with end-users, this means that an end-user can only use Wildcard on websites where some programmer has already written an adapter. Additionally, if an adapter doesn't scrape the desired data, or stops functioning correctly when a website changes, an end-user has no recourse to extend or repair it on their own.
 
@@ -158,7 +158,7 @@ We implemented our end-user web scraping system as an addition to the Wildcard b
 
 ## Wrapper Induction Algorithm
 
-In order to generate reusable scrapers from user demonstrations, our system solves the *wrapper induction* [@kushmerick2000] task: generalizing from a small set of user-provided examples to a scraping specification that will work on other parts of the website, and on future versions of the website.
+In order to generate reusable scrapers from user demonstrations, our system solves the wrapper induction [@kushmerick2000] task: generalizing from a small set of user-provided examples to a scraping specification that will work on other parts of the website, and on future versions of the website.
 
 We take an approach similar to that used in other tools like Vegemite [@lin2009] and Sifter [@huynh2006]:
 
