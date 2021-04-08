@@ -296,3 +296,8 @@ Like existing programming-by-demonstration approaches, web scraping in our curre
 To assess our design principles, we plan to carry out a broader evaluation of our system through a user study. So far, we have only tested the system amongst ourselves and a small number of colleagues. More testing is needed to understand whether it can be successfully used among a broader set of users across a wider variety of websites. We also plan to provide more insight, feedback and control into the wrapper induction process. This is particularly important when the system produces an error or is not able to generate an adapter for a website. One solution for this would be to incorporate a version of the program viewer and disambiguation features of FlashProg [@mayer2015]. Wrangler [@kandel2011], whose interface is also centered around a table representation, could also provide some inspiration.
 
 Our ultimate goal is to empower end-users to customize websites in the course of their daily use in an intuitive and flexible way, and thus make the web more malleable  for all of its users.
+
+# Acknowledgements
+
+Thank you to Gloria Lin, Joshua Pollock, the members of MIT's Software Design Group, the anonymous reviewers of PX/21 and the particpants of PX/21 for providing valuable feedback on this work.
+
