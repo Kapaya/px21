@@ -52,7 +52,7 @@ Finally, we share our broader vision for *end-user web scraping for customizatio
 
 # Motivating Examples {#sec:demos}
 
-In this section, we show how end-users can create, extend and repair adapters for Wildcard via demonstration.<span class="pdf-only"> These demos are best viewed as videos in the online version of this paper (\url{https://kapaya.github.io/px21}).</span>
+In this section, we show how end-users can create, extend and repair adapters for Wildcard via demonstration.
 
 ## Creating An Adapter
 
