@@ -67,6 +67,20 @@ $endif$
 %% the next command will enable that style.
 %%\citestyle{acmauthoryear}
 
+%%% The following is specific to <Programming'21> Companion-PX and the paper
+%%% 'Towards End-User Web Scraping for Customization'
+%%% by Kapaya Katongo, Geoffrey Litt, and Daniel Jackson.
+%%%
+\setcopyright{rightsretained}
+\acmPrice{}
+\acmDOI{10.1145/3464432.3464437}
+\acmYear{2021}
+\copyrightyear{2021}
+\acmSubmissionID{prog21pxmain-p5-p}
+\acmISBN{978-1-4503-8986-0/21/03}
+\acmConference[<Programming'21> Companion]{Companion Proceedings of the 5th International Conference on the Art, Science, and Engineering of Programming}{March 22--26, 2021}{Virtual, UK}
+\acmBooktitle{Companion Proceedings of the 5th International Conference on the Art, Science, and Engineering of Programming (<Programming'21> Companion), March 22--26, 2021, Virtual, UK}
+
 %%
 %% end of the preamble, start of the body of the document source.
 \begin{document}
@@ -129,21 +143,27 @@ $endif$
 %% From HERE
 \begin{CCSXML}
 <ccs2012>
-<concept>
-<concept_id>10011007.10011006.10011066.10011069</concept_id>
-<concept_desc>Software and its engineering~Integrated and visual development environments</concept_desc>
-<concept_significance>500</concept_significance>
-</concept>
-</ccs2012>
+   <concept>
+       <concept_id>10003120.10003121.10003124.10010868</concept_id>
+       <concept_desc>Human-centered computing~Web-based interaction</concept_desc>
+       <concept_significance>500</concept_significance>
+       </concept>
+   <concept>
+       <concept_id>10011007.10011006.10011066.10011069</concept_id>
+       <concept_desc>Software and its engineering~Integrated and visual development environments</concept_desc>
+       <concept_significance>500</concept_significance>
+       </concept>
+ </ccs2012>
 \end{CCSXML}
 
+\ccsdesc[500]{Human-centered computing~Web-based interaction}
 \ccsdesc[500]{Software and its engineering~Integrated and visual development environments}
 % To HERE
 
 %%
 %% Keywords. The author(s) should pick words that accurately describe
 %% the work being presented. Separate the keywords with commas.
-\keywords{end-user programming, software customization, web scraping, programming by example}
+\keywords{software customization, browser extensions, end-user programming, spreadsheets, web scraping}
 
 %% A "teaser" image appears between the author and affiliation
 %% information and the body of the document, and typically spans the
@@ -162,6 +182,12 @@ $endif$
 \maketitle
 
 $body$
+
+\section*{Acknowledgments}
+Thank you to Gloria Lin, Joshua Pollock, the members of MIT's Software Design Group,
+the anonymous reviewers of PX/21 and the particpants of PX/21 for providing valuable
+feedback on this work. The authors gratefully acknowledge the support of the CNS division of the National Science Foundation
+through award number 1801399.
 
 % \printbibliography
 
