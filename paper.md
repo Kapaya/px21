@@ -297,4 +297,14 @@ To assess our design principles, we plan to carry out a broader evaluation of ou
 
 Our ultimate goal is to empower end-users to customize websites in the course of their daily use in an intuitive and flexible way, and thus make the web more malleable  for all of its users.
 
+<div class="html-only">
+# Acknowledgments
+
+Thank you to Gloria Lin, Joshua Pollock, the members of MIT's Software Design Group, the anonymous reviewers of PX/21 and the particpants of PX/21 for providing valuable feedback on this work. The authors gratefully acknowledge the support of the CNS division of the National Science Foundation through award number 1801399.
+</div>
+<div class="pdf-only">
+\section*{Acknowledgments}
+
+Thank you to Gloria Lin, Joshua Pollock, the members of MIT's Software Design Group, the anonymous reviewers of PX/21 and the particpants of PX/21 for providing valuable feedback on this work. The authors gratefully acknowledge the support of the CNS division of the National Science Foundation through award number 1801399.
+</div>
 

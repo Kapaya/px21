@@ -59,7 +59,7 @@
 <li><a href="#sec:design-principles"><span class="toc-section-number">4</span> Design Principles</a></li>
 <li><a href="#sec:related-work"><span class="toc-section-number">5</span> Related Work</a></li>
 <li><a href="#sec:conclusion"><span class="toc-section-number">6</span> Conclusion And Future Work</a></li>
-<li><a href="#acknowledgements"><span class="toc-section-number">7</span> Acknowledgements</a></li>
+<li><a href="#acknowledgments"><span class="toc-section-number">7</span> Acknowledgments</a></li>
 <li><a href="#bibliography">References</a></li>
 </ul>
 </nav>
@@ -232,8 +232,13 @@
 <p>Like existing programming-by-demonstration approaches, web scraping in our current implementation is limited to what can be demonstrated by point-and-click. More generally, this surfaces a fundamental limitation of programming-by-demonstration: the inability to specify logic. One solution for this is taking advantage of spreadsheet formulas which have enabled millions of end-users to specify logic. Because of this, Wildcard already includes a spreadsheet-like formula language for specifying customizations. We plan to extend this language to augment our demonstration-based web scraping with the goal of raising the ceiling on the expressiveness available to end-users. One concrete use case for this is scraping DOM element attributes which cannot be demonstrated by point-and-click but contain valuable data. For example, link elements have an <em>href</em> attribute which contain the URLs associated with the link element and video elements have <em>currentTime</em> and <em>duration</em> attributes which contain data about the current playback position and duration respectively. This use of spreadsheet-like formulas to enable end-users to specify logic is related to approaches taken by Microsoft Power Apps <span class="citation" data-cites="zotero-94">[<a href="#ref-zotero-94" role="doc-biblioref">7</a>]</span>, Glide <span class="citation" data-cites="zotero-108">[<a href="#ref-zotero-108" role="doc-biblioref">1</a>]</span>, Coda <span class="citation" data-cites="zotero-110">[<a href="#ref-zotero-110" role="doc-biblioref">2</a>]</span> and Gneiss <span class="citation" data-cites="chang2014">[<a href="#ref-chang2014" role="doc-biblioref">8</a>]</span>.</p>
 <p>To assess our design principles, we plan to carry out a broader evaluation of our system through a user study. So far, we have only tested the system amongst ourselves and a small number of colleagues. More testing is needed to understand whether it can be successfully used among a broader set of users across a wider variety of websites. We also plan to provide more insight, feedback and control into the wrapper induction process. This is particularly important when the system produces an error or is not able to generate an adapter for a website. One solution for this would be to incorporate a version of the program viewer and disambiguation features of FlashProg <span class="citation" data-cites="mayer2015">[<a href="#ref-mayer2015" role="doc-biblioref">23</a>]</span>. Wrangler <span class="citation" data-cites="kandel2011">[<a href="#ref-kandel2011" role="doc-biblioref">15</a>]</span>, whose interface is also centered around a table representation, could also provide some inspiration.</p>
 <p>Our ultimate goal is to empower end-users to customize websites in the course of their daily use in an intuitive and flexible way, and thus make the web more malleable for all of its users.</p>
-<h1 data-number="7" id="acknowledgements"><span class="header-section-number">7</span> Acknowledgements</h1>
-<p>Thank you to Gloria Lin, Joshua Pollock, the members of MIT’s Software Design Group, the anonymous reviewers of PX/21 and the particpants of PX/21 for providing valuable feedback on this work.</p>
+<section id="acknowledgments" class="html-only" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Acknowledgments</h1>
+<p>Thank you to Gloria Lin, Joshua Pollock, the members of MIT’s Software Design Group, the anonymous reviewers of PX/21 and the particpants of PX/21 for providing valuable feedback on this work. The authors gratefully acknowledge the support of the CNS division of the National Science Foundation through award number 1801399.</p>
+</section>
+<div class="pdf-only">
+
+</div>
 <h1 class="unnumbered" id="bibliography">References</h1>
 <div id="refs" class="references csl-bib-body" role="doc-bibliography">
 <div id="ref-zotero-108" class="csl-entry" role="doc-biblioentry">
