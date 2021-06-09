@@ -109,8 +109,8 @@ Warning--empty organization in parsehub
 Warning--empty year in tanimoto1990
 Warning--no journal in tanimoto1990
 You've used 26 entries,
-            5945 wiz_defined-function locations,
-            1513 strings with 20824 characters,
+            5959 wiz_defined-function locations,
+            1654 strings with 24031 characters,
 and the built_in function-call counts, 24867 in all, are:
 = -- 2318
 > -- 795

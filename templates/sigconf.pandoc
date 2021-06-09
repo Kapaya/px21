@@ -22,11 +22,13 @@
 %% in the same archive or directory.)
 %%
 %% The first command in your LaTeX source must be the \documentclass command.
-\documentclass[sigconf,10pt]{acmart}
+\documentclass[sigconf,screen]{acmart}
 
 \settopmatter{printfolios=true}
 
 \usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{balance}
 
 $if(highlighting-macros)$
 $highlighting-macros$
@@ -67,7 +69,7 @@ $endif$
 %% the next command will enable that style.
 %%\citestyle{acmauthoryear}
 
-%%% The following is specific to <Programming'21> Companion-PX and the paper
+%%% The following is specific to <Programming> '21 Companion-PX and the paper
 %%% 'Towards End-User Web Scraping for Customization'
 %%% by Kapaya Katongo, Geoffrey Litt, and Daniel Jackson.
 %%%
@@ -78,8 +80,10 @@ $endif$
 \copyrightyear{2021}
 \acmSubmissionID{prog21pxmain-p5-p}
 \acmISBN{978-1-4503-8986-0/21/03}
-\acmConference[<Programming'21> Companion]{Companion Proceedings of the 5th International Conference on the Art, Science, and Engineering of Programming}{March 22--26, 2021}{Virtual, UK}
-\acmBooktitle{Companion Proceedings of the 5th International Conference on the Art, Science, and Engineering of Programming (<Programming'21> Companion), March 22--26, 2021, Virtual, UK}
+\acmConference[<Programming> '21 Companion]{Companion Proceedings of the 5th International Conference on the Art, Science, and Engineering of Programming}{March 22--26, 2021}{Virtual, UK}
+\acmBooktitle{Companion Proceedings of the 5th International Conference on the Art, Science, and Engineering of Programming (<Programming> '21 Companion), March 22--26, 2021, Virtual, UK}
+
+\pagenumbering{gobble}
 
 %%
 %% end of the preamble, start of the body of the document source.
@@ -189,6 +193,7 @@ $body$
 %% The next two lines define the bibliography style to be used, and
 %% the bibliography file.
 \bibliographystyle{ACM-Reference-Format}
+\balance
 \bibliography{references-bibtex.bib}
 
 \end{document}

@@ -22,11 +22,13 @@
 %% in the same archive or directory.)
 %%
 %% The first command in your LaTeX source must be the \documentclass command.
-\documentclass[sigconf,10pt]{acmart}
+\documentclass[sigconf,screen]{acmart}
 
 \settopmatter{printfolios=true}
 
 \usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{balance}
 
 
 \providecommand{\tightlist}{%
@@ -64,7 +66,7 @@
 %% the next command will enable that style.
 %%\citestyle{acmauthoryear}
 
-%%% The following is specific to <Programming'21> Companion-PX and the paper
+%%% The following is specific to <Programming> '21 Companion-PX and the paper
 %%% 'Towards End-User Web Scraping for Customization'
 %%% by Kapaya Katongo, Geoffrey Litt, and Daniel Jackson.
 %%%
@@ -75,8 +77,10 @@
 \copyrightyear{2021}
 \acmSubmissionID{prog21pxmain-p5-p}
 \acmISBN{978-1-4503-8986-0/21/03}
-\acmConference[<Programming'21> Companion]{Companion Proceedings of the 5th International Conference on the Art, Science, and Engineering of Programming}{March 22--26, 2021}{Virtual, UK}
-\acmBooktitle{Companion Proceedings of the 5th International Conference on the Art, Science, and Engineering of Programming (<Programming'21> Companion), March 22--26, 2021, Virtual, UK}
+\acmConference[<Programming> '21 Companion]{Companion Proceedings of the 5th International Conference on the Art, Science, and Engineering of Programming}{March 22--26, 2021}{Virtual, UK}
+\acmBooktitle{Companion Proceedings of the 5th International Conference on the Art, Science, and Engineering of Programming (<Programming> '21 Companion), March 22--26, 2021, Virtual, UK}
+
+\pagenumbering{gobble}
 
 %%
 %% end of the preamble, start of the body of the document source.
@@ -85,7 +89,7 @@
 %%
 %% The "title" command has an optional parameter,
 %% allowing the author to define a "short title" to be used in page headers.
-\title{Towards End-user Web Scraping For Customization}
+\title{Towards End-User Web Scraping for Customization}
 
 %%
 %% The "author" command and its associated commands are used to define
@@ -297,7 +301,7 @@ In this section, we show how end-users can create, extend and repair
 adapters for Wildcard via demonstration.
 
 \hypertarget{creating-an-adapter}{%
-\subsection{Creating An Adapter}\label{creating-an-adapter}}
+\subsection{Creating an Adapter}\label{creating-an-adapter}}
 
 Jen wants to customize her experience on Weather.com by sorting the
 ten-day forecast based on the description of the weather on each day,
@@ -344,7 +348,7 @@ Wildcard provides a \textbf{unified environment} that combines both
 scraping and customizing.
 
 \hypertarget{extending-an-adapter}{%
-\subsection{Extending An Adapter}\label{extending-an-adapter}}
+\subsection{Extending an Adapter}\label{extending-an-adapter}}
 
 Jen has previously used Wildcard to customize timeanddate.com, sorting
 holidays by day of the week. She comes up with a new customization idea:
@@ -369,7 +373,7 @@ the new column of data to the table (Part 4) and saves the changes (Part
 the intervention of a programmer.
 
 \hypertarget{repairing-an-adapter}{%
-\subsection{Repairing An Adapter}\label{repairing-an-adapter}}
+\subsection{Repairing an Adapter}\label{repairing-an-adapter}}
 
 Jen next visits Google Scholar to look up references for a project.
 Unfortunately, the customization she had applied to sort publications by
@@ -530,7 +534,7 @@ end-user web scraping systems like FlashProg \citep{mayer2015} that
 offer live programming environments.
 
 \hypertarget{editing-by-demonstration}{%
-\subsection{Editing By Demonstration}\label{editing-by-demonstration}}
+\subsection{Editing by Demonstration}\label{editing-by-demonstration}}
 
 Our system generates adapters with the row selector and the column
 selectors used to scrape the data. The row selector is a CSS selector
@@ -605,7 +609,7 @@ row. This is supported in the underlying Wildcard system, but not yet by
 our demonstration-based approach.
 
 \hypertarget{data-loaded-after-initial-render}{%
-\subsubsection{Data Loaded After Initial
+\subsubsection{Data Loaded after Initial
 Render}\label{data-loaded-after-initial-render}}
 
 Our system currently does not support scraping data loaded after the
@@ -685,7 +689,7 @@ customization presents a significantly lower barrier to entry for
 customization.
 
 \hypertarget{editing-by-demonstration-1}{%
-\subsection{Editing By Demonstration}\label{editing-by-demonstration-1}}
+\subsection{Editing by Demonstration}\label{editing-by-demonstration-1}}
 
 Many end-user web scraping and macro systems allow users to
 \emph{create} programs by demonstration but do not offer a way to
@@ -800,7 +804,7 @@ end-user web scraping and end-user web customization by a number of
 tools.
 
 \hypertarget{end-user-web-scraping}{%
-\subsection{End-user Web Scraping}\label{end-user-web-scraping}}
+\subsection{End-User Web Scraping}\label{end-user-web-scraping}}
 
 FlashProg \citep{mayer2015} is a framework that provides user interface
 support for FlashExtract \citep{le2014}, a framework for data scraping
@@ -838,7 +842,7 @@ used for creation by allowing users to extend and repair web scraping
 code via demonstration.
 
 \hypertarget{end-user-web-customization}{%
-\subsection{End-user Web
+\subsection{End-User Web
 Customization}\label{end-user-web-customization}}
 
 Vegemite \citep{lin2009} is a tool for end-user programming of mashups.
@@ -945,6 +949,7 @@ Science Foundation through award number 1801399.
 %% The next two lines define the bibliography style to be used, and
 %% the bibliography file.
 \bibliographystyle{ACM-Reference-Format}
+\balance
 \bibliography{references-bibtex.bib}
 
 \end{document}

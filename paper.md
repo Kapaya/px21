@@ -1,5 +1,5 @@
 ---
-title: "Towards End-user Web Scraping For Customization"
+title: "Towards End-User Web Scraping for Customization"
 author: "Kapaya Katongo, Geoffrey Litt and Daniel Jackson"
 link-citations: true
 csl: templates/acm.csl
@@ -54,7 +54,7 @@ Finally, we share our broader vision for *end-user web scraping for customizatio
 
 In this section, we show how end-users can create, extend and repair adapters for Wildcard via demonstration.
 
-## Creating An Adapter
+## Creating an Adapter
 
 Jen wants to customize her experience on Weather.com by sorting the ten-day forecast based on the description of the weather on each day, allowing her to easily view all the sunny days. She starts the adapter creation process by clicking a context menu item within the Weather.com page, and hovers over a data value she might like to scrape.
 
@@ -102,7 +102,7 @@ Next, she performs a similar process to fill the next column with the weather de
 <video controls="controls" src="media/2.1.3.mp4" muted playsinline controls class>
 </video>
 
-## Extending An Adapter
+## Extending an Adapter
 
 Jen has previously used Wildcard to customize timeanddate.com, sorting holidays by day of the week. She comes up with a new customization idea: sorting holidays by category so she can view all the federal holidays together. The current site adapter she is using does not populate the category column in the table, so she needs to extend the adapter. She can immediately perform the extension in the context of the page, using our system's support for **editing by demonstration**.
 
@@ -124,7 +124,7 @@ The workflow is shown in @fig:extending. While viewing the website, she clicks t
 <video controls="controls" src="media/2.2.mp4" muted playsinline controls class>
 </video>
 
-## Repairing An Adapter
+## Repairing an Adapter
 
 <div class="html-only">
 Jen next visits Google Scholar to look up references for a project. Unfortunately, the customization she had applied to sort publications by their title (which is not natively supported by Google Scholar) is no longer working. In fact, the column in the Wildcard table that contained all the publication titles is empty, because the website's internals changed and broke the adapter’s scraping logic. Jen can repair this on her own, again taking advantage of **editing by demonstration**.
@@ -198,7 +198,7 @@ The idea of “liveness” in programming can be traced back to Tanimoto’s wor
 
 Live programming in our system is implemented by continually re-generating an adapter based  on the DOM element under the user’s cursor and the previous demonstrations if any, reverting if the user hovers away and committing when the user clicks. The row and column selectors generated during the wrapper induction process are used to highlight all the matching elements on the website and create an adapter. Highlighting all the matching column elements on the website provides visual feedback about the system’s generalization to the user. Creating an adapter enables the system to  populate the table view and set up the bidirectional synchronization. Because the table is populated and the bidirectional synchronization is set up, users can customize as they scrape. Live programming is possible in our system because the wrapper induction algorithm and adapters execute very quickly. We have yet to benchmark the performance in detail and compare it to other end-user web scraping systems like FlashProg [@mayer2015] that offer live programming environments.
 
-## Editing By Demonstration
+## Editing by Demonstration
 
 Our system generates adapters with the row selector and the column selectors used to scrape the data. The row selector is a CSS selector that identifies all the row elements of the data and the column selectors are CSS selectors that identify each column’s column elements.
 
@@ -229,7 +229,7 @@ The row-sibling constraint we mentioned earlier is important for the end goal of
 
 *Generalization Limitation 2*, also in @fig:limitations, shows a case where the website contains one table of data in which rows are made up of alternating `H1` and `SPAN` tags (elements within blue border). This poses a challenge because each row does not correspond directly to a single DOM element; instead, each row consists of multiple consecutive DOM elements without any grouped structure. Moving the rows when customizing the website would require treating multiple consecutive elements as a single row. This is supported in the underlying Wildcard system, but not yet by our demonstration-based approach.
 
-### Data Loaded After Initial Render
+### Data Loaded after Initial Render
 
 Our system currently does not support scraping data loaded after the initial website renders as the user scrolls. Site adapters hand-coded in Javascript can specify event listeners on the DOM to re-execute the scraping code when new data is loaded as a user scrolls. In future work, we plan to provide a mechanism for end-users to specify when a demonstrated adapter should re-execute its scraping code in response to user scrolling. We also do not support scraping data across multiple pages of related data, but this context poses more fundamental challenges to the idea of web customization, since users would somehow need to perform customizations across multiple pages in coordination.
 
@@ -249,7 +249,7 @@ In this work, we have combined scraping and customization into a single, unified
 
 Of course, there is value in specialized tools: Wildcard has nowhere near the full capabilities of spreadsheet software or databases. Nevertheless, we believe a single, unified environment for scraping and customization presents a significantly lower barrier to entry for customization.
 
-## Editing By Demonstration
+## Editing by Demonstration
 
 Many end-user web scraping and macro systems allow users to *create* programs by demonstration but do not offer a way to *edit* them by demonstration. In Rousillon [@chasins2018], a web scraping program created by demonstration can only be edited through a high-level, block-based programming language called Helena [@zotero-51]. Helena supports adding control flow logic (conditional execution, wait times etc) which is invaluable for automating access to websites. However, it does not support extending the web scraping code to add new columns after the demonstration or repairing it to provide new selectors if the website changes. In Vegemite [@lin2009], a web automation program created through demonstration can only be edited by editing the text-based representation of the automation demonstrations. In fact, only the demonstrations used to perform automations on the scraped website data can be edited. If a user needs to add a new column or repair an existing one in the scraped data table, they need to re-demonstrate the columns and then re-run the automation script. One exception to existing editing models worth pointing out is import.io [@import.io]. It allows users to add new columns by demonstration but it is not clear whether deleting a column and re-demonstrating it could serve the purpose of repair.
 
@@ -275,13 +275,13 @@ There are limits to this approach. Providing live feedback on websites with a la
 
 End-user web scraping for customization relates to existing work in end-user web scraping and end-user web customization by a number of tools.
 
-## End-user Web Scraping
+## End-User Web Scraping
 
 FlashProg [@mayer2015] is a framework that provides user interface support for FlashExtract [@le2014], a framework for data scraping by examples. FlashProg's interface provides immediate visual feedback about the generalization and scrapes the matched values into an output tab. In addition, it has a program viewer tab that contains a high level description of what the generated program is doing and provides a list of alternative programs. Finally, it has a disambiguation tab that utilizes conversational clarification to disambiguate programs, the conservations with the user serving as inputs to generate better programs. Though FlashProg has many desirable features we aim to implement in future iterations, its implementation does not align with our goal to provide a unified environment within a browser for scraping and customizing websites.
 
 Rousillon [@chasins2018] is a tool that enables end-users to scrape distributed, hierarchical web data. Because demonstrations can span across several websites and involve complex data access automation tasks, its interface does not provide *full* live feedback about its generalizations or the values to be scraped until all the demonstrations have been provided and the generated program has been run. If run on a website it has encountered before, Rousillon makes all the previously determined generalizations visible to the user by color-coding the values on the website that belong to the same column. This is a desirable feature for our system as users will not have to actively explore in order to discover which values are available for scraping and how they are related to each other. On the extension and repair front, Rousillon presents the web scraping code generated by demonstration as an editable, high-level, block-based language called Helena [@zotero-51]. While Helena can be used to perform more complex editing tasks like adding control flow, it does not support adding or repairing columns after the demonstrations and presents a change in the model used for creation. Our system maintains the model used for creation by allowing users to extend and repair web scraping code via demonstration.
 
-## End-user Web Customization
+## End-User Web Customization
 
 Vegemite [@lin2009] is a tool for end-user programming of mashups. It has two interfaces: one for scraping values from a website and another for creating scripts that operate on the scraped values. The web scraping interface does not provide live feedback about the generalization on hover but after a user clicks a value, the interface shows the result of the system’s generalization by highlighting the all matched values. Furthermore, even though the interface also has a table, the table is only populated with the scraped values after all the demonstrations have been provided. The scripting interface utilizes CoScripter [@leshed2008] which is used to record operations on the scraped values for automation. For example, the scripting interface can be used to demonstrate the task of copying an address in the data table, pasting it into a walk score calculator and pasting the result back into the table. The script would then be generalized to all the rows and re-run to fill in the remaining walk scores. CoScripter provides the generated automation program as text-based commands, such as “paste address into ‘Walk Score’ input”, which can be edited after the program is created via “sloppy programming” [@lin2009] techniques. However, this editing does not extend to the web scraping interface used for demonstrations and presents a change in the model used for creation.
 
